@@ -1,0 +1,104 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 10fr 1fr;
+  grid-template-areas:
+    "top-nav"
+    "main"
+    "botton-nav";
+}
+
+.main {
+  text-align: center;
+  /* height: 100vh; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 3fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "first  first   first   second"
+    "third  fourth  fifth   eighth"
+    "third  fourth  sixth   ninth"
+    "third  fourth  seventh   tenth";
+}
+
+.first {
+  grid-area: first;
+  display: grid;
+  justify-self: stretch;
+  align-self: stretch;
+  margin: 1px;
+}
+
+.second {
+  grid-area: second;
+  display: grid;
+  justify-self: stretch;
+  align-self: stretch;
+  margin: 1px;
+}
+
+.third {
+  grid-area: third;
+  display: grid;
+  justify-self: stretch;
+  align-self: stretch;
+  margin: 1px;
+}
+
+.fourth {
+  grid-area: fourth;
+  display: grid;
+  justify-self: stretch;
+  align-self: stretch;
+  margin: 1px;
+}
+
+.fifth {
+  grid-area: fifth;
+  display: grid;
+  justify-self: stretch;
+  align-self: stretch;
+  margin: 1px;
+}
+
+.sixth {
+  grid-area: sixth;
+  display: grid;
+  justify-self: stretch;
+  align-self: stretch;
+  margin: 1px;
+}
+
+.seventh {
+  grid-area: seventh;
+  display: grid;
+  justify-self: stretch;
+  align-self: stretch;
+  margin: 1px;
+}
+
+.eighth {
+  grid-area: eighth;
+  display: grid;
+  justify-self: stretch;
+  align-self: stretch;
+  margin: 1px;
+}
+
+.ninth {
+  grid-area: ninth;
+  display: grid;
+  justify-self: stretch;
+  align-self: stretch;
+  margin: 1px;
+}
+
+.tenth {
+  grid-area: tenth;
+  display: grid;
+  justify-self: stretch;
+  align-self: stretch;
+  margin: 1px;
+}
