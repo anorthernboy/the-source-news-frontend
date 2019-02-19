@@ -1,104 +1,46 @@
 .App {
+  background-color: #333;
   text-align: center;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 10fr 1fr;
   grid-template-areas:
-    "top-nav"
+    "header"
     "main"
-    "botton-nav";
+    "nav";
+}
+
+.header {
+  color: lightgray;
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .main {
-  text-align: center;
-  /* height: 100vh; */
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 3fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "first  first   first   second"
-    "third  fourth  fifth   eighth"
-    "third  fourth  sixth   ninth"
-    "third  fourth  seventh   tenth";
+  color: lightgray;
+  grid-area: main;
 }
 
-.first {
-  grid-area: first;
-  display: grid;
-  justify-self: stretch;
-  align-self: stretch;
-  margin: 1px;
+.main-nav {
+  color: lightgray;
+  grid-area: nav;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-.second {
-  grid-area: second;
+.split-main {
+  color: lightgray;
+  grid-area: main;
   display: grid;
-  justify-self: stretch;
-  align-self: stretch;
-  margin: 1px;
-}
-
-.third {
-  grid-area: third;
-  display: grid;
-  justify-self: stretch;
-  align-self: stretch;
-  margin: 1px;
-}
-
-.fourth {
-  grid-area: fourth;
-  display: grid;
-  justify-self: stretch;
-  align-self: stretch;
-  margin: 1px;
-}
-
-.fifth {
-  grid-area: fifth;
-  display: grid;
-  justify-self: stretch;
-  align-self: stretch;
-  margin: 1px;
-}
-
-.sixth {
-  grid-area: sixth;
-  display: grid;
-  justify-self: stretch;
-  align-self: stretch;
-  margin: 1px;
-}
-
-.seventh {
-  grid-area: seventh;
-  display: grid;
-  justify-self: stretch;
-  align-self: stretch;
-  margin: 1px;
-}
-
-.eighth {
-  grid-area: eighth;
-  display: grid;
-  justify-self: stretch;
-  align-self: stretch;
-  margin: 1px;
-}
-
-.ninth {
-  grid-area: ninth;
-  display: grid;
-  justify-self: stretch;
-  align-self: stretch;
-  margin: 1px;
-}
-
-.tenth {
-  grid-area: tenth;
-  display: grid;
-  justify-self: stretch;
-  align-self: stretch;
-  margin: 1px;
+  grid-template-columns: 1fr 9fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "side content";
 }

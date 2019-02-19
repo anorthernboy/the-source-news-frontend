@@ -1,23 +1,26 @@
 import React from "react";
+import { Link } from "@reach/router";
 import "./ArticleCard.css";
-import { Card, Button, CardTitle, CardText } from "reactstrap";
 
-const Example = props => {
+const ArticleCard = ({ articles }) => {
   return (
-    <div>
-      <Card
-        body
-        inverse
-        style={{ backgroundColor: "#333", borderColor: "#333" }}
-      >
-        {/* <CardTitle>Special Title Treatment</CardTitle>
-        <CardText>
-          With supporting text below as a natural lead-in to additional content.
-        </CardText> */}
-        <Button>Button</Button>
-      </Card>
-    </div>
+    <a href={`/articles/${articles.article_id}`} className="article-card">
+      <h5 className="author">
+        <img src="single-user.png" alt="user icon" width="15px" height="15px" />
+        <span> </span>
+        {articles.author}
+      </h5>
+      <h6 className="time">{articles.created_at}</h6>
+      <h3 className="title">{articles.title}</h3>
+      <h6 className="topic">
+        <img src="list.png" alt="topic icon" width="15px" height="15px" />
+        <span> </span>
+        {articles.topic}
+      </h6>
+      <h6 className="comments">comments: {articles.comment_count}</h6>
+      <h6 className="votes">votes: {articles.votes}</h6>
+    </a>
   );
 };
 
-export default Example;
+export default ArticleCard;

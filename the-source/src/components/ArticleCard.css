@@ -1,14 +1,38 @@
-.card {
-  position: relative;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  min-width: 100%;
-  min-height: 100%;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+.article-card {
+  text-align: left;
+  align-items: center;
+  padding-left: 15%;
+  padding-right: 15%;
+  /* border: 1px solid #d3d3d3; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-areas:
+    "author time  author-img"
+    "title  title author-img"
+    "topic  comments  votes";
+}
+
+.author {
+  grid-area: author;
+}
+
+.time {
+  grid-area: time;
+}
+
+.title {
+  grid-area: title;
+}
+
+.topic {
+  grid-area: topic;
+}
+
+.comments {
+  grid-area: comments;
+}
+
+.votes {
+  grid-area: votes;
 }

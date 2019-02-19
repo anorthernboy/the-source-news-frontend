@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import * as api from "./api/api";
+import * as api from "../api/api";
+import { Link } from "@reach/router";
+import ArticleCard from "./ArticleCard";
 
-class TopArticles extends Component {
+class Articles extends Component {
   state = {
     articles: []
   };
@@ -12,8 +14,7 @@ class TopArticles extends Component {
       <div>
         {articles.map(article => (
           <div key={article.article_id}>
-            <h4>{article.title}</h4>
-            <h6>{article.author}</h6>
+            <ArticleCard articles={article} />
           </div>
         ))}
       </div>
@@ -21,10 +22,10 @@ class TopArticles extends Component {
   }
 
   componentDidMount = props => {
-    const { query } = this.props;
+    const { topic, username, query } = this.props;
     api
-      .getArticles(null, null, query)
+      .getArticles(topic, username, query)
       .then(({ data }) => this.setState({ articles: data.articles }));
   };
 }
-export default TopArticles;
+export default Articles;

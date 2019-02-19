@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api/api";
+import PostUser from "../components/PostUser";
 
 class Users extends Component {
   state = {
@@ -17,6 +18,8 @@ class Users extends Component {
             <h6>{user.name}</h6>
           </div>
         ))}
+        <br />
+        <PostUser />
       </div>
     );
   }
