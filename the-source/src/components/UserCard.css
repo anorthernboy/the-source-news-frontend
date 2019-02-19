@@ -1,0 +1,36 @@
+.user-card {
+  background-color: rgba(211, 211, 211, 0.1);
+  text-align: left;
+  padding: 1%;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom: 1%;
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-areas:
+    ". .  image"
+    "username  username image"
+    ".  .  name";
+}
+
+.image {
+  grid-area: image;
+  justify-self: center;
+}
+
+.username {
+  grid-area: username;
+  align-self: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.name {
+  grid-area: name;
+  text-align: center;
+  align-self: end;
+  margin-top: 5%;
+  margin-bottom: 0;
+}

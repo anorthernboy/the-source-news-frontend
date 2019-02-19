@@ -4,6 +4,9 @@ import Header from "../components/Header";
 import Scroll from "../components/Scroll";
 import Home from "../components/Home";
 import Articles from "../components/Articles";
+import ArticlesByTopic from "../components/ArticlesByTopic";
+import Topics from "../components/Topics";
+import Users from "../components/Users";
 import Nav from "../components/Nav";
 import "./App.css";
 
@@ -16,6 +19,9 @@ class App extends Component {
           <Router>
             <Home path="/" />
             <Articles path="/articles" />
+            <ArticlesByTopic path="/topics/:topic/articles" />
+            <Topics path="/topics" />
+            <Users path="/users" />
           </Router>
         </Scroll>
         <Nav />
@@ -25,18 +31,3 @@ class App extends Component {
 }
 
 export default App;
-
-// {
-/* <TopNav />
-  <Scroll>
-    <Router>
-      <Home path="/" />
-      <Articles path="/articles" />
-      <Topics path="/topics" />
-      <Users path="/users" />
-      <ArticlesByTopic path="/topics/:topic" />
-      <Article path="/articles/:article_id" />
-    </Router>
-  </Scroll>
-  <BottomNav /> */
-// }

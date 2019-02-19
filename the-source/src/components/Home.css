@@ -9,4 +9,27 @@
   padding-left: 2%;
   padding-right: 2%;
   border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "section-title section-title menu"
+    "main main main"
+    "main main main";
+}
+
+.section-title {
+  grid-area: section-title;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.section-menu {
+  grid-area: menu;
+  justify-self: right;
+  align-self: center;
+}
+
+.section-main {
+  grid-area: main;
 }

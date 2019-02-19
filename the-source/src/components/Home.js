@@ -7,24 +7,48 @@ class Home extends Component {
     return (
       <div className="main-home">
         <div className="main-section-head">
+          <h2 className="section-title">most recent</h2>
+          <img
+            className="section-menu"
+            src="menu.png"
+            alt="menu"
+            width="28px"
+            height="28px"
+          />
           <br />
-          <h2>most recent</h2>
-          <br />
-          <FetchArticles />
+          <div className="section-main">
+            <FetchArticles />
+          </div>
           <br />
         </div>
         <div className="main-section-head">
+          <h2 className="section-title">most commented</h2>
+          <img
+            className="section-menu"
+            src="menu.png"
+            alt="menu"
+            width="28px"
+            height="28px"
+          />
           <br />
-          <h2>most commented</h2>
-          <br />
-          <FetchArticles query={"sort_by=comment_count&order=DESC"} />
+          <div className="section-main">
+            <FetchArticles query={"sort_by=comment_count&order=DESC"} />
+          </div>
           <br />
         </div>
         <div className="main-section-head">
+          <h2 className="section-title">most votes</h2>
+          <img
+            className="section-menu"
+            src="menu.png"
+            alt="menu"
+            width="28px"
+            height="28px"
+          />
           <br />
-          <h2>most votes</h2>
-          <br />
-          <FetchArticles query={"sort_by=votes&order=DESC"} />
+          <div className="section-main">
+            <FetchArticles query={"sort_by=votes&order=DESC"} />
+          </div>
           <br />
         </div>
       </div>

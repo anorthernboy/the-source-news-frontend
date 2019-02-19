@@ -3,17 +3,18 @@ import * as api from "../api/api";
 import FetchArticles from "./FetchArticles";
 import "./Articles.css";
 
-class Articles extends Component {
+class ArticlesByTopic extends Component {
   state = {
     topics: []
   };
 
   render() {
+    const { topic } = this.props;
     const { topics } = this.state;
     return (
       <div className="main-home">
         <div className="main-section-head">
-          <h2 className="section-title">articles</h2>
+          <h2 className="section-title">{topic}</h2>
 
           <div className="section-menu dropdown">
             <a className="dropbtn" href="#">
@@ -33,7 +34,7 @@ class Articles extends Component {
 
           <br />
           <div className="section-main">
-            <FetchArticles query={"limit=100000"} />
+            <FetchArticles topic={topic} query={"limit=100000"} />
           </div>
           <br />
         </div>
@@ -46,4 +47,4 @@ class Articles extends Component {
   };
 }
 
-export default Articles;
+export default ArticlesByTopic;

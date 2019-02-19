@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../api/api";
-import FetchArticles from "./FetchArticles";
-import "./Articles.css";
+import TopicCard from "./TopicCard";
 
-class Articles extends Component {
+class Topics extends Component {
   state = {
     topics: []
   };
@@ -13,7 +12,7 @@ class Articles extends Component {
     return (
       <div className="main-home">
         <div className="main-section-head">
-          <h2 className="section-title">articles</h2>
+          <h2 className="section-title">topics</h2>
 
           <div className="section-menu dropdown">
             <a className="dropbtn" href="#">
@@ -33,7 +32,11 @@ class Articles extends Component {
 
           <br />
           <div className="section-main">
-            <FetchArticles query={"limit=100000"} />
+            {topics.map(topic => (
+              <div key={topic.slug}>
+                <TopicCard topics={topic} />
+              </div>
+            ))}
           </div>
           <br />
         </div>
@@ -46,4 +49,15 @@ class Articles extends Component {
   };
 }
 
-export default Articles;
+export default Topics;
+
+// {
+//   topics.map(topic => (
+//     <div key={topic.slug}>
+//       <Link to={`/topics/${topic.slug}`}>
+//         <h4>{topic.slug}</h4>
+//       </Link>
+//       <h6>{topic.description}</h6>
+//     </div>
+//   ))
+// }
