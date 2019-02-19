@@ -1,38 +1,60 @@
 .article-card {
+  background-color: rgba(211, 211, 211, 0.1);
   text-align: left;
-  align-items: center;
-  padding-left: 15%;
-  padding-right: 15%;
-  /* border: 1px solid #d3d3d3; */
+  padding: 1%;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom: 1%;
+  border-radius: 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 2fr 1fr;
   grid-template-areas:
-    "author time  author-img"
-    "title  title author-img"
-    "topic  comments  votes";
+    "topic .  time"
+    "title  title title"
+    "author  .  comment-vote";
 }
 
 .author {
   grid-area: author;
+  align-self: end;
+  margin-top: 5%;
+  margin-bottom: 0;
 }
 
 .time {
   grid-area: time;
+  text-align: right;
+  align-self: start;
+  margin-bottom: 5%;
 }
 
 .title {
   grid-area: title;
+  align-self: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .topic {
   grid-area: topic;
+  align-self: start;
+  margin-bottom: 5%;
 }
 
 .comments {
-  grid-area: comments;
+  grid-area: comment-vote;
+  text-align: left;
+  align-self: end;
+  padding-left: 18%;
+  margin-top: 5%;
+  margin-bottom: 0;
 }
 
 .votes {
-  grid-area: votes;
+  grid-area: comment-vote;
+  text-align: right;
+  align-self: end;
+  margin-top: 5%;
+  margin-bottom: 0;
 }

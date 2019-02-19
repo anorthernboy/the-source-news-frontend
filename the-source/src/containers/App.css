@@ -44,3 +44,13 @@
   grid-template-rows: 1fr;
   grid-template-areas: "side content";
 }
+
+a {
+  color: lightgray !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  opacity: 0.8;
+  text-decoration: none !important;
+}

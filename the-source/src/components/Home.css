@@ -3,6 +3,10 @@
 }
 
 .main-section-head {
+  background-color: rgba(211, 211, 211, 0.05);
   text-align: left;
-  padding-left: 10%;
+  margin: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 0.5rem;
 }

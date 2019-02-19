@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import Header from "../components/Header";
 import Scroll from "../components/Scroll";
 import Home from "../components/Home";
+import Articles from "../components/Articles";
 import Nav from "../components/Nav";
 import "./App.css";
 
@@ -14,6 +15,7 @@ class App extends Component {
         <Scroll>
           <Router>
             <Home path="/" />
+            <Articles path="/articles" />
           </Router>
         </Scroll>
         <Nav />

@@ -1,20 +1,32 @@
 import React, { Component } from "react";
-import Articles from "./Articles";
+import FetchArticles from "./FetchArticles";
 import "./Home.css";
 
 class Home extends Component {
   render() {
     return (
       <div className="main-home">
-        <h2 className="main-section-head">most recent</h2>
-        <Articles />
-        <br />
-        <h2 className="main-section-head">most commented</h2>
-        <Articles query={"sort_by=comment_count&order=DESC"} />
-        <br />
-        <h2 className="main-section-head">most voted</h2>
-        <Articles query={"sort_by=votes&order=DESC"} />
-        <br />
+        <div className="main-section-head">
+          <br />
+          <h2>most recent</h2>
+          <br />
+          <FetchArticles />
+          <br />
+        </div>
+        <div className="main-section-head">
+          <br />
+          <h2>most commented</h2>
+          <br />
+          <FetchArticles query={"sort_by=comment_count&order=DESC"} />
+          <br />
+        </div>
+        <div className="main-section-head">
+          <br />
+          <h2>most votes</h2>
+          <br />
+          <FetchArticles query={"sort_by=votes&order=DESC"} />
+          <br />
+        </div>
       </div>
     );
   }
