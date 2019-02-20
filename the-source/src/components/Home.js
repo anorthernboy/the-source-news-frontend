@@ -8,13 +8,6 @@ class Home extends Component {
       <div className="main-home">
         <div className="main-section-head">
           <h2 className="section-title">most recent</h2>
-          <img
-            className="section-menu"
-            src="menu.png"
-            alt="menu"
-            width="28px"
-            height="28px"
-          />
           <br />
           <div className="section-main">
             <FetchArticles />
@@ -23,13 +16,6 @@ class Home extends Component {
         </div>
         <div className="main-section-head">
           <h2 className="section-title">most commented</h2>
-          <img
-            className="section-menu"
-            src="menu.png"
-            alt="menu"
-            width="28px"
-            height="28px"
-          />
           <br />
           <div className="section-main">
             <FetchArticles query={"sort_by=comment_count&order=DESC"} />
@@ -38,13 +24,6 @@ class Home extends Component {
         </div>
         <div className="main-section-head">
           <h2 className="section-title">most votes</h2>
-          <img
-            className="section-menu"
-            src="menu.png"
-            alt="menu"
-            width="28px"
-            height="28px"
-          />
           <br />
           <div className="section-main">
             <FetchArticles query={"sort_by=votes&order=DESC"} />

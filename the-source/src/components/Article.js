@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api/api";
+import ArticleAndCommentCard from "./ArticleAndCommentCard";
 
 class Article extends Component {
   state = {
@@ -7,15 +8,18 @@ class Article extends Component {
   };
 
   render() {
-    const { article_id } = this.props;
     const { article } = this.state;
     return (
-      <div>
-        <h1>{`THIS IS ARTICLE ${article_id}`}</h1>
-        <br />
-        <h4>{article.title}</h4>
-        <br />
-        <p>{article.body}</p>
+      <div className="main-home">
+        <div className="main-section-head">
+          <h2 className="section-title">{article.topic}</h2>
+
+          <br />
+          <div className="section-main">
+            <ArticleAndCommentCard articles={article} />
+          </div>
+          <br />
+        </div>
       </div>
     );
   }

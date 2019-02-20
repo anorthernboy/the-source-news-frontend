@@ -22,7 +22,7 @@ class ArticlesByTopic extends Component {
             </a>
             <div className="dropdown-content">
               <a href="/articles">
-                <h4>all articles</h4>
+                <h4>all</h4>
               </a>
               {topics.map(topic => (
                 <a key={topic.slug} href={`/topics/${topic.slug}/articles`}>

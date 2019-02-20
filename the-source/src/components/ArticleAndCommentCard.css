@@ -1,0 +1,66 @@
+.article-comment-card {
+  background-color: rgba(211, 211, 211, 0.1);
+  text-align: left;
+  padding: 1%;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom: 1%;
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr auto 1fr;
+  grid-template-areas:
+    "author .  time"
+    "title  title title"
+    "body body  body"
+    ".  .  comment-vote";
+}
+
+.author {
+  grid-area: author;
+  align-self: start;
+  margin-bottom: 5%;
+  margin-top: 0;
+}
+
+.time {
+  grid-area: time;
+  text-align: right;
+  align-self: start;
+  margin-bottom: 5%;
+}
+
+.title {
+  grid-area: title;
+  align-self: center;
+  margin: 2%;
+}
+
+.body {
+  grid-area: body;
+  align-self: center;
+  margin: 2%;
+}
+
+.topic {
+  grid-area: topic;
+  align-self: start;
+  margin-bottom: 5%;
+}
+
+.comments {
+  grid-area: comment-vote;
+  text-align: left;
+  align-self: end;
+  padding-left: 18%;
+  margin-top: 5%;
+  margin-bottom: 0;
+}
+
+.votes {
+  grid-area: comment-vote;
+  text-align: right;
+  align-self: end;
+  margin-top: 5%;
+  margin-bottom: 0;
+}
