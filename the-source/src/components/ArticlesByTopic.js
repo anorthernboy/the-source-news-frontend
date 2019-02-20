@@ -4,6 +4,10 @@ import * as api from "../api/api";
 import ArticleCard from "./ArticleCard";
 import "./Articles.css";
 import menuicon from "./menu.png";
+import sorticon from "./sort.png";
+import commenticon from "./comment.png";
+import upvoteicon from "./like.png";
+import timeicon from "./calendar.png";
 
 class ArticlesByTopic extends Component {
   state = {
@@ -32,6 +36,24 @@ class ArticlesByTopic extends Component {
                   <h4>{topic.slug}</h4>
                 </Link>
               ))}
+            </div>
+          </div>
+
+          <div className="section-sort">
+            <div className="sort-button">
+              <img src={sorticon} alt="menu" width="22px" height="22px" />
+              <span> </span>
+              <img src={timeicon} alt="menu" width="22px" height="22px" />
+            </div>
+            <div className="sort-button">
+              <img src={sorticon} alt="menu" width="22px" height="22px" />
+              <span> </span>
+              <img src={commenticon} alt="menu" width="22px" height="22px" />
+            </div>
+            <div className="sort-button">
+              <img src={sorticon} alt="menu" width="22px" height="22px" />
+              <span> </span>
+              <img src={upvoteicon} alt="menu" width="22px" height="22px" />
             </div>
           </div>
 

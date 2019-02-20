@@ -18,8 +18,8 @@
 .author {
   grid-area: author;
   align-self: end;
-  margin-top: 0;
-  margin-bottom: 5%;
+  margin-top: 5%;
+  margin-bottom: 0;
 }
 
 .time {

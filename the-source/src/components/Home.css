@@ -10,24 +10,37 @@
   padding-right: 2%;
   border-radius: 0.5rem;
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1.5fr 4fr 1.5fr;
   grid-template-rows: 1fr auto;
   grid-template-areas:
-    "section-title section-title menu"
+    "section-title sort menu"
     "main main main"
     "main main main";
 }
 
 .section-title {
   grid-area: section-title;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.section-sort {
+  grid-area: sort;
   margin-top: 2%;
   margin-bottom: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .section-menu {
   grid-area: menu;
   justify-self: right;
-  align-self: center;
+  align-items: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .section-main {
