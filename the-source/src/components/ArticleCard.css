@@ -18,8 +18,8 @@
 .author {
   grid-area: author;
   align-self: end;
-  margin-top: 5%;
-  margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 5%;
 }
 
 .time {
@@ -42,18 +42,9 @@
   margin-bottom: 5%;
 }
 
-.comments {
+.comment-vote {
   grid-area: comment-vote;
-  text-align: left;
-  align-self: end;
-  padding-left: 18%;
-  margin-top: 5%;
-  margin-bottom: 0;
-}
-
-.votes {
-  grid-area: comment-vote;
-  text-align: right;
+  justify-self: right;
   align-self: end;
   margin-top: 5%;
   margin-bottom: 0;

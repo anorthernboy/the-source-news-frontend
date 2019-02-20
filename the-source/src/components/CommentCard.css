@@ -12,7 +12,7 @@
   grid-template-areas:
     "author .  time"
     "body body  body"
-    ".  .  comment-vote";
+    "voting  .  comment-vote";
 }
 
 .author {
@@ -53,6 +53,15 @@
 .votes {
   grid-area: comment-vote;
   text-align: right;
+  align-self: end;
+  margin-top: 5%;
+  margin-bottom: 0;
+}
+
+.voting {
+  grid-area: voting;
+  justify-self: left;
+  margin-left: 2%;
   align-self: end;
   margin-top: 5%;
   margin-bottom: 0;

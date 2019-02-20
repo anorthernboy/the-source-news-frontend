@@ -3,6 +3,8 @@ import { Link } from "@reach/router";
 import "./ArticleCard.css";
 import topicsicon from "./list.png";
 import usericon from "./single-user.png";
+import upvoteicon from "./like.png";
+import commenticon from "./comment.png";
 
 const ArticleCard = ({ articles }) => {
   return (
@@ -19,8 +21,15 @@ const ArticleCard = ({ articles }) => {
         <span> </span>
         {articles.topic}
       </h6>
-      <h6 className="comments">comments: {articles.comment_count}</h6>
-      <h6 className="votes">votes: {articles.votes}</h6>
+      <h6 className="comment-vote">
+        <img src={commenticon} alt="user icon" width="15px" height="15px" />
+        <span> </span>
+        {articles.comment_count}
+        <span> </span>
+        <img src={upvoteicon} alt="user icon" width="15px" height="15px" />
+        <span> </span>
+        {articles.votes}
+      </h6>
     </Link>
   );
 };
