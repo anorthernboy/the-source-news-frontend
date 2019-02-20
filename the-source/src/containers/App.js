@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import Header from "../components/Header";
 import Scroll from "../components/Scroll";
+// import Auth from "../components/Auth";
 import Home from "../components/Home";
 import Articles from "../components/Articles";
 import ArticlesByTopic from "../components/ArticlesByTopic";
@@ -13,11 +14,14 @@ import Nav from "../components/Nav";
 import "./App.css";
 
 class App extends Component {
+  state = { user: "" };
   render() {
+    // const { user } = this.state;
     return (
       <div className="App">
         <Header />
         <Scroll>
+          {/* <Auth user={user} login={this.setUser}> */}
           <Router>
             <Home path="/" />
             <Articles path="/articles" />
@@ -27,6 +31,7 @@ class App extends Component {
             <Topics path="/topics" />
             <Users path="/users" />
           </Router>
+          {/* </Auth> */}
         </Scroll>
         <Nav />
       </div>

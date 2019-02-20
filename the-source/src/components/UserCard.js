@@ -1,19 +1,21 @@
 import React from "react";
+import { Link } from "@reach/router";
 import "./UserCard.css";
+import usericon from "./single-user.png";
 
 const TopicCard = ({ users }) => {
   return (
-    <a href={`/users/${users.username}/articles`} className="user-card">
+    <Link to={`/users/${users.username}/articles`} className="user-card">
       <img
         className="image"
-        src="single-user.png"
+        src={usericon}
         alt="user"
         width="100px"
         height="100px"
       />
       <h6 className="name">{users.name}</h6>
       <h3 className="username">{users.username}</h3>
-    </a>
+    </Link>
   );
 };
 

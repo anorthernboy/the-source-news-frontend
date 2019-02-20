@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 import * as api from "../api/api";
 import FetchArticles from "./FetchArticles";
 import "./Articles.css";
+import menuicon from "./menu.png";
 
 class ArticlesByUser extends Component {
   state = {
@@ -17,17 +19,17 @@ class ArticlesByUser extends Component {
           <h2 className="section-title">{username}</h2>
 
           <div className="section-menu dropdown">
-            <a className="dropbtn" href="#">
-              <img src="menu.png" alt="menu" width="28px" height="28px" />
-            </a>
+            <p className="dropbtn">
+              <img src={menuicon} alt="menu" width="28px" height="28px" />
+            </p>
             <div className="dropdown-content">
               {users.map(user => (
-                <a
+                <Link
                   key={user.username}
-                  href={`/users/${user.username}/articles`}
+                  to={`/users/${user.username}/articles`}
                 >
                   <h4>{user.username}</h4>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -41,6 +43,13 @@ class ArticlesByUser extends Component {
       </div>
     );
   }
+
+  componentDidUpdate = prevProps => {
+    console.log(prevProps.username, this.props.username);
+    if (prevProps.username !== this.props.username) {
+      this.setState();
+    }
+  };
 
   componentDidMount = () => {
     api.getUsers().then(({ data }) => this.setState({ users: data.users }));

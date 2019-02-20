@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 import * as api from "../api/api";
 import SingleArticleCard from "./SingleArticleCard";
 import CommentCard from "./CommentCard";
@@ -14,7 +15,12 @@ class Article extends Component {
     return (
       <div className="main-home">
         <div className="main-section-head">
-          <h2 className="section-title">{article.topic}</h2>
+          <Link
+            to={`/topics/${article.topic}/articles`}
+            className="section-title"
+          >
+            <h2>{article.topic}</h2>
+          </Link>
           <br />
           <div className="section-main">
             <SingleArticleCard articles={article} />

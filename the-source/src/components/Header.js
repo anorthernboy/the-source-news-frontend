@@ -1,16 +1,18 @@
 import React from "react";
+import { Link } from "@reach/router";
+import usericon from "./single-user.png";
 
 const Header = () => {
   return (
     <div className="header">
-      <a href={`/`}>
+      <Link to={`/`}>
         <span>
           the <span style={{ fontWeight: "bold" }}>source</span>
         </span>
-      </a>
+      </Link>
       <span>
         <span>sign in </span>
-        <img src="single-user.png" alt="" width="25px" height="25px" />
+        <img src={usericon} alt="" width="25px" height="25px" />
       </span>
     </div>
   );

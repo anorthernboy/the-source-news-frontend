@@ -1,16 +1,12 @@
 import React from "react";
 import "./CommentCard.css";
+import usericon from "./single-user.png";
 
 const CommentCard = ({ comments }) => {
   return (
     <div className="comment-card">
       <h6 className="author">
-        <img
-          src="./single-user.png"
-          alt="user icon"
-          width="15px"
-          height="15px"
-        />
+        <img src={usericon} alt="user icon" width="15px" height="15px" />
         <span> </span>
         {comments.author}
       </h6>

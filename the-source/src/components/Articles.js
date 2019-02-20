@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 import * as api from "../api/api";
 import FetchArticles from "./FetchArticles";
 import "./Articles.css";
+import menuicon from "./menu.png";
 
 class Articles extends Component {
   state = {
@@ -16,14 +18,14 @@ class Articles extends Component {
           <h2 className="section-title">articles</h2>
 
           <div className="section-menu dropdown">
-            <a className="dropbtn" href="#">
-              <img src="menu.png" alt="menu" width="28px" height="28px" />
-            </a>
+            <p className="dropbtn">
+              <img src={menuicon} alt="menu" width="28px" height="28px" />
+            </p>
             <div className="dropdown-content">
               {topics.map(topic => (
-                <a key={topic.slug} href={`/topics/${topic.slug}/articles`}>
+                <Link key={topic.slug} to={`/topics/${topic.slug}/articles`}>
                   <h4>{topic.slug}</h4>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

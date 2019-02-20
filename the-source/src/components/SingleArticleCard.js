@@ -1,16 +1,12 @@
 import React from "react";
 import "./SingleArticleCard.css";
+import usericon from "./single-user.png";
 
 const SingleArticleCard = ({ articles }) => {
   return (
     <div className="single-article-card">
       <h6 className="author">
-        <img
-          src="./single-user.png"
-          alt="user icon"
-          width="15px"
-          height="15px"
-        />
+        <img src={usericon} alt="user icon" width="15px" height="15px" />
         <span> </span>
         {articles.author}
       </h6>

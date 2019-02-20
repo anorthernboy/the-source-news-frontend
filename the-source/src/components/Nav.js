@@ -1,36 +1,31 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
+import articlesicon from "./open-book.png";
+import topicsicon from "./list.png";
+import usersicon from "./multiple-users.png";
+import logouticon from "./logout.png";
 
 class Nav extends Component {
   render() {
     return (
       <div className="main-nav">
-        <a href={`/articles`}>
+        <Link to={`/articles`}>
           <span>
-            <img
-              src="./open-book.png"
-              alt="articles"
-              width="25px"
-              height="25px"
-            />
+            <img src={articlesicon} alt="articles" width="25px" height="25px" />
           </span>
-        </a>
-        <a href={`/topics`}>
+        </Link>
+        <Link to={`/topics`}>
           <span>
-            <img src="./list.png" alt="topics" width="25px" height="25px" />
+            <img src={topicsicon} alt="topics" width="25px" height="25px" />
           </span>
-        </a>
-        <a href={`/users`}>
+        </Link>
+        <Link to={`/users`}>
           <span>
-            <img
-              src="./multiple-users.png"
-              alt="users"
-              width="30px"
-              height="30px"
-            />
+            <img src={usersicon} alt="users" width="30px" height="30px" />
           </span>
-        </a>
+        </Link>
         <span>
-          <img src="./logout.png" alt="logout" width="25px" height="25px" />
+          <img src={logouticon} alt="logout" width="25px" height="25px" />
         </span>
       </div>
     );
