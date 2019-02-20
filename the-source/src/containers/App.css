@@ -54,3 +54,22 @@ a:hover {
   opacity: 0.8;
   text-decoration: none !important;
 }
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+button,
+select {
+  text-transform: none;
+  outline: none;
+  border: none;
+}
+
+button:hover {
+  opacity: 0.8;
+  background-color: transparent;
+  outline: none;
+}

@@ -1,11 +1,10 @@
 import React from "react";
+import ArticleVoter from "./ArticleVoter";
 import "./SingleArticleCard.css";
 import usericon from "./single-user.png";
-import upvoteicon from "./like.png";
 import commenticon from "./comment.png";
 
 const SingleArticleCard = ({ articles }) => {
-  console.log(typeof articles.created_at);
   return (
     <div className="single-article-card">
       <h6 className="author">
@@ -20,11 +19,10 @@ const SingleArticleCard = ({ articles }) => {
         <img src={commenticon} alt="user icon" width="15px" height="15px" />
         <span> </span>
         {articles.comment_count}
-        <span> </span>
-        <img src={upvoteicon} alt="user icon" width="15px" height="15px" />
-        <span> </span>
-        {articles.votes}
       </h6>
+      <div className="votes">
+        <ArticleVoter votes={articles.votes} article_id={articles.article_id} />
+      </div>
     </div>
   );
 };

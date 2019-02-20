@@ -13,7 +13,7 @@
     "author .  time"
     "title  title title"
     "body body  body"
-    ".  .  comment-vote";
+    "comment-vote  .  votes";
 }
 
 .author {
@@ -51,6 +51,14 @@
 
 .comment-vote {
   grid-area: comment-vote;
+  justify-self: right;
+  align-self: end;
+  margin-top: 5%;
+  margin-bottom: 0;
+}
+
+.votes {
+  grid-area: votes;
   justify-self: right;
   align-self: end;
   margin-top: 5%;

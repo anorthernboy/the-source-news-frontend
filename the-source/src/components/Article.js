@@ -33,7 +33,10 @@ class Article extends Component {
           <div className="section-main">
             {comments.map(comment => (
               <div key={comment.comment_id}>
-                <CommentCard comments={comment} />
+                <CommentCard
+                  comments={comment}
+                  article_id={article.article_id}
+                />
               </div>
             ))}
           </div>
