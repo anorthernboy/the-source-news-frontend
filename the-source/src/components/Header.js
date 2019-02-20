@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import usericon from "./single-user.png";
 
-const Header = () => {
+const Header = ({ user }) => {
   return (
     <div className="header">
       <Link to={`/`}>
@@ -10,10 +10,10 @@ const Header = () => {
           the <span style={{ fontWeight: "bold" }}>source</span>
         </span>
       </Link>
-      <span>
-        <span>sign in </span>
+      <button>
+        <p>{user}</p>
         <img src={usericon} alt="" width="25px" height="25px" />
-      </span>
+      </button>
     </div>
   );
 };
