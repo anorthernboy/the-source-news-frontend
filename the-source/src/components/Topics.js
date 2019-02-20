@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../api/api";
 import TopicCard from "./TopicCard";
+import posticon from "./post.png";
 
 class Topics extends Component {
   state = {
@@ -13,7 +14,11 @@ class Topics extends Component {
       <div className="main-home">
         <div className="main-section-head">
           <h2 className="section-title">topics</h2>
-          <br />
+          <div className="section-menu dropdown">
+            <p className="dropbtn">
+              <img src={posticon} alt="menu" width="28px" height="28px" />
+            </p>
+          </div>
           <div className="section-main">
             {topics.map(topic => (
               <div key={topic.slug}>

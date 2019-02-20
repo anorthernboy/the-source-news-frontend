@@ -2,6 +2,7 @@ import React from "react";
 import CommentVoter from "./CommentVoter";
 import "./CommentCard.css";
 import usericon from "./single-user.png";
+import deleteicon from "./delete.png";
 
 const CommentCard = ({ comments, article_id }) => {
   return (
@@ -11,6 +12,9 @@ const CommentCard = ({ comments, article_id }) => {
         <span> </span>
         {comments.author}
       </h6>
+      <button className="author">
+        <img src={deleteicon} alt="delete icon" width="15px" height="15px" />
+      </button>
       <h6 className="time">{comments.created_at.slice(0, 10)}</h6>
       <h6 className="body">{comments.body}</h6>
       <div className="votes">

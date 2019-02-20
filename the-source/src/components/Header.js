@@ -11,8 +11,8 @@ const Header = ({ user }) => {
         </span>
       </Link>
       <button>
-        <p>{user}</p>
         <img src={usericon} alt="" width="25px" height="25px" />
+        <p>{user}</p>
       </button>
     </div>
   );

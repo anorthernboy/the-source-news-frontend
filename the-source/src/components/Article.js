@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import * as api from "../api/api";
-import SingleArticleCard from "./SingleArticleCard";
+import ArticleView from "./ArticleView";
 import CommentCard from "./CommentCard";
 
 class Article extends Component {
@@ -12,6 +12,7 @@ class Article extends Component {
 
   render() {
     const { article, comments } = this.state;
+    const { user } = this.props;
     return (
       <div className="main-home">
         <div className="main-section-head">
@@ -23,7 +24,7 @@ class Article extends Component {
           </Link>
           <br />
           <div className="section-main">
-            <SingleArticleCard articles={article} />
+            <ArticleView user={user} articles={article} />
           </div>
           <br />
         </div>
@@ -34,6 +35,7 @@ class Article extends Component {
             {comments.map(comment => (
               <div key={comment.comment_id}>
                 <CommentCard
+                  user={user}
                   comments={comment}
                   article_id={article.article_id}
                 />
@@ -46,14 +48,26 @@ class Article extends Component {
     );
   }
 
-  componentDidMount = props => {
+  componentDidMount = () => {
+    this.fetchArticle();
+    this.fetchComments();
+  };
+
+  fetchArticle = () => {
     const { article_id } = this.props;
-    Promise.all([api.getArticle(article_id), api.getComments(article_id)]).then(
-      ([article, comments]) =>
-        this.setState({
-          article: article.data,
-          comments: comments.data.comments
-        })
+    api.getArticle(article_id).then(({ data }) =>
+      this.setState({
+        article: data
+      })
+    );
+  };
+
+  fetchComments = () => {
+    const { article_id } = this.props;
+    api.getComments(article_id).then(({ data }) =>
+      this.setState({
+        comments: data.comments
+      })
     );
   };
 }
