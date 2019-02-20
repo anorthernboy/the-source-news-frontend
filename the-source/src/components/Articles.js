@@ -12,7 +12,8 @@ import timeicon from "./calendar.png";
 class Articles extends Component {
   state = {
     topics: [],
-    articles: []
+    articles: [],
+    query: ""
   };
 
   render() {
@@ -36,17 +37,17 @@ class Articles extends Component {
           </div>
 
           <div className="section-sort">
-            <div className="sort-button">
+            <div className="sort-button" onClick={this.sortByCreated}>
               <img src={sorticon} alt="menu" width="22px" height="22px" />
               <span> </span>
               <img src={timeicon} alt="menu" width="22px" height="22px" />
             </div>
-            <div className="sort-button">
+            <div className="sort-button" onClick={this.sortByComments}>
               <img src={sorticon} alt="menu" width="22px" height="22px" />
               <span> </span>
               <img src={commenticon} alt="menu" width="22px" height="22px" />
             </div>
-            <div className="sort-button">
+            <div className="sort-button" onClick={this.sortByVotes}>
               <img src={sorticon} alt="menu" width="22px" height="22px" />
               <span> </span>
               <img src={upvoteicon} alt="menu" width="22px" height="22px" />
@@ -66,9 +67,27 @@ class Articles extends Component {
     );
   }
 
+  componentDidUpdate = prevState => {
+    if (this.state.query !== prevState.query) {
+      this.fetchArticles();
+    }
+  };
+
   componentDidMount = () => {
     this.fetchTopics();
     this.fetchArticles();
+  };
+
+  sortByCreated = () => {
+    this.setState({ query: "" });
+  };
+
+  sortByComments = () => {
+    this.setState({ query: "sort_by=comment_count&order=DESC" });
+  };
+
+  sortByVotes = () => {
+    this.setState({ query: "sort_by=votes&order=DESC" });
   };
 
   fetchTopics = () => {
@@ -76,7 +95,8 @@ class Articles extends Component {
   };
 
   fetchArticles = () => {
-    const { topic, username, query } = this.props;
+    const { topic, username } = this.props;
+    const { query } = this.state;
     api
       .getArticles(topic, username, query)
       .then(({ data }) => this.setState({ articles: data.articles }));

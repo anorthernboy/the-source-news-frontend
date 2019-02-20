@@ -36,7 +36,6 @@ class Home extends Component {
                 <ArticleCard articles={article} />
               </div>
             ))}
-            {/* <FetchArticles query={"sort_by=comment_count&order=DESC"} /> */}
           </div>
           <br />
         </div>
@@ -49,7 +48,6 @@ class Home extends Component {
                 <ArticleCard articles={article} />
               </div>
             ))}
-            {/* <FetchArticles query={"sort_by=votes&order=DESC"} /> */}
           </div>
           <br />
         </div>
