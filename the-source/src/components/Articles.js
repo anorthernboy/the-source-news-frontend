@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import * as api from "../api/api";
-import FetchArticles from "./FetchArticles";
+import ArticleCard from "./ArticleCard";
 import "./Articles.css";
 import menuicon from "./menu.png";
 
 class Articles extends Component {
   state = {
-    topics: []
+    topics: [],
+    articles: []
   };
 
   render() {
-    const { topics } = this.state;
+    const { topics, articles } = this.state;
     return (
       <div className="main-home">
         <div className="main-section-head">
@@ -32,7 +33,11 @@ class Articles extends Component {
 
           <br />
           <div className="section-main">
-            <FetchArticles query={"limit=100000"} />
+            {articles.map(article => (
+              <div key={article.article_id}>
+                <ArticleCard articles={article} />
+              </div>
+            ))}
           </div>
           <br />
         </div>
@@ -41,7 +46,19 @@ class Articles extends Component {
   }
 
   componentDidMount = () => {
+    this.fetchTopics();
+    this.fetchArticles();
+  };
+
+  fetchTopics = () => {
     api.getTopics().then(({ data }) => this.setState({ topics: data.topics }));
+  };
+
+  fetchArticles = () => {
+    const { topic, username, query } = this.props;
+    api
+      .getArticles(topic, username, query)
+      .then(({ data }) => this.setState({ articles: data.articles }));
   };
 }
 

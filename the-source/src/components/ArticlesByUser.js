@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import * as api from "../api/api";
-import FetchArticles from "./FetchArticles";
+import ArticleCard from "./ArticleCard";
 import "./Articles.css";
 import menuicon from "./menu.png";
 
 class ArticlesByUser extends Component {
   state = {
-    users: []
+    users: [],
+    articles: []
   };
 
   render() {
     const { username } = this.props;
-    const { users } = this.state;
+    const { users, articles } = this.state;
     return (
       <div className="main-home">
         <div className="main-section-head">
@@ -36,7 +37,11 @@ class ArticlesByUser extends Component {
 
           <br />
           <div className="section-main">
-            <FetchArticles username={username} query={"limit=100000"} />
+            {articles.map(article => (
+              <div key={article.article_id}>
+                <ArticleCard articles={article} />
+              </div>
+            ))}
           </div>
           <br />
         </div>
@@ -45,14 +50,25 @@ class ArticlesByUser extends Component {
   }
 
   componentDidUpdate = prevProps => {
-    console.log(prevProps.username, this.props.username);
-    if (prevProps.username !== this.props.username) {
-      this.setState();
+    if (this.props.username !== prevProps.username) {
+      this.fetchArticles();
     }
   };
 
   componentDidMount = () => {
+    this.fetchUsers();
+    this.fetchArticles();
+  };
+
+  fetchUsers = () => {
     api.getUsers().then(({ data }) => this.setState({ users: data.users }));
+  };
+
+  fetchArticles = () => {
+    const { topic, username, query } = this.props;
+    api
+      .getArticles(topic, username, query)
+      .then(({ data }) => this.setState({ articles: data.articles }));
   };
 }
 
