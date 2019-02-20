@@ -1,9 +1,9 @@
 import React from "react";
-import "./ArticleAndCommentCard.css";
+import "./SingleArticleCard.css";
 
-const ArticleAndCommentCard = ({ articles }) => {
+const SingleArticleCard = ({ articles }) => {
   return (
-    <div className="article-comment-card">
+    <div className="single-article-card">
       <h6 className="author">
         <img
           src="./single-user.png"
@@ -23,4 +23,4 @@ const ArticleAndCommentCard = ({ articles }) => {
   );
 };
 
-export default ArticleAndCommentCard;
+export default SingleArticleCard;

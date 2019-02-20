@@ -1,22 +1,35 @@
 import React, { Component } from "react";
 import * as api from "../api/api";
-import ArticleAndCommentCard from "./ArticleAndCommentCard";
+import SingleArticleCard from "./SingleArticleCard";
+import CommentCard from "./CommentCard";
 
 class Article extends Component {
   state = {
-    article: {}
+    article: {},
+    comments: []
   };
 
   render() {
-    const { article } = this.state;
+    const { article, comments } = this.state;
     return (
       <div className="main-home">
         <div className="main-section-head">
           <h2 className="section-title">{article.topic}</h2>
-
           <br />
           <div className="section-main">
-            <ArticleAndCommentCard articles={article} />
+            <SingleArticleCard articles={article} />
+          </div>
+          <br />
+        </div>
+        <div className="main-section-head">
+          <h2 className="section-title">comments</h2>
+          <br />
+          <div className="section-main">
+            {comments.map(comment => (
+              <div key={comment.comment_id}>
+                <CommentCard comments={comment} />
+              </div>
+            ))}
           </div>
           <br />
         </div>
@@ -26,9 +39,13 @@ class Article extends Component {
 
   componentDidMount = props => {
     const { article_id } = this.props;
-    api
-      .getArticle(article_id)
-      .then(({ data }) => this.setState({ article: data }));
+    Promise.all([api.getArticle(article_id), api.getComments(article_id)]).then(
+      ([article, comments]) =>
+        this.setState({
+          article: article.data,
+          comments: comments.data.comments
+        })
+    );
   };
 }
 

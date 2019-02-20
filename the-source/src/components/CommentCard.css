@@ -1,4 +1,4 @@
-.article-comment-card {
+.comment-card {
   background-color: rgba(211, 211, 211, 0.1);
   text-align: left;
   padding: 1%;
@@ -8,10 +8,9 @@
   border-radius: 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 2fr auto 1fr;
+  grid-template-rows: 1fr auto 1fr;
   grid-template-areas:
     "author .  time"
-    "title  title title"
     "body body  body"
     ".  .  comment-vote";
 }
@@ -28,12 +27,6 @@
   text-align: right;
   align-self: start;
   margin-bottom: 5%;
-}
-
-.title {
-  grid-area: title;
-  align-self: center;
-  margin: 2%;
 }
 
 .body {
