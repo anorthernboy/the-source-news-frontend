@@ -15,7 +15,38 @@
     "voting  .  comment-vote";
 }
 
-.author {
+.comment-card-time {
+  background-color: rgba(211, 211, 211, 0.1);
+  text-align: left;
+  padding: 1%;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom: 5%;
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: 1.5fr 4fr 1.5fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "time   delete  votes";
+}
+
+.comment-time {
+  grid-area: time;
+  margin: 0;
+  padding-top: 2%;
+}
+.comment-delete {
+  grid-area: time;
+  align-self: start;
+  justify-self: right;
+  padding: 0;
+  margin-bottom: 5%;
+  margin-top: 0;
+}
+.comment-votes {
+  grid-area: votes;
+}
+
+.comment-author {
   grid-area: author;
   align-self: start;
   margin-bottom: 5%;

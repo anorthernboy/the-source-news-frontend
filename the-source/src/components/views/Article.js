@@ -23,7 +23,9 @@ class Article extends Component {
           >
             <h2>{article.topic}</h2>
           </Link>
-          <br />
+        </div>
+
+        <div className="main-section-head">
           <div className="section-main">
             <ArticleView user={user} articles={article} />
           </div>
@@ -32,7 +34,9 @@ class Article extends Component {
 
         <div className="main-section-head">
           <h2 className="section-title">add comment</h2>
-          <br />
+        </div>
+
+        <div className="main-section-head">
           <div className="section-main">
             <PostComment user={user} article_id={article.article_id} />
           </div>
@@ -41,7 +45,9 @@ class Article extends Component {
 
         <div className="main-section-head">
           <h2 className="section-title">comments</h2>
-          <br />
+        </div>
+
+        <div className="main-section-head">
           <div className="section-main">
             {comments.map(comment => (
               <div key={comment.comment_id}>

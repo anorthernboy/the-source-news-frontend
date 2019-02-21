@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../../api/api";
+import "../style/ArticleVoter.css";
 import upvoteicon from "../icons/like.png";
 import downvoteicon from "../icons/unlike.png";
 import pollicon from "../icons/poll.png";
@@ -13,11 +14,11 @@ class ArticleVoter extends Component {
     const { votes, author, user } = this.props;
     const { voteChange } = this.state;
     return (
-      <div>
+      <div className="article-voter-main">
         <img
           src={pollicon}
           alt="up-vote"
-          className="up-vote"
+          className="icon"
           width="15px"
           height="15px"
         />
@@ -33,11 +34,7 @@ class ArticleVoter extends Component {
             height="15px"
           />
         </button>
-
-        <span> </span>
-        <p>{votes + voteChange}</p>
-        <span> </span>
-
+        <p className="count">{votes + voteChange}</p>
         <button
           onClick={() => this.addVote(-1)}
           disabled={voteChange === -1 || author === user}

@@ -12,7 +12,7 @@ class CommentDelete extends Component {
           onClick={this.removeComment}
           disabled={author !== user}
         >
-          <img src={deleteicon} alt="delete icon" width="15px" height="15px" />
+          <img src={deleteicon} alt="delete icon" width="20px" height="20px" />
         </button>
       </div>
     );

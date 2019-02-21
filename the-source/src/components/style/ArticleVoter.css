@@ -1,0 +1,35 @@
+.article-voter-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "icon   up-vote count  down-vote";
+}
+
+.icon {
+  grid-area: icon;
+  align-self: center;
+  justify-self: center;
+  margin-right: 20%;
+}
+
+.up-vote {
+  grid-area: up-vote;
+  align-self: center;
+  justify-self: center;
+  margin-bottom: 7%;
+}
+
+.count {
+  grid-area: count;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.down-vote {
+  grid-area: down-vote;
+  align-self: center;
+  justify-self: center;
+  margin-top: 5%;
+}

@@ -12,7 +12,7 @@ class ArticleDelete extends Component {
           onClick={this.removeArticle}
           disabled={author !== user}
         >
-          <img src={deleteicon} alt="delete icon" width="15px" height="15px" />
+          <img src={deleteicon} alt="delete icon" width="20px" height="20px" />
         </button>
       </div>
     );

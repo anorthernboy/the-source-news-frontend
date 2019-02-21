@@ -7,28 +7,37 @@ import CommentDelete from "../buttons/CommentDelete";
 
 const CommentCard = ({ comments, article_id, user }) => {
   return (
-    <div className="comment-card">
-      <Link to={`/users/${comments.author}/articles`} className="author">
-        <img src={usericon} alt="user icon" width="15px" height="15px" />
-        <span> </span>
-        {comments.author}
-      </Link>
-      <CommentDelete
-        user={user}
-        author={comments.author}
-        article_id={article_id}
-        comment_id={comments.comment_id}
-      />
-      <h6 className="time">{comments.created_at.slice(0, 10)}</h6>
-      <h6 className="body">{comments.body}</h6>
-      <div className="votes">
-        <CommentVoter
-          votes={comments.votes}
-          comment_id={comments.comment_id}
-          article_id={article_id}
-          author={comments.author}
-          user={user}
-        />
+    <div>
+      <div className="comment-card">
+        <Link
+          to={`/users/${comments.author}/articles`}
+          className="comment-author"
+        >
+          <img src={usericon} alt="user icon" width="15px" height="15px" />
+          <span> </span>
+          {comments.author}
+        </Link>
+        <div className="comment-delete">
+          <CommentDelete
+            user={user}
+            author={comments.author}
+            article_id={article_id}
+            comment_id={comments.comment_id}
+          />
+        </div>
+        <h6 className="body">{comments.body}</h6>
+      </div>
+      <div className="comment-card-time">
+        <h6 className="comment-time">{comments.created_at.slice(0, 10)}</h6>
+        <div className="comment-votes">
+          <CommentVoter
+            votes={comments.votes}
+            comment_id={comments.comment_id}
+            article_id={article_id}
+            author={comments.author}
+            user={user}
+          />
+        </div>
       </div>
     </div>
   );

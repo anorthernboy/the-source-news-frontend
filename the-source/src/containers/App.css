@@ -76,7 +76,7 @@ button:hover {
 }
 
 button:disabled {
-  opacity: 0;
+  opacity: 0.4;
 }
 
 .form-control {
