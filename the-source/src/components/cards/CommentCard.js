@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 import CommentVoter from "../buttons/CommentVoter";
 import "../style/CommentCard.css";
 import usericon from "../icons/single-user.png";
@@ -7,11 +8,11 @@ import deleteicon from "../icons/delete.png";
 const CommentCard = ({ comments, article_id, user }) => {
   return (
     <div className="comment-card">
-      <h6 className="author">
+      <Link to={`/users/${comments.author}/articles`} className="author">
         <img src={usericon} alt="user icon" width="15px" height="15px" />
         <span> </span>
         {comments.author}
-      </h6>
+      </Link>
       <button className="author">
         <img src={deleteicon} alt="delete icon" width="15px" height="15px" />
       </button>
