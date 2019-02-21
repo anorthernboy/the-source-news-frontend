@@ -38,7 +38,7 @@ class App extends Component {
               <Home path="/" />
               <Articles path="/articles" />
               <ArticlesByTopic path="/topics/:topic/articles" user={user} />
-              <ArticlesByUser path="/users/:username/articles" />
+              <ArticlesByUser path="/users/:username/articles" user={user} />
               <Article path="/articles/:article_id/" user={user} />
               <Topics path="/topics" user={user} />
               <Users path="/users" />

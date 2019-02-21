@@ -57,8 +57,9 @@ class ArticlesByTopic extends Component {
               <img src={upvoteicon} alt="menu" width="22px" height="22px" />
             </div>
           </div>
+        </div>
 
-          <br />
+        <div className="main-section-head">
           <div className="section-main">
             {articles.map(article => (
               <div key={article.article_id}>
@@ -67,8 +68,12 @@ class ArticlesByTopic extends Component {
             ))}
           </div>
         </div>
+
         <div className="main-section-head">
           <h2 className="section-title">add article</h2>
+        </div>
+
+        <div className="main-section-head">
           <div className="section-main">
             <PostArticle user={user} topic={topic} />
           </div>

@@ -14,7 +14,8 @@ class Users extends Component {
       <div className="main-home">
         <div className="main-section-head">
           <h2 className="section-title">users</h2>
-          <br />
+        </div>
+        <div className="main-section-head">
           <div className="section-main">
             {users.map(user => (
               <div key={user.username}>
@@ -22,15 +23,14 @@ class Users extends Component {
               </div>
             ))}
           </div>
-          <br />
         </div>
         <div className="main-section-head">
           <h2 className="section-title">add user</h2>
-          <br />
+        </div>
+        <div className="main-section-head">
           <div className="section-main">
             <PostUser />
           </div>
-          <br />
         </div>
       </div>
     );

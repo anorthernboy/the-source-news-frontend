@@ -56,8 +56,9 @@ class Articles extends Component {
               <img src={upvoteicon} alt="menu" width="22px" height="22px" />
             </div>
           </div>
-          <br />
+        </div>
 
+        <div className="main-section-head">
           <div className="section-main">
             {articles.map(article => (
               <div key={article.article_id}>
@@ -65,7 +66,6 @@ class Articles extends Component {
               </div>
             ))}
           </div>
-          <br />
         </div>
       </div>
     );

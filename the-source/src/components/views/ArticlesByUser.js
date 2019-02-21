@@ -18,12 +18,12 @@ class ArticlesByUser extends Component {
   };
 
   render() {
-    const { username } = this.props;
+    const { user } = this.props;
     const { users, articles, comments } = this.state;
     return (
       <div className="main-home">
         <div className="main-section-head">
-          <h2 className="section-title">{username}</h2>{" "}
+          <h2 className="section-title">{user}</h2>
           <div className="section-menu dropdown">
             <p className="dropbtn">
               <img src={menuicon} alt="menu" width="28px" height="28px" />
@@ -57,8 +57,12 @@ class ArticlesByUser extends Component {
             </div>
           </div>
         </div>
+
         <div className="main-section-head">
           <h2 className="section-title">articles</h2>
+        </div>
+
+        <div className="main-section-head">
           <div className="section-main">
             {articles.map(article => (
               <div key={article.article_id}>
@@ -66,22 +70,22 @@ class ArticlesByUser extends Component {
               </div>
             ))}
           </div>
-          <br />
         </div>
 
         <div className="main-section-head">
           <h2 className="section-title">comments</h2>
+        </div>
 
+        <div className="main-section-head">
           <div className="section-main">
             {comments
-              .filter(comment => comment.username === username)
+              .filter(comment => comment.username === user)
               .map(comment => (
                 <div key={comment.comment_id}>
-                  <UserCommentCard comments={comment} user={username} />
+                  <UserCommentCard comments={comment} user={user} />
                 </div>
               ))}
           </div>
-          <br />
         </div>
       </div>
     );

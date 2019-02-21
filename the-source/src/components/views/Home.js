@@ -17,7 +17,8 @@ class Home extends Component {
       <div className="main-home">
         <div className="main-section-head">
           <h2 className="section-title">#recent</h2>
-          <br />
+        </div>
+        <div className="main-section-head">
           <div className="section-main">
             {articles.map(article => (
               <div key={article.article_id}>
@@ -25,11 +26,11 @@ class Home extends Component {
               </div>
             ))}
           </div>
-          <br />
         </div>
         <div className="main-section-head">
           <h2 className="section-title">#comments</h2>
-          <br />
+        </div>
+        <div className="main-section-head">
           <div className="section-main">
             {articlesMostComments.map(article => (
               <div key={article.article_id}>
@@ -37,11 +38,11 @@ class Home extends Component {
               </div>
             ))}
           </div>
-          <br />
         </div>
         <div className="main-section-head">
           <h2 className="section-title">#votes</h2>
-          <br />
+        </div>
+        <div className="main-section-head">
           <div className="section-main">
             {articlesMostVotes.map(article => (
               <div key={article.article_id}>
@@ -49,7 +50,6 @@ class Home extends Component {
               </div>
             ))}
           </div>
-          <br />
         </div>
       </div>
     );

@@ -14,6 +14,8 @@ class Topics extends Component {
       <div className="main-home">
         <div className="main-section-head">
           <h2 className="section-title">topics</h2>
+        </div>
+        <div className="main-section-head">
           <div className="section-main">
             {topics.map(topic => (
               <div key={topic.slug}>
@@ -21,15 +23,14 @@ class Topics extends Component {
               </div>
             ))}
           </div>
-          <br />
         </div>
-
         <div className="main-section-head">
           <h2 className="section-title">add topic</h2>
+        </div>
+        <div className="main-section-head">
           <div className="section-main">
             <PostTopic />
           </div>
-          <br />
         </div>
       </div>
     );
