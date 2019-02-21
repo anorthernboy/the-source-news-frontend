@@ -1,6 +1,6 @@
 import React from "react";
-import "./UserCard.css";
-import usericon from "./single-user.png";
+import "../style/UserCard.css";
+import usericon from "../icons/single-user.png";
 
 const TopicCard = ({ users }) => {
   return (

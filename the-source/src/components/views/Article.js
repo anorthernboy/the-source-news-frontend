@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import * as api from "../api/api";
-import ArticleView from "./ArticleView";
-import CommentCard from "./CommentCard";
+import * as api from "../../api/api";
+import ArticleView from "../views/ArticleView";
+import CommentCard from "../cards/CommentCard";
 
 class Article extends Component {
   state = {

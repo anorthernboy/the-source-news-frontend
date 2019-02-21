@@ -1,12 +1,12 @@
 import React from "react";
-import ArticleVoter from "./ArticleVoter";
-import "./SingleArticleCard.css";
-import usericon from "./single-user.png";
-import commenticon from "./comment.png";
-import posticon from "./post.png";
-import deleteicon from "./delete.png";
+import ArticleVoter from "../buttons/ArticleVoter";
+import "../style/SingleArticleCard.css";
+import usericon from "../icons/single-user.png";
+import commenticon from "../icons/comment.png";
+import posticon from "../icons/post.png";
+import deleteicon from "../icons/delete.png";
 
-const ArticleView = ({ articles }) => {
+const ArticleView = ({ articles, user }) => {
   return (
     <div className="single-article-card">
       <h6 className="author">
@@ -29,7 +29,12 @@ const ArticleView = ({ articles }) => {
         {articles.comment_count}
       </h6>
       <div className="votes">
-        <ArticleVoter votes={articles.votes} article_id={articles.article_id} />
+        <ArticleVoter
+          votes={articles.votes}
+          article_id={articles.article_id}
+          author={articles.author}
+          user={user}
+        />
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import * as api from "../api/api";
-import upvoteicon from "./like.png";
-import downvoteicon from "./unlike.png";
+import * as api from "../../api/api";
+import upvoteicon from "../icons/like.png";
+import downvoteicon from "../icons/unlike.png";
+import pollicon from "../icons/poll.png";
 
 class CommentVoter extends Component {
   state = {
@@ -9,11 +10,21 @@ class CommentVoter extends Component {
   };
 
   render() {
-    const { votes } = this.props;
+    const { votes, author, user } = this.props;
     const { voteChange } = this.state;
     return (
       <div>
-        <button onClick={() => this.addVote(1)} disabled={voteChange === 1}>
+        <img
+          src={pollicon}
+          alt="up-vote"
+          className="up-vote"
+          width="15px"
+          height="15px"
+        />
+        <button
+          onClick={() => this.addVote(1)}
+          disabled={voteChange === 1 || author === user}
+        >
           <img
             src={upvoteicon}
             alt="up-vote"
@@ -27,7 +38,10 @@ class CommentVoter extends Component {
         <p>{votes + voteChange}</p>
         <span> </span>
 
-        <button onClick={() => this.addVote(-1)} disabled={voteChange === -1}>
+        <button
+          onClick={() => this.addVote(-1)}
+          disabled={voteChange === -1 || author === user}
+        >
           <img
             src={downvoteicon}
             alt="down-vote"

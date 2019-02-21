@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import * as api from "../api/api";
-import ArticleCard from "./ArticleCard";
-import "./Home.css";
+import * as api from "../../api/api";
+import ArticleCard from "../cards/ArticleCard";
+import "../style/Home.css";
 
 class Home extends Component {
   state = {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import usericon from "./single-user.png";
+import usericon from "./icons/single-user.png";
 
 const Header = ({ user }) => {
   return (

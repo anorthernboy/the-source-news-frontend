@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import articlesicon from "./open-book.png";
-import topicsicon from "./list.png";
-import usersicon from "./multiple-users.png";
-import logouticon from "./logout.png";
+import articlesicon from "./icons/open-book.png";
+import topicsicon from "./icons/list.png";
+import usersicon from "./icons/multiple-users.png";
+import logouticon from "./icons/logout.png";
 
 class Nav extends Component {
   render() {

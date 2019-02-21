@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "@reach/router";
-import "./ArticleCard.css";
-import topicsicon from "./list.png";
-import usericon from "./single-user.png";
-import upvoteicon from "./like.png";
-import commenticon from "./comment.png";
+import "../style/ArticleCard.css";
+import topicsicon from "../icons/list.png";
+import usericon from "../icons/single-user.png";
+import upvoteicon from "../icons/like.png";
+import commenticon from "../icons/comment.png";
 
 const ArticleCard = ({ articles }) => {
   return (

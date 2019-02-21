@@ -1,33 +1,36 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import * as api from "../api/api";
-import ArticleCard from "./ArticleCard";
-import "./Articles.css";
-import menuicon from "./menu.png";
-import sorticon from "./sort.png";
-import commenticon from "./comment.png";
-import upvoteicon from "./like.png";
-import timeicon from "./calendar.png";
+import * as api from "../../api/api";
+import ArticleCard from "../cards/ArticleCard";
+import "../style/Articles.css";
+import menuicon from "../icons/menu.png";
+import sorticon from "../icons/sort.png";
+import commenticon from "../icons/comment.png";
+import upvoteicon from "../icons/like.png";
+import timeicon from "../icons/calendar.png";
 
-class Articles extends Component {
+class ArticlesByTopic extends Component {
   state = {
     topics: [],
-    articles: [],
-    query: ""
+    articles: []
   };
 
   render() {
+    const { topic } = this.props;
     const { topics, articles } = this.state;
     return (
       <div className="main-home">
         <div className="main-section-head">
-          <h2 className="section-title">articles</h2>
+          <h2 className="section-title">{topic}</h2>
 
           <div className="section-menu dropdown">
             <p className="dropbtn">
               <img src={menuicon} alt="menu" width="28px" height="28px" />
             </p>
             <div className="dropdown-content">
+              <Link to="/articles">
+                <h4>all</h4>
+              </Link>
               {topics.map(topic => (
                 <Link key={topic.slug} to={`/topics/${topic.slug}/articles`}>
                   <h4>{topic.slug}</h4>
@@ -37,22 +40,23 @@ class Articles extends Component {
           </div>
 
           <div className="section-sort">
-            <div className="sort-button" onClick={this.sortByCreated}>
+            <div className="sort-button">
               <img src={sorticon} alt="menu" width="22px" height="22px" />
               <span> </span>
               <img src={timeicon} alt="menu" width="22px" height="22px" />
             </div>
-            <div className="sort-button" onClick={this.sortByComments}>
+            <div className="sort-button">
               <img src={sorticon} alt="menu" width="22px" height="22px" />
               <span> </span>
               <img src={commenticon} alt="menu" width="22px" height="22px" />
             </div>
-            <div className="sort-button" onClick={this.sortByVotes}>
+            <div className="sort-button">
               <img src={sorticon} alt="menu" width="22px" height="22px" />
               <span> </span>
               <img src={upvoteicon} alt="menu" width="22px" height="22px" />
             </div>
           </div>
+
           <br />
           <div className="section-main">
             {articles.map(article => (
@@ -67,8 +71,8 @@ class Articles extends Component {
     );
   }
 
-  componentDidUpdate = prevState => {
-    if (this.state.query !== prevState.query) {
+  componentDidUpdate = prevProps => {
+    if (this.props.topic !== prevProps.topic) {
       this.fetchArticles();
     }
   };
@@ -78,29 +82,16 @@ class Articles extends Component {
     this.fetchArticles();
   };
 
-  sortByCreated = () => {
-    this.setState({ query: "" });
-  };
-
-  sortByComments = () => {
-    this.setState({ query: "sort_by=comment_count&order=DESC" });
-  };
-
-  sortByVotes = () => {
-    this.setState({ query: "sort_by=votes&order=DESC" });
-  };
-
   fetchTopics = () => {
     api.getTopics().then(({ data }) => this.setState({ topics: data.topics }));
   };
 
   fetchArticles = () => {
-    const { topic, username } = this.props;
-    const { query } = this.state;
+    const { topic, username, query } = this.props;
     api
       .getArticles(topic, username, query)
       .then(({ data }) => this.setState({ articles: data.articles }));
   };
 }
 
-export default Articles;
+export default ArticlesByTopic;

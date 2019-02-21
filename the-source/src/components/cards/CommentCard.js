@@ -1,10 +1,10 @@
 import React from "react";
-import CommentVoter from "./CommentVoter";
-import "./CommentCard.css";
-import usericon from "./single-user.png";
-import deleteicon from "./delete.png";
+import CommentVoter from "../buttons/CommentVoter";
+import "../style/CommentCard.css";
+import usericon from "../icons/single-user.png";
+import deleteicon from "../icons/delete.png";
 
-const CommentCard = ({ comments, article_id }) => {
+const CommentCard = ({ comments, article_id, user }) => {
   return (
     <div className="comment-card">
       <h6 className="author">
@@ -22,6 +22,8 @@ const CommentCard = ({ comments, article_id }) => {
           votes={comments.votes}
           comment_id={comments.comment_id}
           article_id={article_id}
+          author={comments.author}
+          user={user}
         />
       </div>
     </div>

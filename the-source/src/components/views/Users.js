@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import * as api from "../api/api";
-import UserCard from "./UserCard";
+import * as api from "../../api/api";
+import UserCard from "../cards/UserCard";
 
 class Users extends Component {
   state = {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../api/api";
-import LoginCard from "./LoginCard";
-import loginicon from "./login.png";
+import LoginCard from "./cards/LoginCard";
+import loginicon from "./icons/login.png";
 
 class Auth extends Component {
   state = {

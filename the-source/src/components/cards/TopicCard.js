@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
-import topicsicon from "./list.png";
-import posticon from "./post.png";
+import topicsicon from "../icons/list.png";
+import posticon from "../icons/post.png";
 
 const TopicCard = ({ topics }) => {
   return (

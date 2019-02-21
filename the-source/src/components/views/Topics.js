@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import * as api from "../api/api";
-import TopicCard from "./TopicCard";
-import posticon from "./post.png";
+import * as api from "../../api/api";
+import TopicCard from "../cards/TopicCard";
+import posticon from "../icons/post.png";
 
 class Topics extends Component {
   state = {
