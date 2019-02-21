@@ -24,8 +24,11 @@ class Nav extends Component {
             <img src={usersicon} alt="users" width="30px" height="30px" />
           </span>
         </Link>
+
         <span>
-          <img src={logouticon} alt="logout" width="25px" height="25px" />
+          <button onClick={() => this.props.logout()}>
+            <img src={logouticon} alt="logout" width="25px" height="25px" />
+          </button>
         </span>
       </div>
     );

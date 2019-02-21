@@ -16,6 +16,17 @@ import "./App.css";
 
 class App extends Component {
   state = { user: "" };
+
+  componentDidMount = () => {
+    const username = window.localStorage.getItem("username");
+    if (username) this.setState({ user: username });
+  };
+
+  componentDidUpdate = () => {
+    const { user } = this.state;
+    window.localStorage.setItem("username", user);
+  };
+
   render() {
     const { user } = this.state;
     return (
@@ -34,18 +45,20 @@ class App extends Component {
             </Router>
           </Auth>
         </Scroll>
-        <Nav />
+        <Nav logout={this.userLogout} />
       </div>
     );
   }
 
   userLogin = username => {
-    api
-      .getUser(username)
-      .then(({ data }) => this.setState({ user: data.username }));
+    api.getUser(username).then(({ data }) => {
+      this.setState({ user: data.username });
+    });
+  };
+
+  userLogout = () => {
+    this.setState({ user: "" });
   };
 }
-
-// ({ data }) => this.setState({ user: data.username })
 
 export default App;

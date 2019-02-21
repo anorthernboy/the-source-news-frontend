@@ -22,7 +22,7 @@ class Auth extends Component {
           <div className="main-section-head">
             <h2 className="section-title">login</h2>
             <br />
-            <Form onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit} className="section-sort">
               <Input
                 id="username"
                 value={username}
