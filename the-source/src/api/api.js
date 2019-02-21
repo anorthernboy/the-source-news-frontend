@@ -79,6 +79,14 @@ export const deleteArticle = async article_id => {
   return article;
 };
 
+export const addComment = async (article_id, newComment) => {
+  const comment = await axios.post(
+    `${BASE_URL}/articles/${article_id}/comments`,
+    newComment
+  );
+  return comment;
+};
+
 export const deleteComment = async (article_id, comment_id) => {
   const comment = await axios.delete(
     `${BASE_URL}/articles/${article_id}/comments/${comment_id}`

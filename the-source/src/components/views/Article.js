@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import * as api from "../../api/api";
 import ArticleView from "../views/ArticleView";
 import CommentCard from "../cards/CommentCard";
+import PostComment from "../PostComment";
 
 class Article extends Component {
   state = {
@@ -28,6 +29,16 @@ class Article extends Component {
           </div>
           <br />
         </div>
+
+        <div className="main-section-head">
+          <h2 className="section-title">add comment</h2>
+          <br />
+          <div className="section-main">
+            <PostComment user={user} article_id={article.article_id} />
+          </div>
+          <br />
+        </div>
+
         <div className="main-section-head">
           <h2 className="section-title">comments</h2>
           <br />
