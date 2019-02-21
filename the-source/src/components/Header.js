@@ -10,10 +10,12 @@ const Header = ({ user }) => {
           the <span style={{ fontWeight: "bold" }}>source</span>
         </span>
       </Link>
-      <button>
-        <img src={usericon} alt="" width="25px" height="25px" />
-        <p>{user}</p>
-      </button>
+      <Link to={`/users/${user}/articles`}>
+        <button>
+          <img src={usericon} alt="" width="25px" height="25px" />
+          <p>{user}</p>
+        </button>
+      </Link>
     </div>
   );
 };
