@@ -82,3 +82,8 @@ button:disabled {
 .form-control {
   background-color: rgba(211, 211, 211, 0.05);
 }
+
+.input-wrap {
+  margin-left: 8%;
+  margin-right: 8%;
+}

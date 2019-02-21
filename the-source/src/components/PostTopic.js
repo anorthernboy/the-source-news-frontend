@@ -26,24 +26,30 @@ export default class PostTopic extends React.Component {
           <Form onSubmit={this.addNewTopic}>
             <FormGroup>
               <Label for="slug">topic</Label>
-              <Input
-                id="slug"
-                value={slug}
-                onChange={this.handleChange}
-                type="text"
-                name="text"
-                placeholder="Topic must be unique"
-              />
+              <div className="input-wrap">
+                <Input
+                  id="slug"
+                  value={slug}
+                  onChange={this.handleChange}
+                  type="text"
+                  name="text"
+                  placeholder="Topic must be unique"
+                  style={{ backgroundColor: "lightgray" }}
+                />
+              </div>
             </FormGroup>
             <FormGroup>
               <Label for="description">description</Label>
-              <Input
-                id="description"
-                value={description}
-                onChange={this.handleChange}
-                type="textarea"
-                name="text"
-              />
+              <div className="input-wrap">
+                <Input
+                  id="description"
+                  value={description}
+                  onChange={this.handleChange}
+                  type="textarea"
+                  name="text"
+                  style={{ backgroundColor: "lightgray" }}
+                />
+              </div>
             </FormGroup>
             <button>
               <img src={posticon} alt="post icon" width="28px" height="28px" />

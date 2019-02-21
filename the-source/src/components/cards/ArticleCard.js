@@ -14,7 +14,14 @@ const ArticleCard = ({ articles }) => {
         <span> </span>
         {articles.author}
       </h6>
-      <h6 className="time">{articles.created_at.slice(0, 10)}</h6>
+      <h6 className="time">
+        {new Date(articles.created_at).toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        })}
+      </h6>
+
       <h3 className="title">{articles.title.slice(0, 50).trim() + "..."}</h3>
       <h6 className="topic">
         <img src={topicsicon} alt="topic icon" width="15px" height="15px" />

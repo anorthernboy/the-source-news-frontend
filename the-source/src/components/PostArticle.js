@@ -27,24 +27,32 @@ export default class PostArticle extends React.Component {
           <Form onSubmit={this.addNewArticle}>
             <FormGroup>
               <Label for="title">Title</Label>
-              <Input
-                id="title"
-                value={title}
-                onChange={this.handleChange}
-                type="text"
-                name="text"
-                placeholder="Title of article"
-              />
+              <div className="input-wrap">
+                <Input
+                  id="title"
+                  value={title}
+                  onChange={this.handleChange}
+                  type="text"
+                  name="text"
+                  placeholder="Title of article"
+                  style={{
+                    backgroundColor: "lightgray"
+                  }}
+                />
+              </div>
             </FormGroup>
             <FormGroup>
               <Label for="body">body</Label>
-              <Input
-                id="body"
-                value={body}
-                onChange={this.handleChange}
-                type="textarea"
-                name="text"
-              />
+              <div className="input-wrap">
+                <Input
+                  id="body"
+                  value={body}
+                  onChange={this.handleChange}
+                  type="textarea"
+                  name="text"
+                  style={{ backgroundColor: "lightgray" }}
+                />
+              </div>
             </FormGroup>
             <button>
               <img src={posticon} alt="post icon" width="28px" height="28px" />

@@ -35,7 +35,13 @@ const ArticleView = ({ articles, user }) => {
       </div>
 
       <div className="article-card-time">
-        <h6 className="article-time">{articles.created_at}</h6>
+        <h6 className="article-time">
+          {new Date(articles.created_at).toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+          })}
+        </h6>
         <div className="article-votes">
           <ArticleVoter
             votes={articles.votes}

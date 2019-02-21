@@ -28,7 +28,13 @@ const CommentCard = ({ comments, article_id, user }) => {
         <h6 className="body">{comments.body}</h6>
       </div>
       <div className="comment-card-time">
-        <h6 className="comment-time">{comments.created_at.slice(0, 10)}</h6>
+        <h6 className="comment-time">
+          {new Date(comments.created_at).toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+          })}
+        </h6>
         <div className="comment-votes">
           <CommentVoter
             votes={comments.votes}

@@ -27,33 +27,48 @@ export default class PostUser extends React.Component {
           <Form onSubmit={this.addNewUser}>
             <FormGroup>
               <Label for="username">Username</Label>
-              <Input
-                id="username"
-                value={username}
-                onChange={this.handleChange}
-                type="text"
-                name="text"
-              />
+              <div className="input-wrap">
+                <Input
+                  id="username"
+                  value={username}
+                  onChange={this.handleChange}
+                  type="text"
+                  name="text"
+                  style={{
+                    backgroundColor: "lightgray"
+                  }}
+                />
+              </div>
             </FormGroup>
             <FormGroup>
               <Label for="avatar_url">Profile Picture URL</Label>
-              <Input
-                id="avatar_url"
-                value={avatar_url}
-                onChange={this.handleChange}
-                type="text"
-                name="text"
-              />
+              <div className="input-wrap">
+                <Input
+                  id="avatar_url"
+                  value={avatar_url}
+                  onChange={this.handleChange}
+                  type="text"
+                  name="text"
+                  style={{
+                    backgroundColor: "lightgray"
+                  }}
+                />
+              </div>
             </FormGroup>
             <FormGroup>
               <Label for="name">Full Name</Label>
-              <Input
-                id="name"
-                value={name}
-                onChange={this.handleChange}
-                type="text"
-                name="text"
-              />
+              <div className="input-wrap">
+                <Input
+                  id="name"
+                  value={name}
+                  onChange={this.handleChange}
+                  type="text"
+                  name="text"
+                  style={{
+                    backgroundColor: "lightgray"
+                  }}
+                />
+              </div>
             </FormGroup>
             <button>
               <img src={posticon} alt="post icon" width="28px" height="28px" />

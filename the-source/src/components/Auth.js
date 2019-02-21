@@ -21,37 +21,36 @@ class Auth extends Component {
         <div className="main-home">
           <div className="main-section-head">
             <h2 className="section-title">login</h2>
-            <br />
             <Form onSubmit={this.handleSubmit} className="section-sort">
               <Input
                 id="username"
                 value={username}
                 onChange={this.handleChange}
                 type="text"
+                style={{ backgroundColor: "lightgray" }}
               />
               <button>
                 <img src={loginicon} alt="login" width="25px" height="25px" />
               </button>
             </Form>
-            <br />
           </div>
           <div className="main-section-head">
             <h2 className="section-title">create user</h2>
-            <br />
+          </div>
+          <div className="main-section-head">
             <div className="section-main">
               <PostUser />
             </div>
-            <br />
           </div>
           <div className="main-section-head">
             <h2 className="section-title">available users</h2>
-            <br />
+          </div>
+          <div className="main-section-head">
             <div className="section-main">
               {users.map(user => (
                 <LoginCard users={user} key={user.username} />
               ))}
             </div>
-            <br />
           </div>
         </div>
       );

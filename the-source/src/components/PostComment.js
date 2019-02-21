@@ -26,13 +26,16 @@ export default class PostComment extends React.Component {
           <Form onSubmit={this.addNewComment}>
             <FormGroup>
               <Label for="body">body</Label>
-              <Input
-                id="body"
-                value={body}
-                onChange={this.handleChange}
-                type="textarea"
-                name="text"
-              />
+              <div className="input-wrap">
+                <Input
+                  id="body"
+                  value={body}
+                  onChange={this.handleChange}
+                  type="textarea"
+                  name="text"
+                  style={{ backgroundColor: "lightgray" }}
+                />
+              </div>
             </FormGroup>
             <button>
               <img src={posticon} alt="post icon" width="28px" height="28px" />
