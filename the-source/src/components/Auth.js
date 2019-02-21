@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../api/api";
 import LoginCard from "./cards/LoginCard";
+import PostUser from "./PostUser";
 import loginicon from "./icons/login.png";
 
 class Auth extends Component {
@@ -31,6 +32,19 @@ class Auth extends Component {
                 <img src={loginicon} alt="login" width="25px" height="25px" />
               </button>
             </form>
+            <br />
+          </div>
+          <div className="main-section-head">
+            <h2 className="section-title">create user</h2>
+            <br />
+            <div className="section-main">
+              <PostUser />
+            </div>
+            <br />
+          </div>
+          <div className="main-section-head">
+            <h2 className="section-title">available users</h2>
+            <br />
             <div className="section-main">
               {users.map(user => (
                 <LoginCard users={user} key={user.username} />
