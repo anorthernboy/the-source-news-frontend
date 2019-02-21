@@ -13,7 +13,10 @@ class Articles extends Component {
   state = {
     topics: [],
     articles: [],
-    query: ""
+    query: "",
+    createdDesc: true,
+    commentsDesc: false,
+    votesDesc: false
   };
 
   render() {
@@ -54,6 +57,7 @@ class Articles extends Component {
             </div>
           </div>
           <br />
+
           <div className="section-main">
             {articles.map(article => (
               <div key={article.article_id}>
@@ -79,15 +83,36 @@ class Articles extends Component {
   };
 
   sortByCreated = () => {
-    this.setState({ query: "" });
+    const { createdDesc } = this.state;
+    if (createdDesc) {
+      const query = "sort_by=created_at&order=ASC";
+      this.setState({ query, createdDesc: false });
+    } else {
+      const query = "";
+      this.setState({ query, createdDesc: true });
+    }
   };
 
   sortByComments = () => {
-    this.setState({ query: "sort_by=comment_count&order=DESC" });
+    const { commentsDesc } = this.state;
+    if (commentsDesc) {
+      const query = "sort_by=comment_count&order=ASC";
+      this.setState({ query, commentsDesc: false });
+    } else {
+      const query = "sort_by=comment_count&order=DESC";
+      this.setState({ query, commentsDesc: true });
+    }
   };
 
   sortByVotes = () => {
-    this.setState({ query: "sort_by=votes&order=DESC" });
+    const { votesDesc } = this.state;
+    if (votesDesc) {
+      const query = "sort_by=votes&order=ASC";
+      this.setState({ query, votesDesc: false });
+    } else {
+      const query = "sort_by=votes&order=DESC";
+      this.setState({ query, votesDesc: true });
+    }
   };
 
   fetchTopics = () => {
