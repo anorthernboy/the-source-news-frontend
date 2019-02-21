@@ -41,14 +41,3 @@ class Topics extends Component {
 }
 
 export default Topics;
-
-// {
-//   topics.map(topic => (
-//     <div key={topic.slug}>
-//       <Link to={`/topics/${topic.slug}`}>
-//         <h4>{topic.slug}</h4>
-//       </Link>
-//       <h6>{topic.description}</h6>
-//     </div>
-//   ))
-// }

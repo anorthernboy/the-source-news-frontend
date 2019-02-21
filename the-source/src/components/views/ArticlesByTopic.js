@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import * as api from "../../api/api";
 import ArticleCard from "../cards/ArticleCard";
+import PostArticle from "../PostArticle";
 import "../style/Articles.css";
 import menuicon from "../icons/menu.png";
 import sorticon from "../icons/sort.png";
@@ -16,7 +17,7 @@ class ArticlesByTopic extends Component {
   };
 
   render() {
-    const { topic } = this.props;
+    const { topic, user } = this.props;
     const { topics, articles } = this.state;
     return (
       <div className="main-home">
@@ -65,7 +66,12 @@ class ArticlesByTopic extends Component {
               </div>
             ))}
           </div>
-          <br />
+        </div>
+        <div className="main-section-head">
+          <h2 className="section-title">add article</h2>
+          <div className="section-main">
+            <PostArticle user={user} topic={topic} />
+          </div>
         </div>
       </div>
     );

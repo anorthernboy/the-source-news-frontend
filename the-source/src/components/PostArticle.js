@@ -1,18 +1,19 @@
 import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
 import * as api from "../api/api";
+import posticon from "./icons/post.png";
 
 export default class PostArticle extends React.Component {
   state = {
     isLoading: true,
     title: "",
     body: "",
-    username: "",
+    user: "",
     addedArticle: ""
   };
 
   render() {
-    const { isLoading, title, body, username, addedArticle } = this.state;
+    const { isLoading, title, body, addedArticle } = this.state;
     if (isLoading) return <p className="tc helvetica black-70">Loading...</p>;
     if (addedArticle.length !== 0)
       return (
@@ -23,7 +24,6 @@ export default class PostArticle extends React.Component {
     else
       return (
         <div>
-          <h4>POST ARTICLE HERE</h4>
           <Form onSubmit={this.addNewArticle}>
             <FormGroup>
               <Label for="title">Title</Label>
@@ -46,18 +46,9 @@ export default class PostArticle extends React.Component {
                 name="text"
               />
             </FormGroup>
-            <FormGroup>
-              <Label for="username">Username</Label>
-              <Input
-                id="username"
-                value={username}
-                onChange={this.handleChange}
-                type="text"
-                name="text"
-                placeholder="Username"
-              />
-            </FormGroup>
-            <Button>Submit</Button>
+            <button>
+              <img src={posticon} alt="post icon" width="28px" height="28px" />
+            </button>
           </Form>
         </div>
       );
@@ -73,9 +64,9 @@ export default class PostArticle extends React.Component {
 
   addNewArticle = event => {
     event.preventDefault();
-    const { title, body, username } = this.state;
-    const { topic } = this.props;
-    const newArticle = { title, body, username };
+    const { title, body } = this.state;
+    const { topic, user } = this.props;
+    const newArticle = { title, body, username: user };
     api.addArticle(topic, newArticle).then(({ data }) =>
       this.setState({
         addedArticle: data
