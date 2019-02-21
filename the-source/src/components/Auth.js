@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Form, Input } from "reactstrap";
 import * as api from "../api/api";
 import LoginCard from "./cards/LoginCard";
 import PostUser from "./PostUser";
@@ -21,8 +22,8 @@ class Auth extends Component {
           <div className="main-section-head">
             <h2 className="section-title">login</h2>
             <br />
-            <form onSubmit={this.handleSubmit}>
-              <input
+            <Form onSubmit={this.handleSubmit}>
+              <Input
                 id="username"
                 value={username}
                 onChange={this.handleChange}
@@ -31,7 +32,7 @@ class Auth extends Component {
               <button>
                 <img src={loginicon} alt="login" width="25px" height="25px" />
               </button>
-            </form>
+            </Form>
             <br />
           </div>
           <div className="main-section-head">

@@ -93,3 +93,8 @@ export const deleteComment = async (article_id, comment_id) => {
   );
   return comment;
 };
+
+export const getAllComments = async () => {
+  const comments = await axios.get(`${BASE_URL}/comments`);
+  return comments;
+};

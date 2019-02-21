@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import * as api from "../../api/api";
 import ArticleCard from "../cards/ArticleCard";
+import UserCommentCard from "../cards/UserCommentCard";
 import "../style/Articles.css";
 import menuicon from "../icons/menu.png";
 import sorticon from "../icons/sort.png";
@@ -12,17 +13,17 @@ import timeicon from "../icons/calendar.png";
 class ArticlesByUser extends Component {
   state = {
     users: [],
-    articles: []
+    articles: [],
+    comments: []
   };
 
   render() {
     const { username } = this.props;
-    const { users, articles } = this.state;
+    const { users, articles, comments } = this.state;
     return (
       <div className="main-home">
         <div className="main-section-head">
-          <h2 className="section-title">{username}</h2>
-
+          <h2 className="section-title">{username}</h2>{" "}
           <div className="section-menu dropdown">
             <p className="dropbtn">
               <img src={menuicon} alt="menu" width="28px" height="28px" />
@@ -38,7 +39,6 @@ class ArticlesByUser extends Component {
               ))}
             </div>
           </div>
-
           <div className="section-sort">
             <div className="sort-button">
               <img src={sorticon} alt="menu" width="22px" height="22px" />
@@ -56,14 +56,30 @@ class ArticlesByUser extends Component {
               <img src={upvoteicon} alt="menu" width="22px" height="22px" />
             </div>
           </div>
-
-          <br />
+        </div>
+        <div className="main-section-head">
+          <h2 className="section-title">articles</h2>
           <div className="section-main">
             {articles.map(article => (
               <div key={article.article_id}>
                 <ArticleCard articles={article} />
               </div>
             ))}
+          </div>
+          <br />
+        </div>
+
+        <div className="main-section-head">
+          <h2 className="section-title">comments</h2>
+
+          <div className="section-main">
+            {comments
+              .filter(comment => comment.username === username)
+              .map(comment => (
+                <div key={comment.comment_id}>
+                  <UserCommentCard comments={comment} user={username} />
+                </div>
+              ))}
           </div>
           <br />
         </div>
@@ -74,12 +90,14 @@ class ArticlesByUser extends Component {
   componentDidUpdate = prevProps => {
     if (this.props.username !== prevProps.username) {
       this.fetchArticles();
+      this.fetchComments();
     }
   };
 
   componentDidMount = () => {
     this.fetchUsers();
     this.fetchArticles();
+    this.fetchComments();
   };
 
   fetchUsers = () => {
@@ -91,6 +109,12 @@ class ArticlesByUser extends Component {
     api
       .getArticles(topic, username, query)
       .then(({ data }) => this.setState({ articles: data.articles }));
+  };
+
+  fetchComments = () => {
+    api
+      .getAllComments()
+      .then(({ data }) => this.setState({ comments: data.comments }));
   };
 }
 

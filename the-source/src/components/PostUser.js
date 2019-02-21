@@ -33,11 +33,10 @@ export default class PostUser extends React.Component {
                 onChange={this.handleChange}
                 type="text"
                 name="text"
-                placeholder="username of User"
               />
             </FormGroup>
             <FormGroup>
-              <Label for="avatar_url">Profile Picture</Label>
+              <Label for="avatar_url">Profile Picture URL</Label>
               <Input
                 id="avatar_url"
                 value={avatar_url}
@@ -47,14 +46,13 @@ export default class PostUser extends React.Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="name">Name</Label>
+              <Label for="name">Full Name</Label>
               <Input
                 id="name"
                 value={name}
                 onChange={this.handleChange}
                 type="text"
                 name="text"
-                placeholder="Name"
               />
             </FormGroup>
             <button>
