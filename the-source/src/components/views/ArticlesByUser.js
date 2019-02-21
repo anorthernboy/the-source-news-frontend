@@ -18,12 +18,12 @@ class ArticlesByUser extends Component {
   };
 
   render() {
-    const { user } = this.props;
+    const { user, username } = this.props;
     const { users, articles, comments } = this.state;
     return (
       <div className="main-home">
         <div className="main-section-head">
-          <h2 className="section-title">{user}</h2>
+          <h2 className="section-title">{username}</h2>
           <div className="section-menu dropdown">
             <p className="dropbtn">
               <img src={menuicon} alt="menu" width="28px" height="28px" />

@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Input } from "reactstrap";
 import * as api from "../api/api";
 import posticon from "./icons/post.png";
 
@@ -25,7 +25,6 @@ export default class PostComment extends React.Component {
         <div>
           <Form onSubmit={this.addNewComment}>
             <FormGroup>
-              <Label for="body">body</Label>
               <div className="input-wrap">
                 <Input
                   id="body"
@@ -33,11 +32,12 @@ export default class PostComment extends React.Component {
                   onChange={this.handleChange}
                   type="textarea"
                   name="text"
+                  placeholder="comment on this article..."
                   style={{ backgroundColor: "lightgray" }}
                 />
               </div>
             </FormGroup>
-            <button>
+            <button className="input-button">
               <img src={posticon} alt="post icon" width="28px" height="28px" />
             </button>
           </Form>

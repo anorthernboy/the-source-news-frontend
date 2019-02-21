@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Input } from "reactstrap";
 import * as api from "../api/api";
 import posticon from "./icons/post.png";
 
@@ -26,7 +26,6 @@ export default class PostArticle extends React.Component {
         <div>
           <Form onSubmit={this.addNewArticle}>
             <FormGroup>
-              <Label for="title">Title</Label>
               <div className="input-wrap">
                 <Input
                   id="title"
@@ -34,7 +33,7 @@ export default class PostArticle extends React.Component {
                   onChange={this.handleChange}
                   type="text"
                   name="text"
-                  placeholder="Title of article"
+                  placeholder="title of new article..."
                   style={{
                     backgroundColor: "lightgray"
                   }}
@@ -42,7 +41,6 @@ export default class PostArticle extends React.Component {
               </div>
             </FormGroup>
             <FormGroup>
-              <Label for="body">body</Label>
               <div className="input-wrap">
                 <Input
                   id="body"
@@ -50,11 +48,12 @@ export default class PostArticle extends React.Component {
                   onChange={this.handleChange}
                   type="textarea"
                   name="text"
+                  placeholder="body of new article..."
                   style={{ backgroundColor: "lightgray" }}
                 />
               </div>
             </FormGroup>
-            <button>
+            <button className="input-button">
               <img src={posticon} alt="post icon" width="28px" height="28px" />
             </button>
           </Form>

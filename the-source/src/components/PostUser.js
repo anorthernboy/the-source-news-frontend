@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Input } from "reactstrap";
 import * as api from "../api/api";
 import posticon from "./icons/post.png";
 
@@ -26,7 +26,6 @@ export default class PostUser extends React.Component {
         <div>
           <Form onSubmit={this.addNewUser}>
             <FormGroup>
-              <Label for="username">Username</Label>
               <div className="input-wrap">
                 <Input
                   id="username"
@@ -34,6 +33,7 @@ export default class PostUser extends React.Component {
                   onChange={this.handleChange}
                   type="text"
                   name="text"
+                  placeholder="choose a username..."
                   style={{
                     backgroundColor: "lightgray"
                   }}
@@ -41,7 +41,6 @@ export default class PostUser extends React.Component {
               </div>
             </FormGroup>
             <FormGroup>
-              <Label for="avatar_url">Profile Picture URL</Label>
               <div className="input-wrap">
                 <Input
                   id="avatar_url"
@@ -49,6 +48,7 @@ export default class PostUser extends React.Component {
                   onChange={this.handleChange}
                   type="text"
                   name="text"
+                  placeholder="add a URL path to profile picture..."
                   style={{
                     backgroundColor: "lightgray"
                   }}
@@ -56,7 +56,6 @@ export default class PostUser extends React.Component {
               </div>
             </FormGroup>
             <FormGroup>
-              <Label for="name">Full Name</Label>
               <div className="input-wrap">
                 <Input
                   id="name"
@@ -64,13 +63,14 @@ export default class PostUser extends React.Component {
                   onChange={this.handleChange}
                   type="text"
                   name="text"
+                  placeholder="enter full name..."
                   style={{
                     backgroundColor: "lightgray"
                   }}
                 />
               </div>
             </FormGroup>
-            <button>
+            <button className="input-button">
               <img src={posticon} alt="post icon" width="28px" height="28px" />
             </button>
           </Form>
