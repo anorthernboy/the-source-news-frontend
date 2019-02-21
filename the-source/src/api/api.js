@@ -73,3 +73,15 @@ export const articleVote = async (article_id, inc_vote) => {
   );
   return comment;
 };
+
+export const deleteArticle = async article_id => {
+  const article = await axios.delete(`${BASE_URL}/articles/${article_id}`);
+  return article;
+};
+
+export const deleteComment = async (article_id, comment_id) => {
+  const comment = await axios.delete(
+    `${BASE_URL}/articles/${article_id}/comments/${comment_id}`
+  );
+  return comment;
+};

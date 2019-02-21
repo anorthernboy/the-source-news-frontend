@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 import CommentVoter from "../buttons/CommentVoter";
 import "../style/CommentCard.css";
 import usericon from "../icons/single-user.png";
-import deleteicon from "../icons/delete.png";
+import CommentDelete from "../buttons/CommentDelete";
 
 const CommentCard = ({ comments, article_id, user }) => {
   return (
@@ -13,9 +13,12 @@ const CommentCard = ({ comments, article_id, user }) => {
         <span> </span>
         {comments.author}
       </Link>
-      <button className="author">
-        <img src={deleteicon} alt="delete icon" width="15px" height="15px" />
-      </button>
+      <CommentDelete
+        user={user}
+        author={comments.author}
+        article_id={article_id}
+        comment_id={comments.comment_id}
+      />
       <h6 className="time">{comments.created_at.slice(0, 10)}</h6>
       <h6 className="body">{comments.body}</h6>
       <div className="votes">

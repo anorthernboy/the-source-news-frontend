@@ -4,7 +4,7 @@ import "../style/SingleArticleCard.css";
 import usericon from "../icons/single-user.png";
 import commenticon from "../icons/comment.png";
 import posticon from "../icons/post.png";
-import deleteicon from "../icons/delete.png";
+import ArticleDelete from "../buttons/ArticleDelete";
 
 const ArticleView = ({ articles, user }) => {
   return (
@@ -17,9 +17,11 @@ const ArticleView = ({ articles, user }) => {
       <button className="author">
         <img src={posticon} alt="post icon" width="15px" height="15px" />
       </button>
-      <button className="author">
-        <img src={deleteicon} alt="delete icon" width="15px" height="15px" />
-      </button>
+      <ArticleDelete
+        user={user}
+        author={articles.author}
+        article_id={articles.article_id}
+      />
       <h6 className="time">{articles.created_at}</h6>
       <h3 className="title">{articles.title}</h3>
       <h6 className="body">{articles.body}</h6>
