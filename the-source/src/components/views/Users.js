@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../api/api";
 import UserCard from "../cards/UserCard";
+import PostUser from "../PostUser";
 
 class Users extends Component {
   state = {
@@ -20,6 +21,14 @@ class Users extends Component {
                 <UserCard users={user} />
               </div>
             ))}
+          </div>
+          <br />
+        </div>
+        <div className="main-section-head">
+          <h2 className="section-title">add user</h2>
+          <br />
+          <div className="section-main">
+            <PostUser />
           </div>
           <br />
         </div>

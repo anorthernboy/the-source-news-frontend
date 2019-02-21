@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
 import * as api from "../api/api";
+import posticon from "./icons/post.png";
 
 export default class PostUser extends React.Component {
   state = {
@@ -23,7 +24,6 @@ export default class PostUser extends React.Component {
     else
       return (
         <div>
-          <h4>POST USER HERE</h4>
           <Form onSubmit={this.addNewUser}>
             <FormGroup>
               <Label for="username">Username</Label>
@@ -57,7 +57,9 @@ export default class PostUser extends React.Component {
                 placeholder="Name"
               />
             </FormGroup>
-            <Button>Submit</Button>
+            <button>
+              <img src={posticon} alt="post icon" width="28px" height="28px" />
+            </button>
           </Form>
         </div>
       );
