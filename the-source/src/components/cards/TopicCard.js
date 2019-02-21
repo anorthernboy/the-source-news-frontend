@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
 import topicsicon from "../icons/list.png";
-import posticon from "../icons/post.png";
 
 const TopicCard = ({ topics }) => {
   return (
@@ -11,9 +10,6 @@ const TopicCard = ({ topics }) => {
         <span> </span>
         {topics.slug}
       </h6>
-      <button className="author">
-        <img src={posticon} alt="post icon" width="15px" height="15px" />
-      </button>
       <h3 className="title">
         <Link to={`/topics/${topics.slug}/articles`}>
           {topics.description.slice(0, 50).trim() + "..."}

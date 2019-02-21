@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import * as api from "../api/api";
+import posticon from "./icons/post.png";
 
 export default class PostTopic extends React.Component {
   state = {
@@ -22,10 +23,9 @@ export default class PostTopic extends React.Component {
     else
       return (
         <div>
-          <h4>POST TOPIC HERE</h4>
           <Form onSubmit={this.addNewTopic}>
             <FormGroup>
-              <Label for="slug">Topic</Label>
+              <Label for="slug">topic</Label>
               <Input
                 id="slug"
                 value={slug}
@@ -36,7 +36,7 @@ export default class PostTopic extends React.Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="description">Description</Label>
+              <Label for="description">description</Label>
               <Input
                 id="description"
                 value={description}
@@ -45,7 +45,9 @@ export default class PostTopic extends React.Component {
                 name="text"
               />
             </FormGroup>
-            <Button>Submit</Button>
+            <button>
+              <img src={posticon} alt="post icon" width="28px" height="28px" />
+            </button>
           </Form>
         </div>
       );

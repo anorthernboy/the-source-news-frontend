@@ -3,7 +3,6 @@ import ArticleVoter from "../buttons/ArticleVoter";
 import "../style/SingleArticleCard.css";
 import usericon from "../icons/single-user.png";
 import commenticon from "../icons/comment.png";
-import posticon from "../icons/post.png";
 import ArticleDelete from "../buttons/ArticleDelete";
 
 const ArticleView = ({ articles, user }) => {
@@ -14,9 +13,6 @@ const ArticleView = ({ articles, user }) => {
         <span> </span>
         {articles.author}
       </h6>
-      <button className="author">
-        <img src={posticon} alt="post icon" width="15px" height="15px" />
-      </button>
       <ArticleDelete
         user={user}
         author={articles.author}
