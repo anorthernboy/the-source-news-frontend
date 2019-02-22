@@ -11,8 +11,9 @@ class ArticleVoter extends Component {
   };
 
   render() {
-    const { votes, author, user } = this.props;
+    const { author, user } = this.props;
     const { voteChange } = this.state;
+    const votes = this.props.votes ? this.props.votes : 0;
     return (
       <div className="article-voter-main">
         <img
