@@ -9,70 +9,101 @@ import sorticon from "../icons/sort.png";
 import commenticon from "../icons/comment.png";
 import upvoteicon from "../icons/like.png";
 import timeicon from "../icons/calendar.png";
+import loadingicon from "../icons/loading.png";
 
 class ArticlesByTopic extends Component {
   state = {
+    isLoading: true,
     topics: [],
     articles: []
   };
 
   render() {
+    const { isLoading, topics, articles } = this.state;
     const { topic, user } = this.props;
-    const { topics, articles } = this.state;
-    return (
-      <div className="main-home">
-        <div className="main-section-head">
-          <h2 className="section-title">new article</h2>
-        </div>
-        <div className="main-section-head">
-          <div className="section-main">
-            <PostArticle user={user} topic={topic} />
+    const { addedArticle } = this.props.location.state;
+
+    if (isLoading)
+      return (
+        <div className="main-alert-home">
+          <div className="main-alert-head">
+            <h2 className="section-loading">
+              <img
+                src={loadingicon}
+                alt="loading icon"
+                width="40px"
+                height="40px"
+              />
+            </h2>
           </div>
         </div>
-        <div className="main-section-head">
-          <h2 className="section-title">{topic}</h2>
+      );
 
-          <div className="section-menu dropdown">
-            <p className="dropbtn">
-              <img src={menuicon} alt="menu" width="28px" height="28px" />
-            </p>
-            <div className="dropdown-content">
-              <Link to="/articles">
-                <h4>all</h4>
-              </Link>
-              {topics.map(topic => (
-                <Link key={topic.slug} to={`/topics/${topic.slug}/articles`}>
-                  <h4>{topic.slug}</h4>
+    return (
+      <div>
+        {addedArticle && (
+          <div className="main-alert-home">
+            <div className="main-alert-head">
+              <h4 className="section-alert-top">{`${addedArticle} has been added to ${topic}`}</h4>
+              <h4 className="section-alert-bottom">{`you can now view ${addedArticle}`}</h4>
+            </div>
+          </div>
+        )}
+
+        <div className="main-home">
+          <div className="main-section-head">
+            <h2 className="section-title">new article</h2>
+          </div>
+          <div className="main-section-head">
+            <div className="section-main">
+              <PostArticle user={user} topic={topic} />
+            </div>
+          </div>
+          <div className="main-section-head">
+            <h2 className="section-title">{topic}</h2>
+
+            <div className="section-menu dropdown">
+              <p className="dropbtn">
+                <img src={menuicon} alt="menu" width="28px" height="28px" />
+              </p>
+              <div className="dropdown-content">
+                <Link to="/articles">
+                  <h4>all</h4>
                 </Link>
+                {topics.map(topic => (
+                  <Link key={topic.slug} to={`/topics/${topic.slug}/articles`}>
+                    <h4>{topic.slug}</h4>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="section-sort">
+              <div className="sort-button">
+                <img src={sorticon} alt="menu" width="22px" height="22px" />
+                <span> </span>
+                <img src={timeicon} alt="menu" width="22px" height="22px" />
+              </div>
+              <div className="sort-button">
+                <img src={sorticon} alt="menu" width="22px" height="22px" />
+                <span> </span>
+                <img src={commenticon} alt="menu" width="22px" height="22px" />
+              </div>
+              <div className="sort-button">
+                <img src={sorticon} alt="menu" width="22px" height="22px" />
+                <span> </span>
+                <img src={upvoteicon} alt="menu" width="22px" height="22px" />
+              </div>
+            </div>
+          </div>
+
+          <div className="main-section-head">
+            <div className="section-main">
+              {articles.map(article => (
+                <div key={article.article_id}>
+                  <ArticleCard articles={article} />
+                </div>
               ))}
             </div>
-          </div>
-          <div className="section-sort">
-            <div className="sort-button">
-              <img src={sorticon} alt="menu" width="22px" height="22px" />
-              <span> </span>
-              <img src={timeicon} alt="menu" width="22px" height="22px" />
-            </div>
-            <div className="sort-button">
-              <img src={sorticon} alt="menu" width="22px" height="22px" />
-              <span> </span>
-              <img src={commenticon} alt="menu" width="22px" height="22px" />
-            </div>
-            <div className="sort-button">
-              <img src={sorticon} alt="menu" width="22px" height="22px" />
-              <span> </span>
-              <img src={upvoteicon} alt="menu" width="22px" height="22px" />
-            </div>
-          </div>
-        </div>
-
-        <div className="main-section-head">
-          <div className="section-main">
-            {articles.map(article => (
-              <div key={article.article_id}>
-                <ArticleCard articles={article} />
-              </div>
-            ))}
           </div>
         </div>
       </div>
@@ -88,6 +119,7 @@ class ArticlesByTopic extends Component {
   componentDidMount = () => {
     this.fetchTopics();
     this.fetchArticles();
+    this.setState({ isLoading: false });
   };
 
   fetchTopics = () => {

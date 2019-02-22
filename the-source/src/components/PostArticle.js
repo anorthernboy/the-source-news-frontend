@@ -1,65 +1,52 @@
 import React from "react";
+import { navigate } from "@reach/router";
 import { Form, FormGroup, Input } from "reactstrap";
 import * as api from "../api/api";
 import posticon from "./icons/post.png";
 
 export default class PostArticle extends React.Component {
   state = {
-    isLoading: true,
     title: "",
-    body: "",
-    user: "",
-    addedArticle: ""
+    body: ""
   };
 
   render() {
-    const { isLoading, title, body, addedArticle } = this.state;
-    if (isLoading) return <p className="tc helvetica black-70">Loading...</p>;
-    if (addedArticle.length !== 0)
-      return (
-        <p className="tc helvetica black-70">{`${
-          addedArticle.title
-        } was successfully added`}</p>
-      );
-    else
-      return (
-        <div className="input-wrap">
-          <Form onSubmit={this.addNewArticle}>
-            <FormGroup>
-              <Input
-                id="title"
-                value={title}
-                onChange={this.handleChange}
-                type="text"
-                name="text"
-                placeholder="title of new article..."
-                style={{
-                  backgroundColor: "lightgray"
-                }}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Input
-                id="body"
-                value={body}
-                onChange={this.handleChange}
-                type="textarea"
-                name="text"
-                placeholder="body of new article..."
-                style={{ backgroundColor: "lightgray" }}
-              />
-            </FormGroup>
-            <button className="input-button">
-              <img src={posticon} alt="post icon" width="28px" height="28px" />
-            </button>
-          </Form>
-        </div>
-      );
-  }
+    const { title, body } = this.state;
 
-  componentDidMount = () => {
-    this.setState({ isLoading: false });
-  };
+    return (
+      <div className="input-wrap">
+        <Form onSubmit={this.addNewArticle}>
+          <FormGroup>
+            <Input
+              id="title"
+              value={title}
+              onChange={this.handleChange}
+              type="text"
+              name="text"
+              placeholder="title of new article..."
+              style={{
+                backgroundColor: "lightgray"
+              }}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Input
+              id="body"
+              value={body}
+              onChange={this.handleChange}
+              type="textarea"
+              name="text"
+              placeholder="body of new article..."
+              style={{ backgroundColor: "lightgray" }}
+            />
+          </FormGroup>
+          <button className="input-button">
+            <img src={posticon} alt="post icon" width="28px" height="28px" />
+          </button>
+        </Form>
+      </div>
+    );
+  }
 
   handleChange = event => {
     this.setState({ [event.target.id]: event.target.value });
@@ -70,10 +57,11 @@ export default class PostArticle extends React.Component {
     const { title, body } = this.state;
     const { topic, user } = this.props;
     const newArticle = { title, body, username: user };
-    api.addArticle(topic, newArticle).then(({ data }) =>
-      this.setState({
-        addedArticle: data
-      })
-    );
+    api.addArticle(topic, newArticle);
+    navigate(`/topics/${topic}/articles`, {
+      state: {
+        addedArticle: newArticle.title
+      }
+    });
   };
 }

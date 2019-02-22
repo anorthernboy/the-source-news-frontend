@@ -1,0 +1,88 @@
+.main-home {
+  color: lightgray;
+}
+
+.main-section-head {
+  background-color: rgba(211, 211, 211, 0.05);
+  text-align: left;
+  margin: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: 1.5fr 4fr 1.5fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "section-title sort menu"
+    "main main main"
+    "main main main";
+}
+
+.section-title {
+  grid-area: section-title;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.section-sort {
+  grid-area: sort;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.section-menu {
+  grid-area: menu;
+  justify-self: right;
+  align-items: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.section-main {
+  grid-area: main;
+}
+
+.main-alert-home {
+  color: lightgray;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.main-alert-head {
+  background-color: rgba(211, 211, 211, 0.05);
+  text-align: left;
+  margin: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 0.5rem;
+}
+
+.section-loading {
+  grid-area: sort;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-alert-top {
+  grid-area: sort;
+  padding-top: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.section-alert-bottom {
+  grid-area: sort;
+  padding-bottom: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}

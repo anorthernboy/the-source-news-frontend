@@ -1,14 +1,33 @@
 import React, { Component } from "react";
 import * as api from "../../api/api";
 import UserCard from "../cards/UserCard";
+import loadingicon from "../icons/loading.png";
 
 class Users extends Component {
   state = {
+    isLoading: true,
     users: []
   };
 
   render() {
-    const { users } = this.state;
+    const { isLoading, users } = this.state;
+
+    if (isLoading)
+      return (
+        <div className="main-alert-home">
+          <div className="main-alert-head">
+            <h2 className="section-loading">
+              <img
+                src={loadingicon}
+                alt="loading icon"
+                width="40px"
+                height="40px"
+              />
+            </h2>
+          </div>
+        </div>
+      );
+
     return (
       <div className="main-home">
         <div className="main-section-head">
@@ -28,7 +47,11 @@ class Users extends Component {
   }
 
   componentDidMount = () => {
-    api.getUsers().then(({ data }) => this.setState({ users: data.users }));
+    api
+      .getUsers()
+      .then(({ data }) =>
+        this.setState({ users: data.users, isLoading: false })
+      );
   };
 }
 

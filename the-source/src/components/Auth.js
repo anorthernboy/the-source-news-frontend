@@ -4,16 +4,34 @@ import * as api from "../api/api";
 import LoginCard from "./cards/LoginCard";
 import PostUser from "./PostUser";
 import loginicon from "./icons/login.png";
+import loadingicon from "./icons/loading.png";
 
 class Auth extends Component {
   state = {
+    isLoading: true,
     users: [],
     username: ""
   };
 
   render() {
     const { user } = this.props;
-    const { users, username } = this.state;
+    const { isLoading, users, username } = this.state;
+
+    if (isLoading)
+      return (
+        <div className="main-alert-home">
+          <div className="main-alert-head">
+            <h2 className="section-loading">
+              <img
+                src={loadingicon}
+                alt="loading icon"
+                width="40px"
+                height="40px"
+              />
+            </h2>
+          </div>
+        </div>
+      );
 
     if (user) return this.props.children;
     else
@@ -58,6 +76,7 @@ class Auth extends Component {
 
   componentDidMount = () => {
     this.fetchUsers();
+    this.setState({ isLoading: false });
   };
 
   fetchUsers = () => {

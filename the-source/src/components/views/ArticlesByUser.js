@@ -9,9 +9,11 @@ import sorticon from "../icons/sort.png";
 import commenticon from "../icons/comment.png";
 import upvoteicon from "../icons/like.png";
 import timeicon from "../icons/calendar.png";
+import loadingicon from "../icons/loading.png";
 
 class ArticlesByUser extends Component {
   state = {
+    isLoading: true,
     users: [],
     articles: [],
     comments: []
@@ -19,7 +21,24 @@ class ArticlesByUser extends Component {
 
   render() {
     const { user, username } = this.props;
-    const { users, articles, comments } = this.state;
+    const { isLoading, users, articles, comments } = this.state;
+
+    if (isLoading)
+      return (
+        <div className="main-alert-home">
+          <div className="main-alert-head">
+            <h2 className="section-loading">
+              <img
+                src={loadingicon}
+                alt="loading icon"
+                width="40px"
+                height="40px"
+              />
+            </h2>
+          </div>
+        </div>
+      );
+
     return (
       <div className="main-home">
         <div className="main-section-head">
@@ -102,6 +121,7 @@ class ArticlesByUser extends Component {
     this.fetchUsers();
     this.fetchArticles();
     this.fetchComments();
+    this.setState({ isLoading: false });
   };
 
   fetchUsers = () => {

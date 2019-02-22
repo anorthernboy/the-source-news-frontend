@@ -1,17 +1,40 @@
 import React, { Component } from "react";
 import * as api from "../../api/api";
 import ArticleCard from "../cards/ArticleCard";
+import loadingicon from "../icons/loading.png";
 import "../style/Home.css";
 
 class Home extends Component {
   state = {
+    isLoading: true,
     articles: [],
     articlesMostComments: [],
     articlesMostVotes: []
   };
 
   render() {
-    const { articles, articlesMostComments, articlesMostVotes } = this.state;
+    const {
+      isLoading,
+      articles,
+      articlesMostComments,
+      articlesMostVotes
+    } = this.state;
+
+    if (isLoading)
+      return (
+        <div className="main-alert-home">
+          <div className="main-alert-head">
+            <h2 className="section-loading">
+              <img
+                src={loadingicon}
+                alt="loading icon"
+                width="40px"
+                height="40px"
+              />
+            </h2>
+          </div>
+        </div>
+      );
 
     return (
       <div className="main-home">
@@ -59,6 +82,7 @@ class Home extends Component {
     this.fetchArticles();
     this.fetchArticlesMostComments();
     this.fetchArticlesMostVotes();
+    this.setState({ isLoading: false });
   };
 
   fetchArticles = () => {
