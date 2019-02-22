@@ -1,5 +1,4 @@
 import React from "react";
-import { navigate } from "@reach/router";
 import { Form, FormGroup, Input } from "reactstrap";
 import * as api from "../api/api";
 import posticon from "./icons/post.png";
@@ -41,13 +40,15 @@ export default class PostComment extends React.Component {
   addNewComment = event => {
     event.preventDefault();
     const { body } = this.state;
-    const { article_id, user } = this.props;
+    const { article_id, user, addToComments } = this.props;
     const newComment = { body, username: user };
-    api.addComment(article_id, newComment);
-    navigate(`/articles/${article_id}`, {
-      state: {
-        addedComment: newComment.body
-      }
+    api.addComment(article_id, newComment).then(({ data }) => {
+      addToComments(data);
     });
+    // navigate(`/articles/${article_id}`, {
+    //   state: {
+    //     addedComment: newComment.body
+    //   }
+    // });
   };
 }

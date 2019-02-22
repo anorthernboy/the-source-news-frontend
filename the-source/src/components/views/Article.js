@@ -71,7 +71,11 @@ class Article extends Component {
 
           <div className="main-section-head">
             <div className="section-main">
-              <PostComment user={user} article_id={article.article_id} />
+              <PostComment
+                user={user}
+                article_id={article.article_id}
+                addToComments={this.addToComments}
+              />
             </div>
             <br />
           </div>
@@ -121,6 +125,14 @@ class Article extends Component {
         comments: data.comments
       })
     );
+  };
+
+  addToComments = comment => {
+    const { comments } = this.state;
+    delete Object.assign(comment, { author: comment["username"] })["username"];
+    comments.unshift(comment);
+    console.log(comments);
+    this.setState({ comments });
   };
 }
 
