@@ -23,35 +23,31 @@ export default class PostArticle extends React.Component {
       );
     else
       return (
-        <div>
+        <div className="input-wrap">
           <Form onSubmit={this.addNewArticle}>
             <FormGroup>
-              <div className="input-wrap">
-                <Input
-                  id="title"
-                  value={title}
-                  onChange={this.handleChange}
-                  type="text"
-                  name="text"
-                  placeholder="title of new article..."
-                  style={{
-                    backgroundColor: "lightgray"
-                  }}
-                />
-              </div>
+              <Input
+                id="title"
+                value={title}
+                onChange={this.handleChange}
+                type="text"
+                name="text"
+                placeholder="title of new article..."
+                style={{
+                  backgroundColor: "lightgray"
+                }}
+              />
             </FormGroup>
             <FormGroup>
-              <div className="input-wrap">
-                <Input
-                  id="body"
-                  value={body}
-                  onChange={this.handleChange}
-                  type="textarea"
-                  name="text"
-                  placeholder="body of new article..."
-                  style={{ backgroundColor: "lightgray" }}
-                />
-              </div>
+              <Input
+                id="body"
+                value={body}
+                onChange={this.handleChange}
+                type="textarea"
+                name="text"
+                placeholder="body of new article..."
+                style={{ backgroundColor: "lightgray" }}
+              />
             </FormGroup>
             <button className="input-button">
               <img src={posticon} alt="post icon" width="28px" height="28px" />

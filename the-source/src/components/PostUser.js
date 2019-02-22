@@ -23,52 +23,46 @@ export default class PostUser extends React.Component {
       );
     else
       return (
-        <div>
+        <div className="input-wrap">
           <Form onSubmit={this.addNewUser}>
             <FormGroup>
-              <div className="input-wrap">
-                <Input
-                  id="username"
-                  value={username}
-                  onChange={this.handleChange}
-                  type="text"
-                  name="text"
-                  placeholder="choose a username..."
-                  style={{
-                    backgroundColor: "lightgray"
-                  }}
-                />
-              </div>
+              <Input
+                id="username"
+                value={username}
+                onChange={this.handleChange}
+                type="text"
+                name="text"
+                placeholder="choose a username..."
+                style={{
+                  backgroundColor: "lightgray"
+                }}
+              />
             </FormGroup>
             <FormGroup>
-              <div className="input-wrap">
-                <Input
-                  id="avatar_url"
-                  value={avatar_url}
-                  onChange={this.handleChange}
-                  type="text"
-                  name="text"
-                  placeholder="add a URL path to profile picture..."
-                  style={{
-                    backgroundColor: "lightgray"
-                  }}
-                />
-              </div>
+              <Input
+                id="avatar_url"
+                value={avatar_url}
+                onChange={this.handleChange}
+                type="text"
+                name="text"
+                placeholder="add a URL path to profile picture..."
+                style={{
+                  backgroundColor: "lightgray"
+                }}
+              />
             </FormGroup>
             <FormGroup>
-              <div className="input-wrap">
-                <Input
-                  id="name"
-                  value={name}
-                  onChange={this.handleChange}
-                  type="text"
-                  name="text"
-                  placeholder="enter full name..."
-                  style={{
-                    backgroundColor: "lightgray"
-                  }}
-                />
-              </div>
+              <Input
+                id="name"
+                value={name}
+                onChange={this.handleChange}
+                type="text"
+                name="text"
+                placeholder="enter full name..."
+                style={{
+                  backgroundColor: "lightgray"
+                }}
+              />
             </FormGroup>
             <button className="input-button">
               <img src={posticon} alt="post icon" width="28px" height="28px" />

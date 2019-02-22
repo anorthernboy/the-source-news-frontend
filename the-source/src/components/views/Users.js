@@ -24,14 +24,6 @@ class Users extends Component {
             ))}
           </div>
         </div>
-        <div className="main-section-head">
-          <h2 className="section-title">add user</h2>
-        </div>
-        <div className="main-section-head">
-          <div className="section-main">
-            <PostUser />
-          </div>
-        </div>
       </div>
     );
   }

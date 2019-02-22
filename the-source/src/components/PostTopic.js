@@ -22,33 +22,29 @@ export default class PostTopic extends React.Component {
       );
     else
       return (
-        <div>
+        <div className="input-wrap">
           <Form onSubmit={this.addNewTopic}>
             <FormGroup>
-              <div className="input-wrap">
-                <Input
-                  id="slug"
-                  value={slug}
-                  onChange={this.handleChange}
-                  type="text"
-                  name="text"
-                  placeholder="new topic to add..."
-                  style={{ backgroundColor: "lightgray" }}
-                />
-              </div>
+              <Input
+                id="slug"
+                value={slug}
+                onChange={this.handleChange}
+                type="text"
+                name="text"
+                placeholder="new topic to add..."
+                style={{ backgroundColor: "lightgray" }}
+              />
             </FormGroup>
             <FormGroup>
-              <div className="input-wrap">
-                <Input
-                  id="description"
-                  value={description}
-                  onChange={this.handleChange}
-                  type="textarea"
-                  name="text"
-                  placeholder="brief description of topic..."
-                  style={{ backgroundColor: "lightgray" }}
-                />
-              </div>
+              <Input
+                id="description"
+                value={description}
+                onChange={this.handleChange}
+                type="textarea"
+                name="text"
+                placeholder="brief description of topic..."
+                style={{ backgroundColor: "lightgray" }}
+              />
             </FormGroup>
             <button className="input-button">
               <img src={posticon} alt="post icon" width="28px" height="28px" />

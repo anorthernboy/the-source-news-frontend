@@ -13,6 +13,14 @@ class Topics extends Component {
     return (
       <div className="main-home">
         <div className="main-section-head">
+          <h2 className="section-title">new topic</h2>
+        </div>
+        <div className="main-section-head">
+          <div className="section-main">
+            <PostTopic />
+          </div>
+        </div>
+        <div className="main-section-head">
           <h2 className="section-title">topics</h2>
         </div>
         <div className="main-section-head">
@@ -22,14 +30,6 @@ class Topics extends Component {
                 <TopicCard topics={topic} />
               </div>
             ))}
-          </div>
-        </div>
-        <div className="main-section-head">
-          <h2 className="section-title">add topic</h2>
-        </div>
-        <div className="main-section-head">
-          <div className="section-main">
-            <PostTopic />
           </div>
         </div>
       </div>

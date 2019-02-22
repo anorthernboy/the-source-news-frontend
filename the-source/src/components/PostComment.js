@@ -22,20 +22,18 @@ export default class PostComment extends React.Component {
       );
     else
       return (
-        <div>
+        <div className="input-wrap">
           <Form onSubmit={this.addNewComment}>
             <FormGroup>
-              <div className="input-wrap">
-                <Input
-                  id="body"
-                  value={body}
-                  onChange={this.handleChange}
-                  type="textarea"
-                  name="text"
-                  placeholder="comment on this article..."
-                  style={{ backgroundColor: "lightgray" }}
-                />
-              </div>
+              <Input
+                id="body"
+                value={body}
+                onChange={this.handleChange}
+                type="textarea"
+                name="text"
+                placeholder="comment on this article..."
+                style={{ backgroundColor: "lightgray" }}
+              />
             </FormGroup>
             <button className="input-button">
               <img src={posticon} alt="post icon" width="28px" height="28px" />

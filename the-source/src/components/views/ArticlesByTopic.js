@@ -22,6 +22,14 @@ class ArticlesByTopic extends Component {
     return (
       <div className="main-home">
         <div className="main-section-head">
+          <h2 className="section-title">new article</h2>
+        </div>
+        <div className="main-section-head">
+          <div className="section-main">
+            <PostArticle user={user} topic={topic} />
+          </div>
+        </div>
+        <div className="main-section-head">
           <h2 className="section-title">{topic}</h2>
 
           <div className="section-menu dropdown">
@@ -39,7 +47,6 @@ class ArticlesByTopic extends Component {
               ))}
             </div>
           </div>
-
           <div className="section-sort">
             <div className="sort-button">
               <img src={sorticon} alt="menu" width="22px" height="22px" />
@@ -66,16 +73,6 @@ class ArticlesByTopic extends Component {
                 <ArticleCard articles={article} />
               </div>
             ))}
-          </div>
-        </div>
-
-        <div className="main-section-head">
-          <h2 className="section-title">add article</h2>
-        </div>
-
-        <div className="main-section-head">
-          <div className="section-main">
-            <PostArticle user={user} topic={topic} />
           </div>
         </div>
       </div>
