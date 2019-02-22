@@ -15,7 +15,11 @@ class ArticlesByTopic extends Component {
   state = {
     isLoading: true,
     topics: [],
-    articles: []
+    articles: [],
+    query: "",
+    createdDesc: true,
+    commentsDesc: false,
+    votesDesc: false
   };
 
   render() {
@@ -78,20 +82,62 @@ class ArticlesByTopic extends Component {
               </div>
             </div>
             <div className="section-sort">
-              <div className="sort-button">
-                <img src={sorticon} alt="menu" width="22px" height="22px" />
+              <div
+                className="sort-button"
+                onClick={this.sortByCreated}
+                title="sort by date created"
+              >
+                <img
+                  src={sorticon}
+                  alt="sort icon"
+                  width="22px"
+                  height="22px"
+                />
                 <span> </span>
-                <img src={timeicon} alt="menu" width="22px" height="22px" />
+                <img
+                  src={timeicon}
+                  alt="created at icon"
+                  width="22px"
+                  height="22px"
+                />
               </div>
-              <div className="sort-button">
-                <img src={sorticon} alt="menu" width="22px" height="22px" />
+              <div
+                className="sort-button"
+                onClick={this.sortByComments}
+                title="sort by comment count"
+              >
+                <img
+                  src={sorticon}
+                  alt="sort icon"
+                  width="22px"
+                  height="22px"
+                />
                 <span> </span>
-                <img src={commenticon} alt="menu" width="22px" height="22px" />
+                <img
+                  src={commenticon}
+                  alt="comments icon"
+                  width="22px"
+                  height="22px"
+                />
               </div>
-              <div className="sort-button">
-                <img src={sorticon} alt="menu" width="22px" height="22px" />
+              <div
+                className="sort-button"
+                onClick={this.sortByVotes}
+                title="sort by vote count"
+              >
+                <img
+                  src={sorticon}
+                  alt="sort icon"
+                  width="22px"
+                  height="22px"
+                />
                 <span> </span>
-                <img src={upvoteicon} alt="menu" width="22px" height="22px" />
+                <img
+                  src={upvoteicon}
+                  alt="votes icon"
+                  width="22px"
+                  height="22px"
+                />
               </div>
             </div>
           </div>
@@ -110,8 +156,10 @@ class ArticlesByTopic extends Component {
     );
   }
 
-  componentDidUpdate = prevProps => {
-    if (this.props.topic !== prevProps.topic) {
+  componentDidUpdate = (prevProps, prevState) => {
+    const changeProps = this.props.topic !== prevProps.topic;
+    const changeState = this.state.query !== prevState.query;
+    if (changeProps || changeState) {
       this.fetchArticles();
     }
   };
@@ -122,12 +170,46 @@ class ArticlesByTopic extends Component {
     this.setState({ isLoading: false });
   };
 
+  sortByCreated = () => {
+    const { createdDesc } = this.state;
+    if (createdDesc) {
+      const query = "sort_by=created_at&order=ASC";
+      this.setState({ query, createdDesc: false });
+    } else {
+      const query = "";
+      this.setState({ query, createdDesc: true });
+    }
+  };
+
+  sortByComments = () => {
+    const { commentsDesc } = this.state;
+    if (commentsDesc) {
+      const query = "sort_by=comment_count&order=ASC";
+      this.setState({ query, commentsDesc: false });
+    } else {
+      const query = "sort_by=comment_count&order=DESC";
+      this.setState({ query, commentsDesc: true });
+    }
+  };
+
+  sortByVotes = () => {
+    const { votesDesc } = this.state;
+    if (votesDesc) {
+      const query = "sort_by=votes&order=ASC";
+      this.setState({ query, votesDesc: false });
+    } else {
+      const query = "sort_by=votes&order=DESC";
+      this.setState({ query, votesDesc: true });
+    }
+  };
+
   fetchTopics = () => {
     api.getTopics().then(({ data }) => this.setState({ topics: data.topics }));
   };
 
   fetchArticles = () => {
-    const { topic, username, query } = this.props;
+    const { topic, username } = this.props;
+    const { query } = this.state;
     api
       .getArticles(topic, username, query)
       .then(({ data }) => this.setState({ articles: data.articles }));

@@ -12,13 +12,18 @@ export const addTopic = async newTopic => {
 };
 
 export const getArticles = async (topic, username, query) => {
-  const URL = topic
-    ? `${BASE_URL}/topics/${topic}/articles`
-    : username
-    ? `${BASE_URL}/users/${username}/articles`
-    : query
-    ? `${BASE_URL}/articles?${query}`
-    : `${BASE_URL}/articles`;
+  const URL =
+    topic && query
+      ? `${BASE_URL}/topics/${topic}/articles?${query}`
+      : username && query
+      ? `${BASE_URL}/users/${username}/articles?${query}`
+      : topic
+      ? `${BASE_URL}/topics/${topic}/articles`
+      : username
+      ? `${BASE_URL}/users/${username}/articles`
+      : query
+      ? `${BASE_URL}/articles?${query}`
+      : `${BASE_URL}/articles`;
   const articles = await axios.get(URL);
   return articles;
 };

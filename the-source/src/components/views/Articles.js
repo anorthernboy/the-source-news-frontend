@@ -58,20 +58,47 @@ class Articles extends Component {
           </div>
 
           <div className="section-sort">
-            <div className="sort-button" onClick={this.sortByCreated}>
-              <img src={sorticon} alt="menu" width="22px" height="22px" />
+            <div
+              className="sort-button"
+              onClick={this.sortByCreated}
+              title="sort by date created"
+            >
+              <img src={sorticon} alt="sort icon" width="22px" height="22px" />
               <span> </span>
-              <img src={timeicon} alt="menu" width="22px" height="22px" />
+              <img
+                src={timeicon}
+                alt="created at icon"
+                width="22px"
+                height="22px"
+              />
             </div>
-            <div className="sort-button" onClick={this.sortByComments}>
-              <img src={sorticon} alt="menu" width="22px" height="22px" />
+            <div
+              className="sort-button"
+              onClick={this.sortByComments}
+              title="sort by comment count"
+            >
+              <img src={sorticon} alt="sort icon" width="22px" height="22px" />
               <span> </span>
-              <img src={commenticon} alt="menu" width="22px" height="22px" />
+              <img
+                src={commenticon}
+                alt="comments icon"
+                width="22px"
+                height="22px"
+              />
             </div>
-            <div className="sort-button" onClick={this.sortByVotes}>
-              <img src={sorticon} alt="menu" width="22px" height="22px" />
+            <div
+              className="sort-button"
+              onClick={this.sortByVotes}
+              title="sort by vote count"
+            >
+              <img src={sorticon} alt="sort icon" width="22px" height="22px" />
               <span> </span>
-              <img src={upvoteicon} alt="menu" width="22px" height="22px" />
+              <img
+                src={upvoteicon}
+                alt="votes icon"
+                width="22px"
+                height="22px"
+              />
             </div>
           </div>
         </div>
@@ -89,7 +116,9 @@ class Articles extends Component {
     );
   }
 
-  componentDidUpdate = prevState => {
+  componentDidUpdate = (prevProps, prevState) => {
+    const changeState = this.state.query !== prevState.query;
+    console.log(changeState);
     if (this.state.query !== prevState.query) {
       this.fetchArticles();
     }

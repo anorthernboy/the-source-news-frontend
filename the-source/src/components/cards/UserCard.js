@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 import "../style/UserCard.css";
 import usericon from "../icons/single-user.png";
 
-const TopicCard = ({ users }) => {
+const UserCard = ({ users }) => {
   return (
     <Link to={`/users/${users.username}/articles`} className="user-card">
       <img
@@ -19,4 +19,4 @@ const TopicCard = ({ users }) => {
   );
 };
 
-export default TopicCard;
+export default UserCard;
