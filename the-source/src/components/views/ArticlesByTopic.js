@@ -25,6 +25,7 @@ class ArticlesByTopic extends Component {
   render() {
     const { isLoading, topics, articles } = this.state;
     const { topic, user } = this.props;
+    const { deletedArticle } = this.props.location.state;
 
     if (isLoading)
       return (
@@ -122,11 +123,13 @@ class ArticlesByTopic extends Component {
 
         <div className="main-section-head">
           <div className="section-main">
-            {articles.map(article => (
-              <div key={article.article_id}>
-                <ArticleCard articles={article} />
-              </div>
-            ))}
+            {articles
+              .filter(article => article.article_id !== deletedArticle)
+              .map(article => (
+                <div key={article.article_id}>
+                  <ArticleCard articles={article} />
+                </div>
+              ))}
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { navigate } from "@reach/router";
 import * as api from "../../api/api";
 import deleteicon from "../icons/delete.png";
 
@@ -19,9 +20,11 @@ class ArticleDelete extends Component {
   }
 
   removeArticle = () => {
-    const { article_id } = this.props;
+    const { article_id, topic } = this.props;
     api.deleteArticle(article_id);
-    this.setState();
+    navigate(`/topics/${topic}/articles`, {
+      state: { deletedArticle: article_id }
+    });
   };
 }
 

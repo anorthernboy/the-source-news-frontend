@@ -41,6 +41,7 @@ export default class PostUser extends React.Component {
               style={{
                 backgroundColor: "lightgray"
               }}
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -54,6 +55,7 @@ export default class PostUser extends React.Component {
               style={{
                 backgroundColor: "lightgray"
               }}
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -67,6 +69,7 @@ export default class PostUser extends React.Component {
               style={{
                 backgroundColor: "lightgray"
               }}
+              required
             />
           </FormGroup>
           <button className="input-button">
