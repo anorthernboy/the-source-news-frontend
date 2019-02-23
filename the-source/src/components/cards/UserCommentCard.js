@@ -12,7 +12,7 @@ class UserCommentCard extends Component {
   };
 
   render() {
-    const { comments, user } = this.props;
+    const { comments, user, username } = this.props;
     const { article } = this.state;
     return (
       <div>
@@ -30,6 +30,7 @@ class UserCommentCard extends Component {
           <div className="comment-delete">
             <CommentDelete
               user={user}
+              username={username}
               author={comments.username}
               article_id={comments.article_id}
               comment_id={comments.comment_id}
@@ -52,6 +53,7 @@ class UserCommentCard extends Component {
               article_id={comments.article_id}
               author={comments.username}
               user={user}
+              username={username}
             />
           </div>
         </div>

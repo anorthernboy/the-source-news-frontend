@@ -129,10 +129,14 @@ class ArticlesByUser extends Component {
         <div className="main-section-head">
           <div className="section-main">
             {comments
-              .filter(comment => comment.username === user)
+              .filter(comment => comment.username === username)
               .map(comment => (
                 <div key={comment.comment_id}>
-                  <UserCommentCard comments={comment} user={user} />
+                  <UserCommentCard
+                    comments={comment}
+                    username={username}
+                    user={user}
+                  />
                 </div>
               ))}
           </div>
@@ -142,7 +146,7 @@ class ArticlesByUser extends Component {
   }
 
   componentDidUpdate = (prevProps, prevState) => {
-    const changeProps = this.props.topic !== prevProps.topic;
+    const changeProps = this.props.username !== prevProps.username;
     const changeState = this.state.query !== prevState.query;
     if (changeProps || changeState) {
       this.fetchArticles();
