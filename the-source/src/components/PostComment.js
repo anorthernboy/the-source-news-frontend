@@ -23,6 +23,7 @@ export default class PostComment extends React.Component {
               name="text"
               placeholder="comment on this article..."
               style={{ backgroundColor: "lightgray" }}
+              required
             />
           </FormGroup>
           <button className="input-button">
@@ -45,10 +46,5 @@ export default class PostComment extends React.Component {
     api.addComment(article_id, newComment).then(({ data }) => {
       addToComments(data);
     });
-    // navigate(`/articles/${article_id}`, {
-    //   state: {
-    //     addedComment: newComment.body
-    //   }
-    // });
   };
 }

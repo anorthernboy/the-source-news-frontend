@@ -1,5 +1,4 @@
 import React from "react";
-import { navigate } from "@reach/router";
 import { Form, FormGroup, Input } from "reactstrap";
 import * as api from "../api/api";
 import posticon from "./icons/post.png";
@@ -27,6 +26,7 @@ export default class PostArticle extends React.Component {
               style={{
                 backgroundColor: "lightgray"
               }}
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -38,6 +38,7 @@ export default class PostArticle extends React.Component {
               name="text"
               placeholder="body of new article..."
               style={{ backgroundColor: "lightgray" }}
+              required
             />
           </FormGroup>
           <button className="input-button">
@@ -55,13 +56,10 @@ export default class PostArticle extends React.Component {
   addNewArticle = event => {
     event.preventDefault();
     const { title, body } = this.state;
-    const { topic, user } = this.props;
+    const { topic, user, addToArticles } = this.props;
     const newArticle = { title, body, username: user };
-    api.addArticle(topic, newArticle);
-    navigate(`/topics/${topic}/articles`, {
-      state: {
-        addedArticle: newArticle.title
-      }
+    api.addArticle(topic, newArticle).then(({ data }) => {
+      addToArticles(data);
     });
   };
 }

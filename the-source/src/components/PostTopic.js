@@ -1,5 +1,4 @@
 import React from "react";
-import { navigate } from "@reach/router";
 import { Form, FormGroup, Input } from "reactstrap";
 import * as api from "../api/api";
 import "./style/PostTopic.css";
@@ -26,6 +25,7 @@ export default class PostTopic extends React.Component {
               name="text"
               placeholder="new topic to add..."
               style={{ backgroundColor: "lightgray" }}
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -37,6 +37,7 @@ export default class PostTopic extends React.Component {
               name="text"
               placeholder="brief description of topic..."
               style={{ backgroundColor: "lightgray" }}
+              required
             />
           </FormGroup>
           <button className="input-button">
@@ -54,12 +55,10 @@ export default class PostTopic extends React.Component {
   addNewTopic = event => {
     event.preventDefault();
     const { slug, description } = this.state;
+    const { addToTopics } = this.props;
     const newTopic = { slug, description };
-    api.addTopic(newTopic);
-    navigate("/topics", {
-      state: {
-        addedTopic: newTopic.slug
-      }
+    api.addTopic(newTopic).then(({ data }) => {
+      addToTopics(data);
     });
   };
 }

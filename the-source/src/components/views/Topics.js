@@ -12,7 +12,6 @@ class Topics extends Component {
 
   render() {
     const { isLoading, topics } = this.state;
-    const { addedTopic } = this.props.location.state;
 
     if (isLoading)
       return (
@@ -31,36 +30,25 @@ class Topics extends Component {
       );
 
     return (
-      <div>
-        {addedTopic && (
-          <div className="main-alert-home">
-            <div className="main-alert-head">
-              <h4 className="section-alert-top">{`${addedTopic} has been added to the source`}</h4>
-              <h4 className="section-alert-bottom">{`you can now add articles to ${addedTopic}`}</h4>
-            </div>
+      <div className="main-home">
+        <div className="main-section-head">
+          <h2 className="section-title">new topic</h2>
+        </div>
+        <div className="main-section-head">
+          <div className="section-main">
+            <PostTopic addToTopics={this.addToTopics} />
           </div>
-        )}
-
-        <div className="main-home">
-          <div className="main-section-head">
-            <h2 className="section-title">new topic</h2>
-          </div>
-          <div className="main-section-head">
-            <div className="section-main">
-              <PostTopic />
-            </div>
-          </div>
-          <div className="main-section-head">
-            <h2 className="section-title">topics</h2>
-          </div>
-          <div className="main-section-head">
-            <div className="section-main">
-              {topics.map(topic => (
-                <div key={topic.slug}>
-                  <TopicCard topics={topic} />
-                </div>
-              ))}
-            </div>
+        </div>
+        <div className="main-section-head">
+          <h2 className="section-title">topics</h2>
+        </div>
+        <div className="main-section-head">
+          <div className="section-main">
+            {topics.map(topic => (
+              <div key={topic.slug}>
+                <TopicCard topics={topic} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -73,6 +61,12 @@ class Topics extends Component {
       .then(({ data }) =>
         this.setState({ topics: data.topics, isLoading: false })
       );
+  };
+
+  addToTopics = topic => {
+    const { topics } = this.state;
+    topics.unshift(topic);
+    this.setState({ topics });
   };
 }
 

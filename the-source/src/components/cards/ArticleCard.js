@@ -31,11 +31,11 @@ const ArticleCard = ({ articles }) => {
       <h6 className="comment-vote">
         <img src={commenticon} alt="user icon" width="15px" height="15px" />
         <span> </span>
-        {articles.comment_count}
+        {articles.comment_count || 0}
         <span> </span>
         <img src={upvoteicon} alt="user icon" width="15px" height="15px" />
         <span> </span>
-        {articles.votes}
+        {articles.votes || 0}
       </h6>
     </Link>
   );
