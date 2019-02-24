@@ -44,92 +44,122 @@ class ArticlesByTopic extends Component {
       );
 
     return (
-      <div className="main-home">
-        <div className="main-section-head">
-          <h2 className="section-title">new article</h2>
-        </div>
-        <div className="main-section-head">
-          <div className="section-main">
-            <PostArticle
-              user={user}
-              topic={topic}
-              addToArticles={this.addToArticles}
-            />
+      <div>
+        {deletedArticle && (
+          <div className="main-section-head">
+            <div className="section-main">
+              <div className="main-alert-home">
+                <div className="main-alert-head">
+                  <h4 className="section-alert-top">{`thank you ${user}`}</h4>
+                  <h4 className="section-alert-bottom">{`${deletedArticle
+                    .slice(0, 30)
+                    .trim() + "..."} has been deleted`}</h4>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="main-section-head">
-          <h2 className="section-title">{topic}</h2>
+        )}
 
-          <div className="section-menu dropdown">
-            <p className="dropbtn">
-              <img src={menuicon} alt="menu" width="28px" height="28px" />
-            </p>
-            <div className="dropdown-content">
-              <Link to="/articles">
-                <h4>all</h4>
-              </Link>
-              {topics.map(topic => (
-                <Link key={topic.slug} to={`/topics/${topic.slug}/articles`}>
-                  <h4>{topic.slug}</h4>
+        <div className="main-home">
+          <div className="main-section-head">
+            <h2 className="section-title">new article</h2>
+          </div>
+          <div className="main-section-head">
+            <div className="section-main">
+              <PostArticle
+                user={user}
+                topic={topic}
+                addToArticles={this.addToArticles}
+              />
+            </div>
+          </div>
+          <div className="main-section-head">
+            <h2 className="section-title">{topic}</h2>
+
+            <div className="section-menu dropdown">
+              <p className="dropbtn">
+                <img src={menuicon} alt="menu" width="28px" height="28px" />
+              </p>
+              <div className="dropdown-content">
+                <Link to="/articles">
+                  <h4>all</h4>
                 </Link>
-              ))}
+                {topics.map(topic => (
+                  <Link key={topic.slug} to={`/topics/${topic.slug}/articles`}>
+                    <h4>{topic.slug}</h4>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="section-sort">
+              <div
+                className="sort-button"
+                onClick={this.sortByCreated}
+                title="sort by date created"
+              >
+                <img
+                  src={sorticon}
+                  alt="sort icon"
+                  width="22px"
+                  height="22px"
+                />
+                <span> </span>
+                <img
+                  src={timeicon}
+                  alt="created at icon"
+                  width="22px"
+                  height="22px"
+                />
+              </div>
+              <div
+                className="sort-button"
+                onClick={this.sortByComments}
+                title="sort by comment count"
+              >
+                <img
+                  src={sorticon}
+                  alt="sort icon"
+                  width="22px"
+                  height="22px"
+                />
+                <span> </span>
+                <img
+                  src={commenticon}
+                  alt="comments icon"
+                  width="22px"
+                  height="22px"
+                />
+              </div>
+              <div
+                className="sort-button"
+                onClick={this.sortByVotes}
+                title="sort by vote count"
+              >
+                <img
+                  src={sorticon}
+                  alt="sort icon"
+                  width="22px"
+                  height="22px"
+                />
+                <span> </span>
+                <img
+                  src={upvoteicon}
+                  alt="votes icon"
+                  width="22px"
+                  height="22px"
+                />
+              </div>
             </div>
           </div>
-          <div className="section-sort">
-            <div
-              className="sort-button"
-              onClick={this.sortByCreated}
-              title="sort by date created"
-            >
-              <img src={sorticon} alt="sort icon" width="22px" height="22px" />
-              <span> </span>
-              <img
-                src={timeicon}
-                alt="created at icon"
-                width="22px"
-                height="22px"
-              />
-            </div>
-            <div
-              className="sort-button"
-              onClick={this.sortByComments}
-              title="sort by comment count"
-            >
-              <img src={sorticon} alt="sort icon" width="22px" height="22px" />
-              <span> </span>
-              <img
-                src={commenticon}
-                alt="comments icon"
-                width="22px"
-                height="22px"
-              />
-            </div>
-            <div
-              className="sort-button"
-              onClick={this.sortByVotes}
-              title="sort by vote count"
-            >
-              <img src={sorticon} alt="sort icon" width="22px" height="22px" />
-              <span> </span>
-              <img
-                src={upvoteicon}
-                alt="votes icon"
-                width="22px"
-                height="22px"
-              />
-            </div>
-          </div>
-        </div>
 
-        <div className="main-section-head">
-          <div className="section-main">
-            {articles
-              .filter(article => article.article_id !== deletedArticle)
-              .map(article => (
+          <div className="main-section-head">
+            <div className="section-main">
+              {articles.map(article => (
                 <div key={article.article_id}>
                   <ArticleCard articles={article} />
                 </div>
               ))}
+            </div>
           </div>
         </div>
       </div>

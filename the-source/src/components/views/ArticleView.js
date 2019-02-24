@@ -24,6 +24,7 @@ const ArticleView = ({ articles, user }) => {
             author={articles.author}
             article_id={articles.article_id}
             topic={articles.topic}
+            title={articles.title}
           />
         </div>
         <h3 className="article-title">{articles.title}</h3>

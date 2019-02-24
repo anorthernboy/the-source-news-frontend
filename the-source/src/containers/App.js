@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
+import { navigate } from "@reach/router";
 import * as api from "../api/api";
 import Header from "../components/Header";
 import Scroll from "../components/Scroll";
@@ -58,6 +59,7 @@ class App extends Component {
 
   userLogout = () => {
     this.setState({ user: "" });
+    navigate(`/`);
   };
 }
 

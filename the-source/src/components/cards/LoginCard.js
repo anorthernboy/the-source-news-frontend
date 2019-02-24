@@ -2,7 +2,7 @@ import React from "react";
 import "../style/UserCard.css";
 import usericon from "../icons/single-user.png";
 
-const TopicCard = ({ users }) => {
+const LoginCard = ({ users }) => {
   return (
     <div className="user-button">
       <div className="user-card">
@@ -20,4 +20,4 @@ const TopicCard = ({ users }) => {
   );
 };
 
-export default TopicCard;
+export default LoginCard;

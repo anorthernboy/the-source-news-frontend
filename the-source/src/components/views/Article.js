@@ -16,6 +16,7 @@ class Article extends Component {
   render() {
     const { isLoading, article, comments } = this.state;
     const { user } = this.props;
+    const { deletedComment } = this.props.location.state;
 
     if (isLoading)
       return (
@@ -34,60 +35,74 @@ class Article extends Component {
       );
 
     return (
-      <div className="main-home">
-        <div className="main-section-head">
-          <Link
-            to={`/topics/${article.topic}/articles`}
-            className="section-title"
-          >
-            <h2>{article.topic}</h2>
-          </Link>
-        </div>
-
-        <div className="main-section-head">
-          <div className="section-main">
-            <ArticleView user={user} articles={article} />
-          </div>
-          <br />
-        </div>
-
-        <div className="main-section-head">
-          <h2 className="section-title">add comment</h2>
-        </div>
-
-        <div className="main-section-head">
-          <div className="section-main">
-            <PostComment
-              user={user}
-              article_id={article.article_id}
-              addToComments={this.addToComments}
-            />
-          </div>
-          <br />
-        </div>
-
-        {comments.length !== 0 && (
-          <div>
-            <div className="main-section-head">
-              <h2 className="section-title">comments</h2>
-            </div>
-
-            <div className="main-section-head">
-              <div className="section-main">
-                {comments.map(comment => (
-                  <div key={comment.comment_id}>
-                    <CommentCard
-                      user={user}
-                      comments={comment}
-                      article_id={article.article_id}
-                    />
-                  </div>
-                ))}
+      <div>
+        {deletedComment && (
+          <div className="main-section-head">
+            <div className="section-main">
+              <div className="main-alert-home">
+                <div className="main-alert-head">
+                  <h4 className="section-alert-top">{`thank you ${user}`}</h4>
+                  <h4 className="section-alert-bottom">{`your comment has been deleted`}</h4>
+                </div>
               </div>
-              <br />
             </div>
           </div>
         )}
+        <div className="main-home">
+          <div className="main-section-head">
+            <Link
+              to={`/topics/${article.topic}/articles`}
+              className="section-title"
+            >
+              <h2>{article.topic}</h2>
+            </Link>
+          </div>
+
+          <div className="main-section-head">
+            <div className="section-main">
+              <ArticleView user={user} articles={article} />
+            </div>
+            <br />
+          </div>
+
+          <div className="main-section-head">
+            <h2 className="section-title">add comment</h2>
+          </div>
+
+          <div className="main-section-head">
+            <div className="section-main">
+              <PostComment
+                user={user}
+                article_id={article.article_id}
+                addToComments={this.addToComments}
+              />
+            </div>
+            <br />
+          </div>
+
+          {comments.length !== 0 && (
+            <div>
+              <div className="main-section-head">
+                <h2 className="section-title">comments</h2>
+              </div>
+
+              <div className="main-section-head">
+                <div className="section-main">
+                  {comments.map(comment => (
+                    <div key={comment.comment_id}>
+                      <CommentCard
+                        user={user}
+                        comments={comment}
+                        article_id={article.article_id}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <br />
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
