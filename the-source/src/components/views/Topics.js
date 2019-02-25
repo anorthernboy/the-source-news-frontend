@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../api/api";
 import TopicCard from "../cards/TopicCard";
 import PostTopic from "../PostTopic";
-import loadingicon from "../icons/loading.png";
+import Loading from "../buttons/Loading";
 
 class Topics extends Component {
   state = {
@@ -18,12 +18,7 @@ class Topics extends Component {
         <div className="main-alert-home">
           <div className="main-alert-head">
             <h2 className="section-loading">
-              <img
-                src={loadingicon}
-                alt="loading icon"
-                width="40px"
-                height="40px"
-              />
+              <Loading />
             </h2>
           </div>
         </div>

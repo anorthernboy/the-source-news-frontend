@@ -43,6 +43,7 @@ class App extends Component {
               <Article path="/articles/:article_id/" user={user} />
               <Topics path="/topics" user={user} />
               <Users path="/users" />
+              <NotFound default />
             </Router>
           </Auth>
         </Scroll>
@@ -55,6 +56,7 @@ class App extends Component {
     api.getUser(username).then(({ data }) => {
       this.setState({ user: data.username });
     });
+    navigate(`/`);
   };
 
   userLogout = () => {
@@ -62,5 +64,7 @@ class App extends Component {
     navigate(`/`);
   };
 }
+
+const NotFound = () => <p>nothing to see here</p>;
 
 export default App;

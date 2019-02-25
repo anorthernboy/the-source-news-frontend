@@ -3,8 +3,8 @@ import { Form, Input } from "reactstrap";
 import * as api from "../api/api";
 import LoginCard from "./cards/LoginCard";
 import PostUser from "./PostUser";
+import Loading from "./buttons/Loading";
 import loginicon from "./icons/login.png";
-import loadingicon from "./icons/loading.png";
 
 class Auth extends Component {
   state = {
@@ -22,12 +22,7 @@ class Auth extends Component {
         <div className="main-alert-home">
           <div className="main-alert-head">
             <h2 className="section-loading">
-              <img
-                src={loadingicon}
-                alt="loading icon"
-                width="40px"
-                height="40px"
-              />
+              <Loading />
             </h2>
           </div>
         </div>

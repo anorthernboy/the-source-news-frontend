@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../api/api";
 import ArticleCard from "../cards/ArticleCard";
-import loadingicon from "../icons/loading.png";
+import Loading from "../buttons/Loading";
 import "../style/Home.css";
 
 class Home extends Component {
@@ -25,12 +25,7 @@ class Home extends Component {
         <div className="main-alert-home">
           <div className="main-alert-head">
             <h2 className="section-loading">
-              <img
-                src={loadingicon}
-                alt="loading icon"
-                width="40px"
-                height="40px"
-              />
+              <Loading />
             </h2>
           </div>
         </div>

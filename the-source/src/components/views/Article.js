@@ -4,7 +4,7 @@ import * as api from "../../api/api";
 import ArticleView from "../views/ArticleView";
 import CommentCard from "../cards/CommentCard";
 import PostComment from "../PostComment";
-import loadingicon from "../icons/loading.png";
+import Loading from "../buttons/Loading";
 
 class Article extends Component {
   state = {
@@ -23,12 +23,7 @@ class Article extends Component {
         <div className="main-alert-home">
           <div className="main-alert-head">
             <h2 className="section-loading">
-              <img
-                src={loadingicon}
-                alt="loading icon"
-                width="40px"
-                height="40px"
-              />
+              <Loading />
             </h2>
           </div>
         </div>

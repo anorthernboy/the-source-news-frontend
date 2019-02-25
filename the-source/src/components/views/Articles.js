@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import * as api from "../../api/api";
 import ArticleCard from "../cards/ArticleCard";
+import Loading from "../buttons/Loading";
 import "../style/Articles.css";
 import menuicon from "../icons/menu.png";
 import sorticon from "../icons/sort.png";
 import commenticon from "../icons/comment.png";
 import upvoteicon from "../icons/like.png";
 import timeicon from "../icons/calendar.png";
-import loadingicon from "../icons/loading.png";
 
 class Articles extends Component {
   state = {
@@ -28,12 +28,7 @@ class Articles extends Component {
         <div className="main-alert-home">
           <div className="main-alert-head">
             <h2 className="section-loading">
-              <img
-                src={loadingicon}
-                alt="loading icon"
-                width="40px"
-                height="40px"
-              />
+              <Loading />
             </h2>
           </div>
         </div>
@@ -117,8 +112,6 @@ class Articles extends Component {
   }
 
   componentDidUpdate = (prevProps, prevState) => {
-    const changeState = this.state.query !== prevState.query;
-    console.log(changeState);
     if (this.state.query !== prevState.query) {
       this.fetchArticles();
     }

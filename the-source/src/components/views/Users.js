@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../api/api";
 import UserCard from "../cards/UserCard";
-import loadingicon from "../icons/loading.png";
+import Loading from "../buttons/Loading";
 
 class Users extends Component {
   state = {
@@ -14,16 +14,15 @@ class Users extends Component {
 
     if (isLoading)
       return (
-        <div className="main-alert-home">
-          <div className="main-alert-head">
-            <h2 className="section-loading">
-              <img
-                src={loadingicon}
-                alt="loading icon"
-                width="40px"
-                height="40px"
-              />
-            </h2>
+        <div className="main-section-head">
+          <div className="section-main">
+            <div className="main-alert-home">
+              <div className="main-alert-head">
+                <h2 className="section-loading">
+                  <Loading />
+                </h2>
+              </div>
+            </div>
           </div>
         </div>
       );
