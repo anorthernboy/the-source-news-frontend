@@ -29,11 +29,15 @@ class ArticlesByUser extends Component {
 
     if (isLoading)
       return (
-        <div className="main-alert-home">
-          <div className="main-alert-head">
-            <h2 className="section-loading">
-              <Loading />
-            </h2>
+        <div className="main-section-head">
+          <div className="section-main">
+            <div className="main-alert-home">
+              <div className="main-alert-head">
+                <h2 className="section-loading">
+                  <Loading />
+                </h2>
+              </div>
+            </div>
           </div>
         </div>
       );
