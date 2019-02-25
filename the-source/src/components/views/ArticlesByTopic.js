@@ -65,11 +65,7 @@ class ArticlesByTopic extends Component {
           </div>
           <div className="main-section-head">
             <div className="section-main">
-              <PostArticle
-                user={user}
-                topic={topic}
-                addToArticles={this.addToArticles}
-              />
+              <PostArticle user={user} topic={topic} />
             </div>
           </div>
           <div className="main-section-head">
@@ -222,13 +218,6 @@ class ArticlesByTopic extends Component {
     api
       .getArticles(topic, username, query)
       .then(({ data }) => this.setState({ articles: data.articles }));
-  };
-
-  addToArticles = article => {
-    const { articles } = this.state;
-    delete Object.assign(article, { author: article["username"] })["username"];
-    articles.unshift(article);
-    this.setState({ articles });
   };
 }
 

@@ -10,13 +10,13 @@ class Article extends Component {
   state = {
     isLoading: true,
     article: {},
-    comments: []
+    comments: [],
+    commentAdded: false
   };
 
   render() {
-    const { isLoading, article, comments } = this.state;
+    const { isLoading, article, comments, commentAdded } = this.state;
     const { user } = this.props;
-    const { deletedComment } = this.props.location.state;
 
     if (isLoading)
       return (
@@ -35,7 +35,7 @@ class Article extends Component {
 
     return (
       <div>
-        {deletedComment && (
+        {commentAdded && (
           <div className="main-section-head">
             <div className="section-main">
               <div className="main-alert-home">
@@ -93,6 +93,7 @@ class Article extends Component {
                         user={user}
                         comments={comment}
                         article_id={article.article_id}
+                        removeFromComments={this.removeFromComments}
                       />
                     </div>
                   ))}
@@ -135,6 +136,14 @@ class Article extends Component {
     delete Object.assign(comment, { author: comment["username"] })["username"];
     comments.unshift(comment);
     this.setState({ comments });
+  };
+
+  removeFromComments = comment_id => {
+    const { comments } = this.state;
+    const newComments = comments.filter(
+      comment => comment.comment_id !== comment_id
+    );
+    this.setState({ comments: newComments, commentAdded: true });
   };
 }
 

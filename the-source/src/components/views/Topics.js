@@ -35,7 +35,7 @@ class Topics extends Component {
         </div>
         <div className="main-section-head">
           <div className="section-main">
-            <PostTopic addToTopics={this.addToTopics} />
+            <PostTopic />
           </div>
         </div>
         <div className="main-section-head">
@@ -60,12 +60,6 @@ class Topics extends Component {
       .then(({ data }) =>
         this.setState({ topics: data.topics, isLoading: false })
       );
-  };
-
-  addToTopics = topic => {
-    const { topics } = this.state;
-    topics.unshift(topic);
-    this.setState({ topics });
   };
 }
 

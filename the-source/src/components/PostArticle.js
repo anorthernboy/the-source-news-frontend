@@ -1,4 +1,5 @@
 import React from "react";
+import { navigate } from "@reach/router";
 import { Form, FormGroup, Input } from "reactstrap";
 import * as api from "../api/api";
 import posticon from "./icons/post.png";
@@ -56,10 +57,10 @@ export default class PostArticle extends React.Component {
   addNewArticle = event => {
     event.preventDefault();
     const { title, body } = this.state;
-    const { topic, user, addToArticles } = this.props;
+    const { topic, user } = this.props;
     const newArticle = { title, body, username: user };
     api.addArticle(topic, newArticle).then(({ data }) => {
-      addToArticles(data);
+      navigate(`/articles/${data.article_id}`);
     });
   };
 }

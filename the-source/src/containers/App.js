@@ -12,6 +12,7 @@ import ArticlesByUser from "../components/views/ArticlesByUser";
 import Article from "../components/views/Article";
 import Topics from "../components/views/Topics";
 import Users from "../components/views/Users";
+import Error from "../components/views/Error";
 import Nav from "../components/Nav";
 import "./App.css";
 
@@ -43,6 +44,7 @@ class App extends Component {
               <Article path="/articles/:article_id/" user={user} />
               <Topics path="/topics" user={user} />
               <Users path="/users" />
+              <Error path="/error" />
               <NotFound default />
             </Router>
           </Auth>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { navigate } from "@reach/router";
 import * as api from "../../api/api";
 import deleteicon from "../icons/delete.png";
 
@@ -20,11 +19,9 @@ class CommentDelete extends Component {
   }
 
   removeComment = () => {
-    const { article_id, comment_id } = this.props;
+    const { article_id, comment_id, removeFromComments } = this.props;
     api.deleteComment(article_id, comment_id);
-    navigate(`/articles/${article_id}`, {
-      state: { deletedComment: true }
-    });
+    removeFromComments(comment_id);
   };
 }
 

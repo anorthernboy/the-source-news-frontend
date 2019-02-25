@@ -5,7 +5,7 @@ import "../style/CommentCard.css";
 import usericon from "../icons/single-user.png";
 import CommentDelete from "../buttons/CommentDelete";
 
-const CommentCard = ({ comments, article_id, user }) => {
+const CommentCard = ({ comments, article_id, user, removeFromComments }) => {
   return (
     <div>
       <div className="comment-card">
@@ -23,6 +23,7 @@ const CommentCard = ({ comments, article_id, user }) => {
             author={comments.author}
             article_id={article_id}
             comment_id={comments.comment_id}
+            removeFromComments={removeFromComments}
           />
         </div>
         <h6 className="body">{comments.body}</h6>

@@ -1,4 +1,5 @@
 import React from "react";
+import { navigate } from "@reach/router";
 import { Form, FormGroup, Input } from "reactstrap";
 import * as api from "../api/api";
 import "./style/PostTopic.css";
@@ -55,10 +56,9 @@ export default class PostTopic extends React.Component {
   addNewTopic = event => {
     event.preventDefault();
     const { slug, description } = this.state;
-    const { addToTopics } = this.props;
     const newTopic = { slug, description };
     api.addTopic(newTopic).then(({ data }) => {
-      addToTopics(data);
+      navigate(`/topics/${slug}/articles`);
     });
   };
 }

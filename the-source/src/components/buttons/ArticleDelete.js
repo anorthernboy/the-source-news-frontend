@@ -23,6 +23,7 @@ class ArticleDelete extends Component {
     const { article_id, topic, title } = this.props;
     api.deleteArticle(article_id);
     navigate(`/topics/${topic}/articles`, {
+      replace: true,
       state: { deletedArticle: title }
     });
   };
