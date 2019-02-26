@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, FormGroup, Input } from "reactstrap";
-import * as api from "../api/api";
-import posticon from "./icons/post.png";
+import * as api from "../../api/api";
+import posticon from "../icons/post.png";
 
 export default class PostComment extends React.Component {
   state = {

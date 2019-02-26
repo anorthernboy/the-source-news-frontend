@@ -1,43 +1,42 @@
 import React from "react";
 import { navigate } from "@reach/router";
 import { Form, FormGroup, Input } from "reactstrap";
-import * as api from "../api/api";
-import posticon from "./icons/post.png";
+import * as api from "../../api/api";
+import "../style/PostTopic.css";
+import posticon from "../icons/post.png";
 
-export default class PostArticle extends React.Component {
+export default class PostTopic extends React.Component {
   state = {
-    title: "",
-    body: ""
+    slug: "",
+    description: ""
   };
 
   render() {
-    const { title, body } = this.state;
+    const { slug, description } = this.state;
 
     return (
       <div className="input-wrap">
-        <Form onSubmit={this.addNewArticle}>
+        <Form onSubmit={this.addNewTopic}>
           <FormGroup>
             <Input
-              id="title"
-              value={title}
+              id="slug"
+              value={slug}
               onChange={this.handleChange}
               type="text"
               name="text"
-              placeholder="title of new article..."
-              style={{
-                backgroundColor: "lightgray"
-              }}
+              placeholder="new topic to add..."
+              style={{ backgroundColor: "lightgray" }}
               required
             />
           </FormGroup>
           <FormGroup>
             <Input
-              id="body"
-              value={body}
+              id="description"
+              value={description}
               onChange={this.handleChange}
               type="textarea"
               name="text"
-              placeholder="body of new article..."
+              placeholder="brief description of topic..."
               style={{ backgroundColor: "lightgray" }}
               required
             />
@@ -54,13 +53,12 @@ export default class PostArticle extends React.Component {
     this.setState({ [event.target.id]: event.target.value });
   };
 
-  addNewArticle = event => {
+  addNewTopic = event => {
     event.preventDefault();
-    const { title, body } = this.state;
-    const { topic, user } = this.props;
-    const newArticle = { title, body, username: user };
-    api.addArticle(topic, newArticle).then(({ data }) => {
-      navigate(`/articles/${data.article_id}`);
+    const { slug, description } = this.state;
+    const newTopic = { slug, description };
+    api.addTopic(newTopic).then(({ data }) => {
+      navigate(`/topics/${slug}/articles`);
     });
   };
 }

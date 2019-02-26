@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../api/api";
 import UserCard from "../cards/UserCard";
 import Error from "../views/Error";
-import Loading from "../buttons/Loading";
+import Loading from "../cards/Loading";
 
 class Users extends Component {
   state = {
@@ -15,34 +15,9 @@ class Users extends Component {
     const { isError, isLoading, users } = this.state;
 
     if (isError)
-      return (
-        <div className="main-section-head">
-          <div className="section-main">
-            <div className="main-alert-home">
-              <div className="main-alert-head">
-                <h2 className="section-loading">
-                  <Error errorCode={isError.status} errorMsg={isError.msg} />
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
+      return <Error errorCode={isError.status} errorMsg={isError.msg} />;
 
-    if (isLoading)
-      return (
-        <div className="main-section-head">
-          <div className="section-main">
-            <div className="main-alert-home">
-              <div className="main-alert-head">
-                <h2 className="section-loading">
-                  <Loading />
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
+    if (isLoading) return <Loading />;
 
     return (
       <div className="main-home">

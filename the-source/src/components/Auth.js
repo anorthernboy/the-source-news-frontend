@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Form, Input } from "reactstrap";
 import * as api from "../api/api";
 import LoginCard from "./cards/LoginCard";
-import PostUser from "./PostUser";
+import PostUser from "./cards/PostUser";
 import Error from "./views/Error";
-import Loading from "./buttons/Loading";
+import Loading from "./cards/Loading";
 import loginicon from "./icons/login.png";
 
 class Auth extends Component {
@@ -20,34 +20,9 @@ class Auth extends Component {
     const { isError, isLoading, users, username } = this.state;
 
     if (isError)
-      return (
-        <div className="main-section-head">
-          <div className="section-main">
-            <div className="main-alert-home">
-              <div className="main-alert-head">
-                <h2 className="section-loading">
-                  <Error errorCode={isError.status} errorMsg={isError.msg} />
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
+      return <Error errorCode={isError.status} errorMsg={isError.msg} />;
 
-    if (isLoading)
-      return (
-        <div className="main-section-head">
-          <div className="section-main">
-            <div className="main-alert-home">
-              <div className="main-alert-head">
-                <div className="section-loading">
-                  <Loading />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
+    if (isLoading) return <Loading />;
 
     if (user) return this.props.children;
     else
