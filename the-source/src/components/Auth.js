@@ -3,6 +3,7 @@ import { Form, Input } from "reactstrap";
 import * as api from "../api/api";
 import LoginCard from "./cards/LoginCard";
 import PostUser from "./PostUser";
+import Error from "./views/Error";
 import Loading from "./buttons/Loading";
 import loginicon from "./icons/login.png";
 
@@ -10,12 +11,28 @@ class Auth extends Component {
   state = {
     isLoading: true,
     users: [],
-    username: ""
+    username: "",
+    isError: ""
   };
 
   render() {
     const { user } = this.props;
-    const { isLoading, users, username } = this.state;
+    const { isError, isLoading, users, username } = this.state;
+
+    if (isError)
+      return (
+        <div className="main-section-head">
+          <div className="section-main">
+            <div className="main-alert-home">
+              <div className="main-alert-head">
+                <h2 className="section-loading">
+                  <Error errorCode={isError.status} errorMsg={isError.msg} />
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
 
     if (isLoading)
       return (
@@ -23,9 +40,9 @@ class Auth extends Component {
           <div className="section-main">
             <div className="main-alert-home">
               <div className="main-alert-head">
-                <h2 className="section-loading">
+                <div className="section-loading">
                   <Loading />
-                </h2>
+                </div>
               </div>
             </div>
           </div>
@@ -79,7 +96,10 @@ class Auth extends Component {
   };
 
   fetchUsers = () => {
-    api.getUsers().then(({ data }) => this.setState({ users: data.users }));
+    api
+      .getUsers()
+      .then(({ data }) => this.setState({ users: data.users }))
+      .catch(error => this.setState({ isError: error.response.data }));
   };
 
   handleChange = event => {

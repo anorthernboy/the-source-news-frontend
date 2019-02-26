@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../api/api";
 import ArticleCard from "../cards/ArticleCard";
+import Error from "../views/Error";
 import Loading from "../buttons/Loading";
 import "../style/Home.css";
 
@@ -9,16 +10,33 @@ class Home extends Component {
     isLoading: true,
     articles: [],
     articlesMostComments: [],
-    articlesMostVotes: []
+    articlesMostVotes: [],
+    isError: ""
   };
 
   render() {
     const {
+      isError,
       isLoading,
       articles,
       articlesMostComments,
       articlesMostVotes
     } = this.state;
+
+    if (isError)
+      return (
+        <div className="main-section-head">
+          <div className="section-main">
+            <div className="main-alert-home">
+              <div className="main-alert-head">
+                <h2 className="section-loading">
+                  <Error errorCode={isError.status} errorMsg={isError.msg} />
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
 
     if (isLoading)
       return (
@@ -88,7 +106,8 @@ class Home extends Component {
     const { topic, username, query } = this.props;
     api
       .getArticles(topic, username, query)
-      .then(({ data }) => this.setState({ articles: data.articles }));
+      .then(({ data }) => this.setState({ articles: data.articles }))
+      .catch(error => this.setState({ isError: error.response.data }));
   };
 
   fetchArticlesMostComments = () => {
@@ -98,7 +117,8 @@ class Home extends Component {
       .getArticles(topic, username, query)
       .then(({ data }) =>
         this.setState({ articlesMostComments: data.articles })
-      );
+      )
+      .catch(error => this.setState({ isError: error.response.data }));
   };
 
   fetchArticlesMostVotes = () => {
@@ -106,7 +126,8 @@ class Home extends Component {
     const query = "sort_by=votes&order=DESC";
     api
       .getArticles(topic, username, query)
-      .then(({ data }) => this.setState({ articlesMostVotes: data.articles }));
+      .then(({ data }) => this.setState({ articlesMostVotes: data.articles }))
+      .catch(error => this.setState({ isError: error.response.data }));
   };
 }
 

@@ -1,16 +1,33 @@
 import React, { Component } from "react";
 import * as api from "../../api/api";
 import UserCard from "../cards/UserCard";
+import Error from "../views/Error";
 import Loading from "../buttons/Loading";
 
 class Users extends Component {
   state = {
     isLoading: true,
-    users: []
+    users: [],
+    isError: ""
   };
 
   render() {
-    const { isLoading, users } = this.state;
+    const { isError, isLoading, users } = this.state;
+
+    if (isError)
+      return (
+        <div className="main-section-head">
+          <div className="section-main">
+            <div className="main-alert-home">
+              <div className="main-alert-head">
+                <h2 className="section-loading">
+                  <Error errorCode={isError.status} errorMsg={isError.msg} />
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
 
     if (isLoading)
       return (
@@ -46,6 +63,11 @@ class Users extends Component {
   }
 
   componentDidMount = () => {
+    this.fetchUsers();
+    this.setState({ isLoading: false });
+  };
+
+  fetchUsers = () => {
     api
       .getUsers()
       .then(({ data }) =>

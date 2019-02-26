@@ -2,16 +2,33 @@ import React, { Component } from "react";
 import * as api from "../../api/api";
 import TopicCard from "../cards/TopicCard";
 import PostTopic from "../PostTopic";
+import Error from "../views/Error";
 import Loading from "../buttons/Loading";
 
 class Topics extends Component {
   state = {
     isLoading: true,
-    topics: []
+    topics: [],
+    isError: ""
   };
 
   render() {
-    const { isLoading, topics } = this.state;
+    const { isError, isLoading, topics } = this.state;
+
+    if (isError)
+      return (
+        <div className="main-section-head">
+          <div className="section-main">
+            <div className="main-alert-home">
+              <div className="main-alert-head">
+                <h2 className="section-loading">
+                  <Error errorCode={isError.status} errorMsg={isError.msg} />
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
 
     if (isLoading)
       return (
@@ -55,11 +72,15 @@ class Topics extends Component {
   }
 
   componentDidMount = () => {
+    this.fetchTopics();
+    this.setState({ isLoading: false });
+  };
+
+  fetchTopics = () => {
     api
       .getTopics()
-      .then(({ data }) =>
-        this.setState({ topics: data.topics, isLoading: false })
-      );
+      .then(({ data }) => this.setState({ topics: data.topics }))
+      .catch(error => this.setState({ isError: error.response.data }));
   };
 }
 

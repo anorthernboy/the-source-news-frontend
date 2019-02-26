@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import * as api from "../../api/api";
 import ArticleCard from "../cards/ArticleCard";
 import UserCommentCard from "../cards/UserCommentCard";
+import Error from "../views/Error";
 import Loading from "../buttons/Loading";
 import "../style/Articles.css";
 import menuicon from "../icons/menu.png";
@@ -20,12 +21,28 @@ class ArticlesByUser extends Component {
     query: "",
     createdDesc: true,
     commentsDesc: false,
-    votesDesc: false
+    votesDesc: false,
+    isError: ""
   };
 
   render() {
     const { user, username } = this.props;
-    const { isLoading, users, articles, comments } = this.state;
+    const { isError, isLoading, users, articles, comments } = this.state;
+
+    if (isError)
+      return (
+        <div className="main-section-head">
+          <div className="section-main">
+            <div className="main-alert-home">
+              <div className="main-alert-head">
+                <h2 className="section-loading">
+                  <Error errorCode={isError.status} errorMsg={isError.msg} />
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
 
     if (isLoading)
       return (
@@ -193,7 +210,10 @@ class ArticlesByUser extends Component {
   };
 
   fetchUsers = () => {
-    api.getUsers().then(({ data }) => this.setState({ users: data.users }));
+    api
+      .getUsers()
+      .then(({ data }) => this.setState({ users: data.users }))
+      .catch(error => this.setState({ isError: error.response.data }));
   };
 
   fetchArticles = () => {
@@ -201,13 +221,15 @@ class ArticlesByUser extends Component {
     const { query } = this.state;
     api
       .getArticles(topic, username, query)
-      .then(({ data }) => this.setState({ articles: data.articles }));
+      .then(({ data }) => this.setState({ articles: data.articles }))
+      .catch(error => this.setState({ isError: error.response.data }));
   };
 
   fetchComments = () => {
     api
       .getAllComments()
-      .then(({ data }) => this.setState({ comments: data.comments }));
+      .then(({ data }) => this.setState({ comments: data.comments }))
+      .catch(error => this.setState({ isError: error.response.data }));
   };
 }
 

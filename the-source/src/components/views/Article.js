@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import * as api from "../../api/api";
-import ArticleView from "../views/ArticleView";
+import ArticleView from "../cards/ArticleView";
 import CommentCard from "../cards/CommentCard";
 import PostComment from "../PostComment";
+import Error from "../views/Error";
 import Loading from "../buttons/Loading";
 
 class Article extends Component {
@@ -11,12 +12,28 @@ class Article extends Component {
     isLoading: true,
     article: {},
     comments: [],
-    commentAdded: false
+    commentAdded: false,
+    isError: ""
   };
 
   render() {
-    const { isLoading, article, comments, commentAdded } = this.state;
+    const { isError, isLoading, article, comments, commentAdded } = this.state;
     const { user } = this.props;
+
+    if (isError)
+      return (
+        <div className="main-section-head">
+          <div className="section-main">
+            <div className="main-alert-home">
+              <div className="main-alert-head">
+                <h2 className="section-loading">
+                  <Error errorCode={isError.status} errorMsg={isError.msg} />
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
 
     if (isLoading)
       return (
@@ -115,20 +132,26 @@ class Article extends Component {
 
   fetchArticle = () => {
     const { article_id } = this.props;
-    api.getArticle(article_id).then(({ data }) =>
-      this.setState({
-        article: data
-      })
-    );
+    api
+      .getArticle(article_id)
+      .then(({ data }) =>
+        this.setState({
+          article: data
+        })
+      )
+      .catch(error => this.setState({ isError: error.response.data }));
   };
 
   fetchComments = () => {
     const { article_id } = this.props;
-    api.getComments(article_id).then(({ data }) =>
-      this.setState({
-        comments: data.comments
-      })
-    );
+    api
+      .getComments(article_id)
+      .then(({ data }) =>
+        this.setState({
+          comments: data.comments
+        })
+      )
+      .catch(error => this.setState({ isError: error.response.data }));
   };
 
   addToComments = comment => {
