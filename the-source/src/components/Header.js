@@ -1,19 +1,25 @@
 import React from "react";
 import { Link } from "@reach/router";
+import thesource from "./icons/thesource.png";
 import usericon from "./icons/single-user.png";
+import "./style/Header.css";
 
 const Header = ({ user }) => {
   return (
     <div className="header">
-      <Link to={`/`}>
-        <span>
-          the <span style={{ fontWeight: "bold" }}>source</span>
-        </span>
+      <Link to={`/`} className="header-logo">
+        <img src={thesource} alt="" width="50%" height="50%" />
       </Link>
       <Link to={`/users/${user}/articles`}>
-        <button>
-          <img src={usericon} alt="" width="25px" height="25px" />
-          <p>{user}</p>
+        <button className="user-button">
+          <p className="header-username">{user}</p>
+          <img
+            className="header-user-icon"
+            src={usericon}
+            alt=""
+            width="25px"
+            height="25px"
+          />
         </button>
       </Link>
     </div>

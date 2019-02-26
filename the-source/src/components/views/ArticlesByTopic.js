@@ -27,7 +27,9 @@ class ArticlesByTopic extends Component {
   render() {
     const { isError, isLoading, topics, articles } = this.state;
     const { topic, user } = this.props;
-    const { deletedArticle } = this.props.location.state;
+    const deletedArticle = this.props.location.state
+      ? this.props.location.state.deletedArticle
+      : "";
 
     if (isError)
       return <Error errorCode={isError.status} errorMsg={isError.msg} />;
