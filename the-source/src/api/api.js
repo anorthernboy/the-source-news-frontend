@@ -1,105 +1,99 @@
 import axios from "axios";
-const BASE_URL = "https://the-source-news.herokuapp.com/api";
+const request = axios.create({
+  baseURL: "https://the-source-news.herokuapp.com/api"
+});
 
 export const getTopics = async () => {
-  const topics = await axios.get(`${BASE_URL}/topics`);
+  const topics = await request.get(`/topics`);
   return topics;
 };
 
 export const addTopic = async newTopic => {
-  const topic = await axios.post(`${BASE_URL}/topics`, newTopic);
+  const topic = await request.post(`/topics`, newTopic);
   return topic;
 };
 
 export const getArticles = async (topic, username, query) => {
-  const URL =
+  const PATH =
     topic && query
-      ? `${BASE_URL}/topics/${topic}/articles?${query}`
+      ? `/topics/${topic}/articles?${query}`
       : username && query
-      ? `${BASE_URL}/users/${username}/articles?${query}`
+      ? `/users/${username}/articles?${query}`
       : topic
-      ? `${BASE_URL}/topics/${topic}/articles`
+      ? `/topics/${topic}/articles`
       : username
-      ? `${BASE_URL}/users/${username}/articles`
+      ? `/users/${username}/articles`
       : query
-      ? `${BASE_URL}/articles?${query}`
-      : `${BASE_URL}/articles`;
-  const articles = await axios.get(URL);
+      ? `/articles?${query}`
+      : `/articles`;
+  const articles = await request.get(PATH);
   return articles;
 };
 
 export const addArticle = async (topic, newArticle) => {
-  const article = await axios.post(
-    `${BASE_URL}/topics/${topic}/articles`,
-    newArticle
-  );
+  const article = await request.post(`/topics/${topic}/articles`, newArticle);
   return article;
 };
 
 export const getArticle = async article_id => {
-  const article = await axios.get(`${BASE_URL}/articles/${article_id}`);
+  const article = await request.get(`/articles/${article_id}`);
   return article;
 };
 
 export const getComments = async article_id => {
-  const comments = await axios.get(
-    `${BASE_URL}/articles/${article_id}/comments`
-  );
+  const comments = await request.get(`/articles/${article_id}/comments`);
   return comments;
 };
 
 export const getUsers = async () => {
-  const users = await axios.get(`${BASE_URL}/users`);
+  const users = await request.get(`/users`);
   return users;
 };
 
 export const addUser = async newUser => {
-  const user = await axios.post(`${BASE_URL}/users`, newUser);
+  const user = await request.post(`/users`, newUser);
   return user;
 };
 
 export const getUser = async username => {
-  const user = await axios.get(`${BASE_URL}/users/${username}`);
+  const user = await request.get(`/users/${username}`);
   return user;
 };
 
 export const commentVote = async (article_id, comment_id, inc_vote) => {
-  const comment = await axios.patch(
-    `${BASE_URL}/articles/${article_id}/comments/${comment_id}`,
+  const comment = await request.patch(
+    `/articles/${article_id}/comments/${comment_id}`,
     inc_vote
   );
   return comment;
 };
 
 export const articleVote = async (article_id, inc_vote) => {
-  const comment = await axios.patch(
-    `${BASE_URL}/articles/${article_id}`,
-    inc_vote
-  );
+  const comment = await request.patch(`/articles/${article_id}`, inc_vote);
   return comment;
 };
 
 export const deleteArticle = async article_id => {
-  const article = await axios.delete(`${BASE_URL}/articles/${article_id}`);
+  const article = await request.delete(`/articles/${article_id}`);
   return article;
 };
 
 export const addComment = async (article_id, newComment) => {
-  const comment = await axios.post(
-    `${BASE_URL}/articles/${article_id}/comments`,
+  const comment = await request.post(
+    `/articles/${article_id}/comments`,
     newComment
   );
   return comment;
 };
 
 export const deleteComment = async (article_id, comment_id) => {
-  const comment = await axios.delete(
-    `${BASE_URL}/articles/${article_id}/comments/${comment_id}`
+  const comment = await request.delete(
+    `/articles/${article_id}/comments/${comment_id}`
   );
   return comment;
 };
 
 export const getAllComments = async () => {
-  const comments = await axios.get(`${BASE_URL}/comments`);
+  const comments = await request.get(`/comments`);
   return comments;
 };
