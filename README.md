@@ -13,7 +13,7 @@ Read articles, browse topics, comment and vote on the latest news
 To get the project up and running locally:
 
 - Clone this repo and then run the command `npm install` from the root directory. This will install all the necessary dependencies.
-- Run the command `npm start` to start a server. This should automatically open LC News in your browser, but you can also navigate to the URL given in the console.
+- Run the command `npm start` to start a server. This should automatically open the source news in your browser, but you can also navigate to the URL given in the console.
 
 ## Deployed version and links
 
