@@ -43,8 +43,8 @@ class ArticlesByTopic extends Component {
             <div className="section-main">
               <div className="main-alert-home">
                 <div className="main-alert-head">
-                  <h4 className="section-alert-top">{`thank you ${user}`}</h4>
-                  <h4 className="section-alert-bottom">{`${deletedArticle
+                  <h4 className="section-alert-top responsive-font">{`thank you ${user}`}</h4>
+                  <h4 className="section-alert-bottom responsive-font">{`${deletedArticle
                     .slice(0, 30)
                     .trim() + "..."} has been deleted`}</h4>
                 </div>
@@ -55,7 +55,7 @@ class ArticlesByTopic extends Component {
 
         <div className="main-home">
           <div className="main-section-head">
-            <h2 className="section-title">new article</h2>
+            <h2 className="section-title responsive-font">new article</h2>
           </div>
           <div className="main-section-head">
             <div className="section-main">
@@ -63,7 +63,7 @@ class ArticlesByTopic extends Component {
             </div>
           </div>
           <div className="main-section-head">
-            <h2 className="section-title">{topic}</h2>
+            <h2 className="section-title responsive-font">{topic}</h2>
 
             <div className="section-menu dropdown">
               <p className="dropbtn">

@@ -29,7 +29,7 @@ class Auth extends Component {
       return (
         <div className="main-home">
           <div className="main-section-head">
-            <h2 className="section-title">login</h2>
+            <h2 className="section-title responsive-font">login</h2>
             <Form onSubmit={this.handleSubmit} className="section-sort">
               <Input
                 id="username"
@@ -44,7 +44,7 @@ class Auth extends Component {
             </Form>
           </div>
           <div className="main-section-head">
-            <h2 className="section-title">create user</h2>
+            <h2 className="section-title responsive-font">create user</h2>
           </div>
           <div className="main-section-head">
             <div className="section-main">
@@ -52,7 +52,7 @@ class Auth extends Component {
             </div>
           </div>
           <div className="main-section-head">
-            <h2 className="section-title">available users</h2>
+            <h2 className="section-title responsive-font">available users</h2>
           </div>
           <div className="main-section-head">
             <div className="section-main">

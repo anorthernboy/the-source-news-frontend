@@ -32,8 +32,8 @@ class Article extends Component {
             <div className="section-main">
               <div className="main-alert-home">
                 <div className="main-alert-head">
-                  <h4 className="section-alert-top">{`thank you ${user}`}</h4>
-                  <h4 className="section-alert-bottom">{`your comment has been deleted`}</h4>
+                  <h4 className="section-alert-top responsive-font">{`thank you ${user}`}</h4>
+                  <h4 className="section-alert-bottom responsive-font">{`your comment has been deleted`}</h4>
                 </div>
               </div>
             </div>
@@ -43,7 +43,7 @@ class Article extends Component {
           <div className="main-section-head">
             <Link
               to={`/topics/${article.topic}/articles`}
-              className="section-title"
+              className="section-title responsive-font"
             >
               <h2>{article.topic}</h2>
             </Link>
@@ -57,7 +57,7 @@ class Article extends Component {
           </div>
 
           <div className="main-section-head">
-            <h2 className="section-title">add comment</h2>
+            <h2 className="section-title responsive-font">add comment</h2>
           </div>
 
           <div className="main-section-head">
@@ -74,7 +74,7 @@ class Article extends Component {
           {comments.length !== 0 && (
             <div>
               <div className="main-section-head">
-                <h2 className="section-title">comments</h2>
+                <h2 className="section-title responsive-font">comments</h2>
               </div>
 
               <div className="main-section-head">

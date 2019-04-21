@@ -34,7 +34,7 @@ class Articles extends Component {
     return (
       <div className="main-home">
         <div className="main-section-head">
-          <h2 className="section-title">articles</h2>
+          <h2 className="section-title responsive-font">articles</h2>
 
           <div className="section-menu dropdown">
             <p className="dropbtn">

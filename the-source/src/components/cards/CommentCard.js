@@ -11,13 +11,13 @@ const CommentCard = ({ comments, article_id, user, removeFromComments }) => {
       <div className="comment-card">
         <Link
           to={`/users/${comments.author}/articles`}
-          className="comment-author"
+          className="comment-author responsive-font"
         >
           <img src={usericon} alt="user icon" width="15px" height="15px" />
           <span> </span>
           {comments.author}
         </Link>
-        <div className="comment-delete">
+        <div className="comment-delete responsive-font">
           <CommentDelete
             user={user}
             author={comments.author}
@@ -26,17 +26,17 @@ const CommentCard = ({ comments, article_id, user, removeFromComments }) => {
             removeFromComments={removeFromComments}
           />
         </div>
-        <h6 className="body">{comments.body}</h6>
+        <h6 className="body responsive-font">{comments.body}</h6>
       </div>
       <div className="comment-card-time">
-        <h6 className="comment-time">
+        <h6 className="comment-time responsive-font">
           {new Date(comments.created_at).toLocaleDateString("en-GB", {
             day: "numeric",
-            month: "long",
+            month: "short",
             year: "numeric"
           })}
         </h6>
-        <div className="comment-votes">
+        <div className="comment-votes responsive-font">
           <CommentVoter
             votes={comments.votes}
             comment_id={comments.comment_id}

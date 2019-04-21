@@ -13,8 +13,8 @@ const UserCard = ({ users }) => {
         width="100px"
         height="100px"
       />
-      <h6 className="name">{users.name}</h6>
-      <h3 className="username">{users.username}</h3>
+      <h6 className="name responsive-font">{users.name}</h6>
+      <h3 className="username responsive-font">{users.username}</h3>
     </Link>
   );
 };

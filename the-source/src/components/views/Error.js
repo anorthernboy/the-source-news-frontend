@@ -8,8 +8,8 @@ class Error extends Component {
         <div className="section-main">
           <div className="main-alert-home">
             <div className="main-alert-head">
-              <h1 className="section-alert-top">{`${errorCode}`}</h1>
-              <h4 className="section-alert-bottom">{`${errorMsg}`}</h4>
+              <h1 className="section-alert-top responsive-font">{`${errorCode}`}</h1>
+              <h4 className="section-alert-bottom responsive-font">{`${errorMsg}`}</h4>
             </div>
           </div>
         </div>

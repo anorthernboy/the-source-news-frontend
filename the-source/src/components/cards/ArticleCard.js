@@ -9,26 +9,28 @@ import commenticon from "../icons/comment.png";
 const ArticleCard = ({ articles }) => {
   return (
     <Link to={`/articles/${articles.article_id}`} className="article-card">
-      <h6 className="author">
+      <h6 className="author responsive-font">
         <img src={usericon} alt="user icon" width="15px" height="15px" />
         <span> </span>
         {articles.author}
       </h6>
-      <h6 className="time">
+      <h6 className="time responsive-font">
         {new Date(articles.created_at).toLocaleDateString("en-GB", {
           day: "numeric",
-          month: "long",
+          month: "short",
           year: "numeric"
         })}
       </h6>
 
-      <h3 className="title">{articles.title.slice(0, 50).trim() + "..."}</h3>
-      <h6 className="topic">
+      <h3 className="title responsive-title">
+        {articles.title.slice(0, 50).trim() + "..."}
+      </h3>
+      <h6 className="topic responsive-font">
         <img src={topicsicon} alt="topic icon" width="15px" height="15px" />
         <span> </span>
         {articles.topic}
       </h6>
-      <h6 className="comment-vote">
+      <h6 className="comment-vote responsive-font">
         <img src={commenticon} alt="user icon" width="15px" height="15px" />
         <span> </span>
         {articles.comment_count || 0}

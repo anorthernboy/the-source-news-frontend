@@ -23,7 +23,7 @@ class Topics extends Component {
     return (
       <div className="main-home">
         <div className="main-section-head">
-          <h2 className="section-title">new topic</h2>
+          <h2 className="section-title responsive-font">new topic</h2>
         </div>
         <div className="main-section-head">
           <div className="section-main">
@@ -31,7 +31,7 @@ class Topics extends Component {
           </div>
         </div>
         <div className="main-section-head">
-          <h2 className="section-title">topics</h2>
+          <h2 className="section-title responsive-font">topics</h2>
         </div>
         <div className="main-section-head">
           <div className="section-main">

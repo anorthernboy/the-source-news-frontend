@@ -31,7 +31,7 @@ class Home extends Component {
     return (
       <div className="main-home">
         <div className="main-section-head">
-          <h2 className="section-title">#recent</h2>
+          <h2 className="section-title responsive-font">#recent</h2>
         </div>
         <div className="main-section-head">
           <div className="section-main">
@@ -43,7 +43,7 @@ class Home extends Component {
           </div>
         </div>
         <div className="main-section-head">
-          <h2 className="section-title">#comments</h2>
+          <h2 className="section-title responsive-font">#comments</h2>
         </div>
         <div className="main-section-head">
           <div className="section-main">
@@ -55,7 +55,7 @@ class Home extends Component {
           </div>
         </div>
         <div className="main-section-head">
-          <h2 className="section-title">#votes</h2>
+          <h2 className="section-title responsive-font">#votes</h2>
         </div>
         <div className="main-section-head">
           <div className="section-main">

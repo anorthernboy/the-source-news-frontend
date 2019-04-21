@@ -37,7 +37,7 @@ class ArticlesByUser extends Component {
     return (
       <div className="main-home">
         <div className="main-section-head">
-          <h2 className="section-title">{username}</h2>
+          <h2 className="section-title responsive-font">{username}</h2>
           <div className="section-menu dropdown">
             <p className="dropbtn">
               <img src={menuicon} alt="menu" width="28px" height="28px" />
@@ -100,7 +100,7 @@ class ArticlesByUser extends Component {
         </div>
 
         <div className="main-section-head">
-          <h2 className="section-title">articles</h2>
+          <h2 className="section-title responsive-font">articles</h2>
         </div>
 
         <div className="main-section-head">
@@ -114,7 +114,7 @@ class ArticlesByUser extends Component {
         </div>
 
         <div className="main-section-head">
-          <h2 className="section-title">comments</h2>
+          <h2 className="section-title responsive-font">comments</h2>
         </div>
 
         <div className="main-section-head">
