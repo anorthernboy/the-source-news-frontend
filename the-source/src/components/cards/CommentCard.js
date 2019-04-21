@@ -13,11 +13,17 @@ const CommentCard = ({ comments, article_id, user, removeFromComments }) => {
           to={`/users/${comments.author}/articles`}
           className="comment-author responsive-font"
         >
-          <img src={usericon} alt="user icon" width="15px" height="15px" />
+          <img
+            className="responsive-icon-small"
+            src={usericon}
+            alt="user icon"
+            width="15px"
+            height="15px"
+          />
           <span> </span>
           {comments.author}
         </Link>
-        <div className="comment-delete responsive-font">
+        <div className="comment-delete">
           <CommentDelete
             user={user}
             author={comments.author}

@@ -13,13 +13,7 @@ const Header = ({ user }) => {
       <Link to={`/users/${user}/articles`}>
         <button className="user-button">
           <p className="header-username responsive-font">{user}</p>
-          <img
-            className="header-user-icon"
-            src={usericon}
-            alt=""
-            width="25px"
-            height="25px"
-          />
+          <img src={usericon} alt="" width="25px" height="25px" />
         </button>
       </Link>
     </div>

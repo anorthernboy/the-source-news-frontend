@@ -12,7 +12,7 @@ class UserCommentCard extends Component {
   };
 
   render() {
-    const { comments, user, username } = this.props;
+    const { comments, user, username, removeFromComments } = this.props;
     const { article } = this.state;
     return (
       <div>
@@ -25,7 +25,13 @@ class UserCommentCard extends Component {
         </div>
         <div className="comment-card">
           <div className="comment-author responsive-font">
-            <img src={usericon} alt="user icon" width="15px" height="15px" />
+            <img
+              className="responsive-icon-small"
+              src={usericon}
+              alt="user icon"
+              width="15px"
+              height="15px"
+            />
             <span> </span>
             {comments.username}
           </div>
@@ -36,6 +42,7 @@ class UserCommentCard extends Component {
               author={comments.username}
               article_id={comments.article_id}
               comment_id={comments.comment_id}
+              removeFromComments={removeFromComments}
             />
           </div>
           <h6 className="body responsive-font">{comments.body}</h6>

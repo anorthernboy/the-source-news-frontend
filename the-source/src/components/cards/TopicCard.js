@@ -6,7 +6,13 @@ const TopicCard = ({ topics }) => {
   return (
     <div className="article-card">
       <h6 className="topic responsive-font">
-        <img src={topicsicon} alt="topic icon" width="15px" height="15px" />
+        <img
+          className="responsive-icon-small"
+          src={topicsicon}
+          alt="topic icon"
+          width="15px"
+          height="15px"
+        />
         <span> </span>
         {topics.slug}
       </h6>

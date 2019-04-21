@@ -19,7 +19,7 @@ class CommentVoter extends Component {
         <img
           src={pollicon}
           alt="up-vote"
-          className="icon"
+          className="icon responsive-icon"
           width="15px"
           height="15px"
         />
@@ -30,7 +30,7 @@ class CommentVoter extends Component {
           <img
             src={upvoteicon}
             alt="up-vote"
-            className="up-vote"
+            className="up-vote responsive-icon"
             width="15px"
             height="15px"
           />
@@ -43,7 +43,7 @@ class CommentVoter extends Component {
           <img
             src={downvoteicon}
             alt="down-vote"
-            className="down-vote"
+            className="down-vote responsive-icon"
             width="15px"
             height="15px"
           />

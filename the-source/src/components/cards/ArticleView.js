@@ -14,7 +14,13 @@ const ArticleView = ({ articles, user }) => {
           to={`/users/${articles.author}/articles`}
           className="article-author responsive-font"
         >
-          <img src={usericon} alt="user icon" width="15px" height="15px" />
+          <img
+            className="responsive-icon-small"
+            src={usericon}
+            alt="user icon"
+            width="15px"
+            height="15px"
+          />
           <span> </span>
           {articles.author}
         </Link>
@@ -30,7 +36,13 @@ const ArticleView = ({ articles, user }) => {
         <h3 className="article-title responsive-title">{articles.title}</h3>
         <h6 className="body responsive-font">{articles.body}</h6>
         <h6 className="article-comments responsive-font">
-          <img src={commenticon} alt="user icon" width="15px" height="15px" />
+          <img
+            className="responsive-icon-small"
+            src={commenticon}
+            alt="user icon"
+            width="15px"
+            height="15px"
+          />
           <span> </span>
           {articles.comment_count}
         </h6>

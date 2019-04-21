@@ -42,7 +42,13 @@ export default class PostTopic extends React.Component {
             />
           </FormGroup>
           <button className="input-button">
-            <img src={posticon} alt="post icon" width="28px" height="28px" />
+            <img
+              className="responsive-icon"
+              src={posticon}
+              alt="post icon"
+              width="28px"
+              height="28px"
+            />
           </button>
         </Form>
       </div>

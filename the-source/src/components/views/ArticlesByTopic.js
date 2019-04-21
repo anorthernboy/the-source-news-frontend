@@ -67,7 +67,13 @@ class ArticlesByTopic extends Component {
 
             <div className="section-menu dropdown">
               <p className="dropbtn">
-                <img src={menuicon} alt="menu" width="28px" height="28px" />
+                <img
+                  className="responsive-icon"
+                  src={menuicon}
+                  alt="menu"
+                  width="28px"
+                  height="28px"
+                />
               </p>
               <div className="dropdown-content">
                 <Link to="/articles">
@@ -87,6 +93,7 @@ class ArticlesByTopic extends Component {
                 title="sort by date created"
               >
                 <img
+                  className="responsive-icon-small"
                   src={sorticon}
                   alt="sort icon"
                   width="22px"
@@ -94,6 +101,7 @@ class ArticlesByTopic extends Component {
                 />
                 <span> </span>
                 <img
+                  className="responsive-icon-small"
                   src={timeicon}
                   alt="created at icon"
                   width="22px"
@@ -106,6 +114,7 @@ class ArticlesByTopic extends Component {
                 title="sort by comment count"
               >
                 <img
+                  className="responsive-icon-small"
                   src={sorticon}
                   alt="sort icon"
                   width="22px"
@@ -113,6 +122,7 @@ class ArticlesByTopic extends Component {
                 />
                 <span> </span>
                 <img
+                  className="responsive-icon-small"
                   src={commenticon}
                   alt="comments icon"
                   width="22px"
@@ -125,6 +135,7 @@ class ArticlesByTopic extends Component {
                 title="sort by vote count"
               >
                 <img
+                  className="responsive-icon-small"
                   src={sorticon}
                   alt="sort icon"
                   width="22px"
@@ -132,6 +143,7 @@ class ArticlesByTopic extends Component {
                 />
                 <span> </span>
                 <img
+                  className="responsive-icon-small"
                   src={upvoteicon}
                   alt="votes icon"
                   width="22px"

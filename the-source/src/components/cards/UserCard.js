@@ -7,7 +7,7 @@ const UserCard = ({ users }) => {
   return (
     <Link to={`/users/${users.username}/articles`} className="user-card">
       <img
-        className="image"
+        className="image responsive-icon-large"
         src={usericon}
         alt="user"
         width="100px"

@@ -7,7 +7,7 @@ const LoginCard = ({ users }) => {
     <div className="user-button">
       <div className="user-card">
         <img
-          className="image"
+          className="image responsive-icon-large"
           src={usericon}
           alt="user"
           width="100px"

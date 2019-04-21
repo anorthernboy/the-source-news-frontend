@@ -38,7 +38,13 @@ class Articles extends Component {
 
           <div className="section-menu dropdown">
             <p className="dropbtn">
-              <img src={menuicon} alt="menu" width="28px" height="28px" />
+              <img
+                className="responsive-icon"
+                src={menuicon}
+                alt="menu"
+                width="28px"
+                height="28px"
+              />
             </p>
             <div className="dropdown-content">
               {topics.map(topic => (
@@ -55,9 +61,16 @@ class Articles extends Component {
               onClick={this.sortByCreated}
               title="sort by date created"
             >
-              <img src={sorticon} alt="sort icon" width="22px" height="22px" />
+              <img
+                className="responsive-icon-small"
+                src={sorticon}
+                alt="sort icon"
+                width="22px"
+                height="22px"
+              />
               <span> </span>
               <img
+                className="responsive-icon-small"
                 src={timeicon}
                 alt="created at icon"
                 width="22px"
@@ -69,9 +82,16 @@ class Articles extends Component {
               onClick={this.sortByComments}
               title="sort by comment count"
             >
-              <img src={sorticon} alt="sort icon" width="22px" height="22px" />
+              <img
+                className="responsive-icon-small"
+                src={sorticon}
+                alt="sort icon"
+                width="22px"
+                height="22px"
+              />
               <span> </span>
               <img
+                className="responsive-icon-small"
                 src={commenticon}
                 alt="comments icon"
                 width="22px"
@@ -83,9 +103,16 @@ class Articles extends Component {
               onClick={this.sortByVotes}
               title="sort by vote count"
             >
-              <img src={sorticon} alt="sort icon" width="22px" height="22px" />
+              <img
+                className="responsive-icon-small"
+                src={sorticon}
+                alt="sort icon"
+                width="22px"
+                height="22px"
+              />
               <span> </span>
               <img
+                className="responsive-icon-small"
                 src={upvoteicon}
                 alt="votes icon"
                 width="22px"

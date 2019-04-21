@@ -39,7 +39,13 @@ class Auth extends Component {
                 style={{ backgroundColor: "lightgray" }}
               />
               <button>
-                <img src={loginicon} alt="login" width="25px" height="25px" />
+                <img
+                  className="responsive-icon"
+                  src={loginicon}
+                  alt="login"
+                  width="25px"
+                  height="25px"
+                />
               </button>
             </Form>
           </div>
