@@ -103,21 +103,17 @@ button:disabled {
   .responsive-font {
     font-size: 1rem;
   }
-
   .responsive-title {
     font-size: 1.3rem;
   }
-
   .responsive-icon {
     width: 20px;
     height: 20px;
   }
-
   .responsive-icon-large {
     width: 85px;
     height: 85px;
   }
-
   .responsive-icon-small {
     width: 16px;
     height: 16px;
@@ -139,10 +135,18 @@ button:disabled {
     width: 70px;
     height: 70px;
   }
-
   .responsive-icon-small {
     width: 13px;
     height: 13px;
+  }
+
+  .responsive-user-font {
+    font-size: 0.7rem;
+  }
+
+  .responsive-user-icon {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -161,7 +165,6 @@ button:disabled {
     width: 50px;
     height: 50px;
   }
-
   .responsive-icon-small {
     width: 10px;
     height: 10px;
